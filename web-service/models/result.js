@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 
-import { soldier } from "./section";
-
-const result = new mongoose.Schema({
+const Result = new mongoose.Schema({
 
     soldier: {
         type: ObjectId,
@@ -19,4 +17,4 @@ const result = new mongoose.Schema({
     
 });
 
-module.exports = mongoose.model("User", User);
+module.exports = mongoose.model("Result", Result);

@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 
-import { section } from "./section";
-
-const section = new mongoose.Schema({
+const Company = new mongoose.Schema({
     name: {
         type: String,
         nullable: false,
@@ -17,4 +15,4 @@ const section = new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model("User", User);
+module.exports = mongoose.model("Company", Company);

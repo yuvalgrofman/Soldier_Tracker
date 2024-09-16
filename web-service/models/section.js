@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
 
-import { soldier } from "./soldier";
-
 const Section = new mongoose.Schema({
     name: {
         type: String,
@@ -21,4 +19,4 @@ const Section = new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model("User", User);
+module.exports = mongoose.model("Section", Section);

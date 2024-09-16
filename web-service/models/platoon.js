@@ -1,9 +1,7 @@
 const mongoose = require("mongoose");
 
 // Platoon = מחלקה
-import { section } from "./section";
-
-const platoon = new mongoose.Schema({
+const Platoon = new mongoose.Schema({
     name: {
         type: String,
         nullable: false,
@@ -22,4 +20,4 @@ const platoon = new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model("User", User);
+module.exports = mongoose.model("Platoon", Platoon);
