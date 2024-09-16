@@ -5,19 +5,17 @@ import { React, useRef } from "react";
 import { getReformattedDate } from "../../../shared/userApi.js";
 
 function SoldierStatus({ soldier, test}) {
+    format_to_lambda = {
+        "HIGH": (a,b) => a >= b,
+        "LOW": (a,b) => a <= b
+    }
 
-    if (test.format == "HIGH") {
-        if (test.findBySoldierId(soldier.id).grade >= test.excellent) {
+    if (test.format in format_to_lambda) {
+        cmp = format_to_lambda[test.format]
+        
+        if (cmp(test.findBySoldierId(soldier.id).grade, test.excellent)) {
             soldierState = "EXCELLENT";        
-        } else if (test.findBySoldierId(soldier.id).grade >= test.pass) {
-            soldierState = "PASS";        
-        } else {
-            soldierState = "FAIL";
-        }
-    } else if (test.format == "LOW") {
-        if (test.findBySoldierId(soldier.id).grade <= test.excellent) {
-            soldierState = "EXCELLENT";
-        } else if (test.findBySoldierId(soldier.id).grade <= test.pass) {
+        } else if (cmp(test.findBySoldierId(soldier.id).grade, test.pass)) {
             soldierState = "PASS";        
         } else {
             soldierState = "FAIL";
