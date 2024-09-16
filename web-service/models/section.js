@@ -8,7 +8,7 @@ const Section = new mongoose.Schema({
         nullable: false,
     },
     soldiers: {
-        type : [soldier],
+        type : [ObjectId],
         nullable : false,
     },
     commander: {

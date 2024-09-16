@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Platoon = מחלקה
 import { section } from "./section";
 
 const platoon = new mongoose.Schema({
@@ -8,7 +9,7 @@ const platoon = new mongoose.Schema({
         nullable: false,
     },
     sections : {
-        type : [section],
+        type : [ObjectId],
         nullable : false,
     },
     commander: {
