@@ -9,7 +9,7 @@ const Soldier = new mongoose.Schema({
         type: Number,
         nullable: false,
     },
-    soldierID: {
+    armyID: {
         type: Number,
         nullable: false,
     },
@@ -19,15 +19,15 @@ const Soldier = new mongoose.Schema({
     },
     section: {
         type: String,
-        nullable: true,
+        nullable: false,
     },
     platoon: {
         type: String,
-        nullable: true,
+        nullable: false,
     },
     company: {
         type: String,
-        nullable: true,
+        nullable: false,
     },
     address: {
         type: String,

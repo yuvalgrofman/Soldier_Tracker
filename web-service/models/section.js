@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const company = require("./company");
 
 const Section = new mongoose.Schema({
     name: {
@@ -7,13 +8,17 @@ const Section = new mongoose.Schema({
     },
     soldiers: {
         type : [ObjectId],
-        nullable : false,
+        nullable : true,
     },
     commander: {
         type: String,
         nullable: false,
     },
     platoon: {
+        type: String,
+        nullable: false,
+    },
+    company: {
         type: String,
         nullable: false,
     },

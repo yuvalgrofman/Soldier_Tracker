@@ -2,17 +2,21 @@ const mongoose = require("mongoose");
 
 const Result = new mongoose.Schema({
 
-    soldier: {
+    testID: {
+        type: ObjectId,
+        nullable: false
+    },
+    soldierID: {
         type: ObjectId,
         nullable : false
     }, 
-    result: {
+    score: {
         type: Number,
         nullable: false,
     }, 
-    completed: {
+    isCompleted: {
         type: Boolean,
-        nullable: false,
+        default: false,
     }
     
 });
