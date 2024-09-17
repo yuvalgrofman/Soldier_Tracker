@@ -6,7 +6,7 @@ import ImgField from "../general/ImgField.js";
 import Link from "../general/Link.js";
 import PasswordInputField from "../general/PasswordInputField/PasswordInputField.js";
 import InputField from "../general/InputField.js";
-import "./AddUser.css";
+import "../general/Form.css";
 
 /**
  * Regitser function returns the form page.
