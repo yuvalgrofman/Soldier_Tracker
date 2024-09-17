@@ -14,14 +14,6 @@ const Section = new mongoose.Schema({
         type: String,
         nullable: false,
     },
-    platoon: {
-        type: String,
-        nullable: false,
-    },
-    company: {
-        type: String,
-        nullable: false,
-    },
 });
 
 module.exports = mongoose.model("Section", Section);

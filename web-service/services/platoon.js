@@ -1,23 +1,17 @@
 const Platoon = require('../models/platoon');
 
-const createPlatoon = async (name, sections, commander, company) => { 
-    const platoon = await Platoon.findOne({ name, company });
-
-    if (platoon !== null) {
-        throw new Error('User already exists');
-    }
-
+const createPlatoon = async (name, sectionIds, commander) => { 
     await Platoon.create({
         name,
-        sections,
+        sectionIds,
         commander,
         company,
     });
 
 }
 
-const getPlatoon = async (name, company) => {
-    const platoon = await Platoon.findOne({ name, company });
+const getPlatoon = async (platoonId) => {
+    const platoon = await Platoon.findOne({ platoonId });
     
     if (platoon.length === 0) {
         throw new Error('Platoon not found');

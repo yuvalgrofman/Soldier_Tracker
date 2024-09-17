@@ -36,6 +36,7 @@ const updateScore = async (testID, soldierID, score) => {
     result.score = score;
     result.isCompleted = true;
     await result.save();
+    return result;
 }
 
 module.exports = { getResult, createResult };

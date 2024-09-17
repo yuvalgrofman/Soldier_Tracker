@@ -6,15 +6,11 @@ const Platoon = new mongoose.Schema({
         type: String,
         nullable: false,
     },
-    sections : {
+    sectionIds : {
         type : [ObjectId],
         nullable : false,
     },
     commander: {
-        type: String,
-        nullable: false,
-    },
-    company : {
         type: String,
         nullable: false,
     },

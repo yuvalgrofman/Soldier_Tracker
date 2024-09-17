@@ -5,7 +5,7 @@ const Company = new mongoose.Schema({
         type: String,
         nullable: false,
     },
-    platoons : {
+    platoonIds : {
         type : [ObjectId], // platoons
         nullable : false,
     },

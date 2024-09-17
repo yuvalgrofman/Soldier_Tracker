@@ -1,24 +1,16 @@
 const Section = require('../models/section');
 
-const createSection = async (name, soldiers, commander, platoon, company) => { 
-    const section = await Section.findOne({ name, platoon, company });
-
-    if (section !== null) {
-        throw new Error('Section already exists');
-    }
-
+const createSection = async (name, soldiers, commander) => { 
     await Section.create({
         name,
         soldiers,
         commander,
-        company,
-        platoon,
     });
 
 }
 
 const addSoldierToSection = async (sectionId, soldierId) => {
-    const section = await Section.findById(sectionId);
+    const section = await Section.findOne(sectionId);
 
     if (section === null) {
         throw new Error('Section not found');
@@ -28,8 +20,8 @@ const addSoldierToSection = async (sectionId, soldierId) => {
     await section.save();
 }
 
-const getSection = async (name, company, platoon) => {
-    const section = await Section.findOne({ name, platoon, company });
+const getSection = async (sectionId) => {
+    const section = await Section.findOne({ sectionId });
     
     if (section.length === 0) {
         throw new Error('Section not found');
@@ -39,4 +31,4 @@ const getSection = async (name, company, platoon) => {
 }
 
 
-module.exports = { createSection, getSection };
+module.exports = { createSection, addSoldierToSection, getSection };
