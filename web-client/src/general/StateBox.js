@@ -4,29 +4,23 @@ import { React, useRef } from "react";
 import "./StateBox.css";
 
 function StateBox({ state }) {
+        state_to_style = {
+                "FAILED": "btn-danger",
+                "PASSED": "btn-success",
+                "UNTESTED": "btn-secondary",
+        }
+
+        if (state in state_to_style) {
+                return (
+                        <button type="button" class=`btn ${state_to_style[state]} disable`></button>
+                );
+        } 
 
 
-    if (state === "FAIL") {
+        // If state not defined - return warning
         return (
-            <button type="button" class="btn btn-danger disable stateBoxCss"></button>
+                <button type="button" class="btn btn-warning disable"></button>
         );
-    } else if (state === "PASS") {
-        return (
-            <button type="button" class="btn btn-success disable stateBoxCss"></button>
-        );
-    } else if (state === "UNTESTED") {
-        return (
-            <button type="button" class="btn btn-secondary disable stateBoxCss"></button>
-        );
-    } else if (state === "EXCELLENT") {
-        return (
-            <button type="button" class="btn btn-primary disable stateBoxCss"></button>
-        );
-    } else {
-        return (
-            <button type="button" class="btn btn-warning disable stateBoxCss"></button>
-        ); 
-    }
 }
 
 export default StateBox;
