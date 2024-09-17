@@ -11,16 +11,23 @@ import TestStatus from "./TestStatus/TestStatus";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import img from './images/omer1.jpeg'
 import AddUser from "./AddUser/AddUser";
+import UserTestPage from "./UserTestPage";
 
 function App() {
 
 
     let s1 = { id: 1, name: "Yuval", grade : 100, profilePic: img }
-    let s2 = { id: 2, name: "Noam", grade : 90, profilePic: img }
-    let s3 = { id: 3, name: "Ariel", grade : 80, profilePic: img }
-    let s4 = { id: 4, name: "Ohad", grade : 70, profilePic: img }
-    let s5 = { id: 5, name: "Oded", grade : 60, profilePic: img }
-    let s6 = { id: 6, name: "Valeria", grade : 50, profilePic: img }
+    let s2 = { id: 2, name: "Omri", grade : 90, profilePic: img }
+    let s3 = { id: 3, name: "Yaakov", grade : 80, profilePic: img }
+    let s4 = { id: 4, name: "Osher", grade : 70, profilePic: img }
+    let s5 = { id: 5, name: "Oshri", grade : 60, profilePic: img }
+    let s6 = { id: 6, name: "Tamir", grade: 50, profilePic: img }
+    let s7 = { id: 3, name: "Ilay", grade : 80, profilePic: img }
+    let s8 = { id: 4, name: "Yair", grade : 70, profilePic: img }
+    let s9 = { id: 5, name: "Itay", grade : 60, profilePic: img }
+    let s10 = { id: 6, name: "Liav", grade: 50, profilePic: img }
+    let s11 = { id: 3, name: "Nachshon", grade : 80, profilePic: img }
+    let s12 = { id: 4, name: "Yonatan", grade : 70, profilePic: img }
 
     let test = {
         name: "Test 1",
@@ -30,7 +37,13 @@ function App() {
             s3,
             s4,
             s5,
-            s6
+            s6,
+            s7,
+            s8,
+            s9,
+            s10,
+            s11,
+            s12,
         ],
         format: "HIGH",
         findBySoldierId: (id) => test.soldiers.find((s) => (s.id == id)),
@@ -44,7 +57,8 @@ function App() {
         //         <Route path="/" element={ <AddUser /> } />
         //     </Routes>
         // </BrowserRouter>
-        <TestStatus test={test} />
+        //<TestStatus test={test} />
+        <UserTestPage test={test} soldier={s11}/>
     );
 }
 
