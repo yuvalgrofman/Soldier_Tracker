@@ -1,7 +1,7 @@
 /** @format */
 
 import { React, useRef } from "react";
-import { getReformattedDate } from "../../../shared/userApi.js";
+import "./StateBox.css";
 
 function StateBox({ state }) {
         state_to_style = {
@@ -15,6 +15,7 @@ function StateBox({ state }) {
                         <button type="button" class=`btn ${state_to_style[state]} disable`></button>
                 );
         } 
+
 
         // If state not defined - return warning
         return (
