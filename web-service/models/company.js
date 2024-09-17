@@ -6,10 +6,10 @@ const Company = new mongoose.Schema({
         nullable: false,
     },
     platoonIds : {
-        type : [ObjectId], // platoons
+        type: [ObjectId], // platoons
         nullable : false,
     },
-    commander: {
+    commander: {    
         type: String,
         nullable: false,
     },

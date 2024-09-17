@@ -12,3 +12,5 @@ const getTest = async (req, res) => {
             .send(error.message);
     }
 }
+
+module.exports = { getTest };

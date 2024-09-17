@@ -1,3 +1,4 @@
+const { Modal } = require('bootstrap');
 const soldierService = require('../services/soldier');
 
 // armyId = personal ID number
@@ -31,3 +32,5 @@ const createSoldier = async (req, res) => {
             .send(error.message);
     }
 }
+
+module.exports = { getSoldier, createSoldier };

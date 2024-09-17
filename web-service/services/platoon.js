@@ -11,7 +11,7 @@ const createPlatoon = async (name, sectionIds, commander) => {
 }
 
 const getPlatoon = async (platoonId) => {
-    const platoon = await Platoon.findOne({ platoonId });
+    const platoon = await Platoon.findById( platoonId );
     
     if (platoon.length === 0) {
         throw new Error('Platoon not found');
