@@ -4,13 +4,14 @@ import StateBox from "../../general/StateBox";
 import '../TestStatus.css'
 
 function SoldierStatus({ soldier, test}) {
-    format_to_lambda = {
+    let format_to_lambda = {
         "HIGH": (a,b) => a >= b,
         "LOW": (a,b) => a <= b
     }
+    let soldierState;
 
     if (test.format in format_to_lambda) {
-        cmp = format_to_lambda[test.format]
+        let cmp = format_to_lambda[test.format]
         
         if (cmp(test.findBySoldierId(soldier.id).grade, test.excellent)) {
             soldierState = "EXCELLENT";        

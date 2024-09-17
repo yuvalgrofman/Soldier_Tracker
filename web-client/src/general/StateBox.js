@@ -4,7 +4,7 @@ import { React, useRef } from "react";
 import "./StateBox.css";
 
 function StateBox({ state }) {
-        state_to_style = {
+        let state_to_style = {
                 "FAILED": "btn-danger",
                 "PASSED": "btn-success",
                 "UNTESTED": "btn-secondary",
@@ -12,7 +12,7 @@ function StateBox({ state }) {
 
         if (state in state_to_style) {
                 return (
-                        <button type="button" class=`btn ${state_to_style[state]} disable`></button>
+                        <button type="button" class="btn ${state_to_style[state]} disable"></button>
                 );
         } 
 
