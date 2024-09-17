@@ -1,16 +1,16 @@
 /** @format */
 
+// import { useState } from "react";
+// import { fetchUser, fetchContacts } from "./components/shared/api";
+// import { defaultUser } from "./components/shared/userApi";
+
 import SoldierStatus from "./TestStatus/StatusList/SoldierStatus"
 import StatusList from "./TestStatus/StatusList/StatusList";
 import TestStatus from "./TestStatus/TestStatus";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import { useState } from "react";
-// import Chat from "./components/Chat/Chat";
-// import Login from "./components/Login/Login";
-// import Register from "./components/Register/Register";
-// import { fetchUser, fetchContacts } from "./components/shared/api";
-// import { defaultUser } from "./components/shared/userApi";
 import img from './images/omer1.jpeg'
+import AddUser from "./AddUser/AddUser";
 
 function App() {
 
@@ -39,7 +39,11 @@ function App() {
     }
 
     return (
-
+        // <BrowserRouter>
+        //     <Routes>
+        //         <Route path="/" element={ <AddUser /> } />
+        //     </Routes>
+        // </BrowserRouter>
         <TestStatus test={test} />
     );
 }
