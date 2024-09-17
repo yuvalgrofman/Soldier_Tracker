@@ -9,7 +9,7 @@ import StatusList from "./StatusList/StatusList";
 function TestStatus({ test }) {
 
     return (
-        <main className="container w-50 shadow mt-4 p-0 rounded-2" id="chat-app">
+        <main className="container w-80 shadow mt-4 p-0 rounded-2" id="chat-app">
             <div className="card border-0"> 
                 <Upper test={test} />
                 <StatusList test={test} />

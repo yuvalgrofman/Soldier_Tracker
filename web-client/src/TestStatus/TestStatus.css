@@ -5,6 +5,13 @@
     min-height: 49px;
 }
 
+.profile-picture-big {
+    object-fit: cover;
+    width: 150px;
+    max-height: 150px;
+    min-height: 150px;
+}
+
 .name-box {
     width: 20%;
 }

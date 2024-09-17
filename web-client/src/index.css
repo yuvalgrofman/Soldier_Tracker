@@ -12,12 +12,38 @@
     width: 20%;  
 }
 
+.w-10 {
+    width: 10%;  
+}
+
 .w-30 {
     width: 30%;  
 }
 
+.va {
+    vertical-align: center;
+    padding: 25% 0;
+}
+
+.name-box { 
+    vertical-align: center;
+    text-align: center;
+    padding: auto;
+    height: 100%;
+    overflow:auto;
+}
+
 .w-80 {
     width: 80%;  
+}
+
+.top-bot-margin-60 {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.font-size-240p {
+    font-size: 240%;
 }
 
 .fw-600 {
@@ -59,4 +85,13 @@ body {
     filter: brightness(0.85);
     color: inherit;
     background-color: inherit;
+}
+
+.margin-40p {
+    margin-right: 40%;
+    margin-left: 40%;
+}
+
+.center-text {
+    text-align: center;
 }
