@@ -8,7 +8,7 @@ function StateBox({ state }) {
                 "FAILED": "btn-danger",
                 "PASSED": "btn-success",
                 "UNTESTED": "btn-secondary",
-                "EXCELLENT": "btn-success"
+                "EXCELLENT": "btn-warning"
         }
 
         if (state in state_to_style) {
@@ -21,7 +21,7 @@ function StateBox({ state }) {
 
         // If state not defined - return warning
         return (
-                <button type="button" class="btn btn-warning disable"></button>
+                <button type="button" class="btn btn-black disable"></button>
         );
 }
 
