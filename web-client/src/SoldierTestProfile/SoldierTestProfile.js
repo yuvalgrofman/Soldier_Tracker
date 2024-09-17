@@ -8,7 +8,7 @@ import { Button } from "bootstrap";
 
 
 
-function UserTestPage({ test, soldier }) {
+function SoldierTestProfile({ test, soldier }) {
     let results = "a"
     results = test.results;
     let resultId = 'a';
