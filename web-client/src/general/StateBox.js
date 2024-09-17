@@ -8,11 +8,13 @@ function StateBox({ state }) {
                 "FAILED": "btn-danger",
                 "PASSED": "btn-success",
                 "UNTESTED": "btn-secondary",
+                "EXCELLENT": "btn-success"
         }
 
         if (state in state_to_style) {
+                const btnClass = `btn ${state_to_style[state]} disable`;
                 return (
-                        <button type="button" class="btn ${state_to_style[state]} disable"></button>
+                        <button type="button" class={btnClass}>{state}</button>
                 );
         } 
 

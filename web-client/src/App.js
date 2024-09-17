@@ -15,12 +15,12 @@ import AddUser from "./AddUser/AddUser";
 function App() {
 
 
-    let s1 = { name: "Yuval", id : 100, profilePic: img }
-    let s2 = { name: "Noam", id : 90, profilePic: img }
-    let s3 = { name: "Ariel", id : 80, profilePic: img }
-    let s4 = { name: "Ohad", id : 70, profilePic: img }
-    let s5 = { name: "Oded", id : 60, profilePic: img }
-    let s6 = { name: "Valeria", id : 50, profilePic: img }
+    let s1 = { id: 1, name: "Yuval", grade : 100, profilePic: img }
+    let s2 = { id: 2, name: "Noam", grade : 90, profilePic: img }
+    let s3 = { id: 3, name: "Ariel", grade : 80, profilePic: img }
+    let s4 = { id: 4, name: "Ohad", grade : 70, profilePic: img }
+    let s5 = { id: 5, name: "Oded", grade : 60, profilePic: img }
+    let s6 = { id: 6, name: "Valeria", grade : 50, profilePic: img }
 
     let test = {
         name: "Test 1",
@@ -33,7 +33,7 @@ function App() {
             s6
         ],
         format: "HIGH",
-        findBySoldierId: (id) => (id),
+        findBySoldierId: (id) => test.soldiers.find((s) => (s.id == id)),
         excellent: 80,
         pass: 60
     }

@@ -16,9 +16,9 @@ function SoldierStatus({ soldier, test}) {
         if (cmp(test.findBySoldierId(soldier.id).grade, test.excellent)) {
             soldierState = "EXCELLENT";        
         } else if (cmp(test.findBySoldierId(soldier.id).grade, test.pass)) {
-            soldierState = "PASS";        
+            soldierState = "PASSED";        
         } else {
-            soldierState = "FAIL";
+            soldierState = "FAILED";
         }
     }
 
@@ -33,7 +33,7 @@ function SoldierStatus({ soldier, test}) {
                 {soldier.name}
             </span>
             <span className="ms-4 d-inline-block text-truncate score-box" style={{ maxWidth: 200 }}>
-                {test.findBySoldierId(soldier.id)}
+                {test.findBySoldierId(soldier.id).grade}
             </span>
             <span className="ms-2 d-inline-block ">
                 <StateBox state = { soldierState }  />
