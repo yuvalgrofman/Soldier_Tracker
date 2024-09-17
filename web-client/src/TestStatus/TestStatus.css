@@ -1,0 +1,30 @@
+.profile-picture {
+    object-fit: cover;
+    width: 49px;
+    max-height: 49px;
+    min-height: 49px;
+}
+
+.name-box {
+    width: 20%;
+}
+
+.score-box {
+    width: 10%;
+}
+
+#chat-app {
+    min-width: 1140px;
+}
+
+#contact-avatar {
+    min-height: 49px;
+}
+
+#contact-list, #chat {
+    height: 65vh;
+}
+
+#menu:focus {
+    background-image: linear-gradient(rgb(0 0 0/10%) 0 0);
+}

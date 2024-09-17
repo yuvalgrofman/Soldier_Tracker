@@ -18,10 +18,9 @@ const Test = new mongoose.Schema({
         type: Number,
         nullable: true,
     },
-    // Results
-    soldiers: {
+    results: {
         type: [ObjectId],
-        nullable: false,
+        nullable: true,
     }
 });
 
