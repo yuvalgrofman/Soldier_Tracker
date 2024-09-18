@@ -14,6 +14,7 @@ import AddUser from "./AddUser/AddUser";
 import SoldierTestProfile from "./SoldierTestProfile/SoldierTestProfile";
 import AddSoldier from "./AddSoldier/AddSoldier";
 import AddCompany from "./AddCompany/AddCompany";
+import AddPlatoon from "./AddPlatoon/AddPlatoon";
 
 function App() {
 
@@ -56,7 +57,9 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={ <AddCompany /> } />
+                {/*<Route path="/" element={ <AddSoldier /> } />*/}
+                {/*<Route path="/" element={ <AddCompany /> } />*/}
+                <Route path="/" element={ <AddPlatoon platoonName={"1"} sections_num={3} /> } />
             </Routes>
         </BrowserRouter>
         //<TestStatus test={test} />
