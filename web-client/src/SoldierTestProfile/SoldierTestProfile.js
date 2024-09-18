@@ -62,4 +62,4 @@ function SoldierTestProfile({ test, soldier }) {
     );
 }
 
-export default UserTestPage;
+export default SoldierTestProfile;

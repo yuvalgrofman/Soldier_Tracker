@@ -11,7 +11,7 @@ import TestStatus from "./TestStatus/TestStatus";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import img from './images/omer1.jpeg'
 import AddUser from "./AddUser/AddUser";
-import UserTestPage from "./UserTestPage";
+import SoldierTestProfile from "./SoldierTestProfile/SoldierTestProfile";
 
 function App() {
 
@@ -58,7 +58,7 @@ function App() {
         //     </Routes>
         // </BrowserRouter>
         //<TestStatus test={test} />
-        <UserTestPage test={test} soldier={s11}/>
+        <SoldierTestProfile test={test} soldier={s11}/>
     );
 }
 
