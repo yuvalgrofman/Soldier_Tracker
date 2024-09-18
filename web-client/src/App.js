@@ -12,6 +12,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import img from './images/omer1.jpeg'
 import AddUser from "./AddUser/AddUser";
 import SoldierTestProfile from "./SoldierTestProfile/SoldierTestProfile";
+import AddSoldier from "./AddSoldier/AddSoldier";
+import AddCompany from "./AddCompany/AddCompany";
 
 function App() {
 
@@ -52,13 +54,13 @@ function App() {
     }
 
     return (
-        // <BrowserRouter>
-        //     <Routes>
-        //         <Route path="/" element={ <AddUser /> } />
-        //     </Routes>
-        // </BrowserRouter>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={ <AddCompany /> } />
+            </Routes>
+        </BrowserRouter>
         //<TestStatus test={test} />
-        <SoldierTestProfile test={test} soldier={s11}/>
+        //<SoldierTestProfile test={test} soldier={s11}/>
     );
 }
 
