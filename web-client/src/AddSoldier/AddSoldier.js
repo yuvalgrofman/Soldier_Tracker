@@ -53,7 +53,7 @@ function AddSoldier() {
         event.preventDefault();
         let error = "";
 
-        if (!soldier.soldiername) {
+        if (!soldier.name) {
             error = "Username is required";
         } else if (!soldier.profilePic) {
             error = "Profile Picture is required";
@@ -61,6 +61,8 @@ function AddSoldier() {
             error = "ID is required";
         } else if (!soldier.armyID) {
             error = "Army ID is required";
+        } else if(!soldier.medicalProfile) {
+            error = "Medical Profile is required";
         } else if (!soldier.company || !soldier.platoon || !soldier.section) {
             error = "Soldier's Unit is required";
         } else {
@@ -106,7 +108,7 @@ function AddSoldier() {
                                         updateFunction={(value) => {
                                             handleChange("name", value);
                                         }}
-                                        input-type="text"
+                                        inputType="text"
                                     />
 
                                     {/*Picture*/}
@@ -127,7 +129,7 @@ function AddSoldier() {
                                         updateFunction={(value) => {
                                             handleChange("ID", value);
                                         }}
-                                        input-type="text"
+                                        inputType="text"
                                     />
 
                                     {/*Army Id*/}
@@ -135,9 +137,9 @@ function AddSoldier() {
                                         labelOfInputField="Army ID"
                                         idOfInputField="AddSoldier-ArmyID"
                                         updateFunction={(value) => {
-                                            handleChange("ArmyID", value);
+                                            handleChange("armyID", value);
                                         }}
-                                        input-type="text"
+                                        inputType="text"
                                     />
 
                                     {/*Medical Profile*/}
@@ -147,7 +149,7 @@ function AddSoldier() {
                                         updateFunction={(value) => {
                                             handleChange("medicalProfile", value);
                                         }}
-                                        input-type="text"
+                                        inputType="text"
                                     />
 
                                     {/*Address*/}
@@ -157,7 +159,7 @@ function AddSoldier() {
                                         updateFunction={(value) => {
                                             handleChange("address", value);
                                         }}
-                                        input-type="text"
+                                        inputType="text"
                                     />
 
                                     {/*Company*/}
@@ -167,7 +169,7 @@ function AddSoldier() {
                                         updateFunction={(value) => {
                                             handleChange("company", value);
                                         }}
-                                        input-type="text"
+                                        inputType="text"
                                     />
 
                                     {/*Platoon*/}
@@ -177,7 +179,7 @@ function AddSoldier() {
                                         updateFunction={(value) => {
                                             handleChange("platoon", value);
                                         }}
-                                        input-type="text"
+                                        inputType="text"
                                     />
 
                                     {/*Section*/}
@@ -187,7 +189,7 @@ function AddSoldier() {
                                         updateFunction={(value) => {
                                             handleChange("section", value);
                                         }}
-                                        input-type="text"
+                                        inputType="text"
                                     />
 
                                     {/*Submit and redirection to sign in*/}

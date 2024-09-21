@@ -96,7 +96,7 @@ function AddPlatoon({ platoonName, sections_num }) {
                                         updateFunction={(value) => {
                                             handleChange("commander", value);
                                         }}
-                                        input-type="text"
+                                        inputType="text"
                                     />
 
                                     {/*Submit and redirection to sign in*/}

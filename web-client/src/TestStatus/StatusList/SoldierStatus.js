@@ -2,6 +2,7 @@
 
 import StateBox from "../../general/StateBox";
 import '../TestStatus.css'
+import defImg from "../../images/default-img-icon.png"
 
 function SoldierStatus({ soldier, test}) {
     let format_to_lambda = {
@@ -27,7 +28,7 @@ function SoldierStatus({ soldier, test}) {
             className="list-group-item d-flex align-items-center mx-0 darken-on-hover"
         >
             <span>
-                <img src={soldier.profilePic} className="ms-1 rounded-circle profile-picture" alt="avatar" />
+                <img src={soldier.profilePic ? soldier.profilePic : defImg} className="ms-1 rounded-circle profile-picture" alt="avatar" />
             </span>
             <span className="ms-3 d-inline-block text-truncate name-box" style={{ maxWidth: 200 }}>
                 {soldier.name}

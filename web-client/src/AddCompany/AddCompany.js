@@ -99,7 +99,7 @@ function AddCompany() {
                                         updateFunction={(value) => {
                                             handleChange("name", value);
                                         }}
-                                        input-type="text"
+                                        inputType="text"
                                     />
 
                                     {/*Commander input*/}
@@ -109,7 +109,7 @@ function AddCompany() {
                                         updateFunction={(value) => {
                                             handleChange("commander", value);
                                         }}
-                                        input-type="text"
+                                        inputType="text"
                                     />
 
                                     {/*Platoons amount*/}
@@ -119,7 +119,7 @@ function AddCompany() {
                                         updateFunction={(value) => {
                                             handleChange("platoons_num", value);
                                         }}
-                                        input-type="number"
+                                        inputType="number"
                                     />
 
                                     {/*Sections amount*/}
@@ -129,7 +129,7 @@ function AddCompany() {
                                         updateFunction={(value) => {
                                             handleChange("sections_num", value);
                                         }}
-                                        input-type="number"
+                                        inputType="number"
                                     />
 
                                     {/*Submit and redirection to sign in*/}

@@ -113,7 +113,7 @@ function AddUser() {
                                         updateFunction={(value) => {
                                             handleChange("username", value);
                                         }}
-                                        input-type="text"
+                                        inputType="text"
                                     />
 
                                     {/*Password input*/}
@@ -144,7 +144,7 @@ function AddUser() {
                                         updateFunction={(value) => {
                                             handleChange("displayName", value);
                                         }}
-                                        input-type="text"
+                                        inputType="text"
                                     />
 
                                     {/*Picture*/}

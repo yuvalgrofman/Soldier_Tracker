@@ -5,7 +5,7 @@ import { Button } from "bootstrap";
 
 // import { React, useRef } from "react";
 // import { getReformattedDate } from "../../../shared/userApi.js";
-
+import defImg from "../images/default-img-icon.png"
 
 
 function SoldierTestProfile({ test, soldier }) {
@@ -16,7 +16,7 @@ function SoldierTestProfile({ test, soldier }) {
 
     // }
         
-    const score = 5;
+    const score = soldier.grade;
 
 
     return (
@@ -30,7 +30,7 @@ function SoldierTestProfile({ test, soldier }) {
                     <div class="row">
                         <div class="col">
                             <span>
-                                <img src={soldier.profilePic} className="rounded-circle profile-picture-big" alt="avatar" />
+                                <img src={soldier.profilePic ? soldier.profilePic : defImg} className="rounded-circle profile-picture-big" alt="avatar" />
                             </span>    
                         </div>
                         <div class="col">

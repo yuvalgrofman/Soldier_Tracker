@@ -9,7 +9,8 @@ import StatusList from "./TestStatus/StatusList/StatusList";
 import TestStatus from "./TestStatus/TestStatus";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import img from './images/omer1.jpeg'
+import img1 from './images/image1.jpeg'
+import img2 from './images/image2.png'
 import AddUser from "./AddUser/AddUser";
 import SoldierTestProfile from "./SoldierTestProfile/SoldierTestProfile";
 import AddSoldier from "./AddSoldier/AddSoldier";
@@ -18,20 +19,19 @@ import AddPlatoon from "./AddPlatoon/AddPlatoon";
 
 function App() {
 
-
-    let s1 = { id: 1, name: "Yuval", grade : 100, profilePic: img }
-    let s2 = { id: 2, name: "Omri", grade : 90, profilePic: img }
-    let s3 = { id: 3, name: "Yaakov", grade : 80, profilePic: img }
-    let s4 = { id: 4, name: "Osher", grade : 70, profilePic: img }
-    let s5 = { id: 5, name: "Oshri", grade : 60, profilePic: img }
-    let s6 = { id: 6, name: "Tamir", grade: 50, profilePic: img }
-    let s7 = { id: 3, name: "Ilay", grade : 80, profilePic: img }
-    let s8 = { id: 4, name: "Yair", grade : 70, profilePic: img }
-    let s9 = { id: 5, name: "Itay", grade : 60, profilePic: img }
-    let s10 = { id: 6, name: "Liav", grade: 50, profilePic: img }
-    let s11 = { id: 3, name: "Nachshon", grade : 80, profilePic: img }
-    let s12 = { id: 4, name: "Yonatan", grade : 70, profilePic: img }
-
+    // Example variables for pages preview.
+    let s1 = { id: 1, name: "Yuval", grade : 100, profilePic: img1 }
+    let s2 = { id: 2, name: "Omri", grade : 90, profilePic: img2 }
+    let s3 = { id: 3, name: "Yaakov", grade : 80, profilePic: '' } // when there is no image a default one would appear
+    let s4 = { id: 4, name: "Osher", grade : 70, profilePic: '' }
+    let s5 = { id: 5, name: "Oshri", grade : 60, profilePic: '' }
+    let s6 = { id: 6, name: "Tamir", grade: 50, profilePic: '' }
+    let s7 = { id: 3, name: "Ilay", grade : 80, profilePic: '' }
+    let s8 = { id: 4, name: "Yair", grade : 70, profilePic: '' }
+    let s9 = { id: 5, name: "Itay", grade : 60, profilePic: '' }
+    let s10 = { id: 6, name: "Liav", grade: 50, profilePic: '' }
+    let s11 = { id: 3, name: "Nachshon", grade : 80, profilePic: '' }
+    let s12 = { id: 4, name: "Yonatan", grade : 70, profilePic: '' }
     let test = {
         name: "Test 1",
         soldiers: [
@@ -57,13 +57,16 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
+                {/* -- Pages for adding new users and units -- */}
                 {/*<Route path="/" element={ <AddSoldier /> } />*/}
                 {/*<Route path="/" element={ <AddCompany /> } />*/}
-                <Route path="/" element={ <AddPlatoon platoonName={"1"} sections_num={3} /> } />
+                {/*<Route path="/" element={ <AddPlatoon platoonName={"1"} sections_num={3} /> } />*/}
+
+                {/* -- Pages for viewing data on soldiers profiles and tests -- */}
+                <Route path="/" element={ <TestStatus test={test} /> } />
+                {/*<Route path="/" element={ <SoldierTestProfile test={test} soldier={s1}/> } />*/}
             </Routes>
         </BrowserRouter>
-        //<TestStatus test={test} />
-        //<SoldierTestProfile test={test} soldier={s11}/>
     );
 }
 
