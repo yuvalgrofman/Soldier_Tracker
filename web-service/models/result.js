@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 
 const Result = new mongoose.Schema({
 
-    testID: {
-        type: ObjectId,
+    testName: {
+        type: String,
         nullable: false
     },
     soldierID: {

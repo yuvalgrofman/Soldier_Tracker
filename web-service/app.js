@@ -9,9 +9,11 @@ const io = new Server(5553, server);
 const cors = require("cors");
 const mongoose = require("mongoose");
 
-const routerToken = require("./routes/token.js");
+const routerForce = require("./routes/force.js");
 const routerUser = require("./routes/user.js");
-const routerChat = require("./routes/chat.js");
+const routerSoldier = require("./routes/soldier.js");
+const routerTest = require("./routes/test.js");
+const routerResult = require("./routes/result.js");
 
 app.use(express.static("public"));
 app.use(express.json());
@@ -26,9 +28,11 @@ io.on("connection", function (socket) {
     // do nothing
 });
 
-app.use("/api/Tokens", routerToken);
+app.use("/api/Results", routerResult);
 app.use("/api/Users", routerUser);
-app.use("/api/Chats", routerChat);
+app.use("/api/Soldiers", routerSoldier);
+app.use("/api/Test", routerTest);
+app.use("/api/Force", routerForce);
 
 app.listen(5022);
 

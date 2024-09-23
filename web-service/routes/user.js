@@ -1,10 +1,9 @@
-const usersController = require("../controllers/user");
-const tokenController = require("../controllers/token");
+const userController = require("../controllers/user.js");
 
 const express = require("express");
 const router = express.Router();
 
-router.post("/", usersController.createUser);
-router.get("/:username", tokenController.verifyToken, usersController.getUser);
+router.post("/verify", userController.verifyUser);
+router.post("/", userController.addUser);
 
 module.exports = router;

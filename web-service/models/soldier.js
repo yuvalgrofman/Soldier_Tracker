@@ -36,6 +36,22 @@ const Soldier = new mongoose.Schema({
     medicalProfile: {
         type: Number,
         nullable : true,
+    },
+    rightHanded: {
+        type: Boolean,
+        nullable: true,
+    },
+    packal: {
+        type: String,
+        nullable: true,
+    },
+    religion: {
+        type: String,
+        nullable: false,
+    },
+    sensitivities: {
+        type: String,
+        nullable: true,
     }
 });
 

@@ -8,7 +8,10 @@ function StateBox({ state }) {
                 "FAILED": "btn-danger",
                 "PASSED": "btn-success",
                 "UNTESTED": "btn-secondary",
-                "EXCELLENT": "btn-warning"
+                "EXCELLENT": "btn-warning", 
+
+                "EXCEPTION": "btn-danger",
+                "GOOD" : "btn-success"
         }
 
         if (state in state_to_style) {

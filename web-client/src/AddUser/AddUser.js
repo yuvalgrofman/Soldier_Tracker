@@ -7,6 +7,7 @@ import Link from "../general/Link.js";
 import PasswordInputField from "../general/PasswordInputField/PasswordInputField.js";
 import InputField from "../general/InputField.js";
 import "../general/Form.css";
+import { postUser } from "../general/API.js";
 
 /**
  * Regitser function returns the form page.
@@ -24,7 +25,6 @@ function AddUser() {
         password: "",
         confirmPassword: "",
         profilePic: "",
-        displayName: "",
     });
 
     const [error, setError] = React.useState("");
@@ -65,8 +65,6 @@ function AddUser() {
             error = "Confirm password is required";
         } else if (user.password !== user.confirmPassword) {
             error = "Confirm password is not match";
-        } else if (!user.displayName) {
-            error = "Display name is required";
         } else if (!user.profilePic) {
             error = "Picture is required";
         } else {
@@ -77,13 +75,7 @@ function AddUser() {
     };
 
     const handleSubmit = async (setError) => {
-        const response = await fetch("http://127.0.0.1:5022/api/Users", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(user),
-        });
+        const response = await postUser(user);
 
         if (response["status"] === 409) {
             setError("User already exists");
@@ -134,17 +126,6 @@ function AddUser() {
                                         updateFunction={(value) => {
                                             handleChange("confirmPassword", value);
                                         }}
-                                    />
-
-                                    {/*Display name*/}
-                                    <InputField
-                                        labelOfInputField="display name"
-                                        idOfInputField="form-display-name"
-                                        // updateFunction={updateUserDisplayName}
-                                        updateFunction={(value) => {
-                                            handleChange("displayName", value);
-                                        }}
-                                        inputType="text"
                                     />
 
                                     {/*Picture*/}

@@ -4,6 +4,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import ImgField from "../general/ImgField.js";
 import InputField from "../general/InputField.js";
+import { postSoldier } from "../general/API.js";
 import "../general/Form.css";
 
 /**
@@ -65,6 +66,12 @@ function AddSoldier() {
             error = "Medical Profile is required";
         } else if (!soldier.company || !soldier.platoon || !soldier.section) {
             error = "Soldier's Unit is required";
+        } else if ("/^\d{9}$/".test(soldier.ID)) {
+            error = "Soldier ID must be 9 digits"
+        } else if ("/^\d{6,}$/".test(soldier.armyID)) {
+            error = "Soldier's Army ID must contain at least 6 digits "
+        } else if (soldier.medicalProfile == null || "/^\d{2}$/".test(soldier.medicalProfile)) {
+            error = "Medical Profile must be 2 digits"
         } else {
             handleSubmit(setError);
         }
@@ -73,16 +80,10 @@ function AddSoldier() {
     };
 
     const handleSubmit = async (setError) => {
-        const response = await fetch("http://127.0.0.1:5022/api/Users", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(soldier),
-        });
+        const response = await postSoldier(soldier);
 
         if (response["status"] === 409) {
-            setError("User already exists");
+            setError("Soldier already exists");
         } else {
             setError("");
             navigate("/");

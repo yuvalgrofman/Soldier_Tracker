@@ -1,0 +1,9 @@
+.gridButton {
+    font-size: large;
+    height: 80px;
+}
+
+#buttonGridCard {
+    border-radius: 10px;
+    overflow: hidden;
+}

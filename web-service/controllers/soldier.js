@@ -6,10 +6,10 @@ const soldierService = require('../services/soldier');
 // soldierId = object ID
 
 const getSoldier = async (req, res) => {
-    const { armyId }  = req.body;
+    const  armyID   = req.armyID;
 
     try {
-        const soldier = await soldierService.getSoldier(armyId);
+        const soldier = await soldierService.getSoldier(armyID);
         return res.send(soldier);
     } catch (error) {
         return res

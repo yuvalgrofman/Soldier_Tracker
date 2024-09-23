@@ -36,7 +36,7 @@ function SoldierStatus({ soldier, test}) {
             <span className="ms-4 d-inline-block text-truncate score-box" style={{ maxWidth: 200 }}>
                 {test.findBySoldierId(soldier.id).grade}
             </span>
-            <span className="ms-2 d-inline-block ">
+            <span className="ms-2 d-inline-block">
                 <StateBox state = { soldierState }  />
             </span>
         </li>

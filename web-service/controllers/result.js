@@ -14,10 +14,10 @@ const updateResult = async (req, res) => {
 }
 
 const getResult = async (req, res) => {
-    const { testId, soldierId } = req.body;
+    const { testName, soldierId } = req.body;
 
     try {
-        const result = await resultService.getResult(testId, soldierId);
+        const result = await resultService.getResult(testName, soldierId);
         return res.send(result);
     } catch (error) {
         return res
@@ -26,4 +26,4 @@ const getResult = async (req, res) => {
     }
 }
 
-module.exports = { getResult, updateResults };
+module.exports = { getResult, updateResult };

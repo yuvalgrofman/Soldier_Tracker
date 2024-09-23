@@ -29,3 +29,5 @@ const verifyUser = async (req, res) => {
             .send(error.message);
     }
 }
+
+module.exports = { verifyUser, addUser };
