@@ -1,4 +1,3 @@
-const { Modal } = require('bootstrap');
 const soldierService = require('../services/soldier');
 
 // armyId = personal ID number

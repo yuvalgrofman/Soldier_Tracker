@@ -1,7 +1,7 @@
 /** @format */
 
 import { useEffect, useState } from "react";
-import { fetchSoldier, fetchTest, fetchResult, fetchResultByTestAndSoldier, postResult } from "../general/API";
+import { fetchSoldier, fetchTest, fetchResultByTestAndSoldier, postResult } from "../general/API";
 import placeholder from "../images/placeholder.png"
 
 
@@ -42,22 +42,22 @@ function SoldierTestProfile({ testName, soldierID }) {
                     <span className="d-flex justify-content-center w-100 h1 fw-bold">{testName}</span>
                 </div>
 
-                <div class="container text-center d-flex mt-5 align-items-center flex-column bg-white">
-                    <div class="row">
-                        <div class="col">
+                <div className="container text-center d-flex mt-5 align-items-center flex-column bg-white">
+                    <div className="row">
+                        <div className="col">
                             <span>
                                 <img src={soldier.profilePic ? soldier.profilePic : "defImg"} className="rounded-circle profile-picture-big" alt="avatar" />
                             </span>    
                         </div>
-                        <div class="col">
+                        <div className="col">
                             <span className="d-flex w-100 name-box h1 fw-bold">
-                                <div class="va">{soldier.name}</div>
+                                <div className="va">{soldier.name}</div>
                             </span>
                         </div>
                     </div>
                 </div>
 
-                <div class="col top-bot-margin-60">
+                <div className="col top-bot-margin-60">
                     <input
                         type="text"
                         value={score}
@@ -66,18 +66,18 @@ function SoldierTestProfile({ testName, soldierID }) {
                     ></input>
                 </div>
 
-                <div class="container text-center">
-                    <div class="row">
+                <div className="container text-center">
+                    <div className="row">
                     </div>
-                    <div class="row">
-                    <div class="col">
+                    <div className="row">
+                    <div className="col">
                             <button
                                 type="button"
                                 className="btn bg-light-purple darken-on-hover w-30 text-white fw-600 py-2 mb-4"
-                                onClick={ ev => saveFunc(testName, soldierID, score) }
+                                onClick={ () => saveFunc(testName, soldierID, score) }
                             >Save</button>
                         </div>
-                    <div class="col">
+                    <div className="col">
                             <button type="button" className="btn bg-light-purple darken-on-hover w-30 text-white fw-600 py-2 mb-4" >Cancel</button>
                         </div>
                     </div>
