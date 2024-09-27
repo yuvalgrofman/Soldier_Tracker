@@ -19,7 +19,7 @@ const Test = new mongoose.Schema({
         nullable: true,
     },
     results: {
-        type: [ObjectId],
+        type: [mongoose.Schema.Types.ObjectId],
         nullable: true,
     }
 });

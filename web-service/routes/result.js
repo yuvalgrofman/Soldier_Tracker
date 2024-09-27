@@ -4,6 +4,6 @@ const express = require("express");
 const router = express.Router();
 
 router.post("/", resultController.updateResult);
-router.get("/", resultController.getResult);
+router.get("/:testName-:soldierId", resultController.getResult);
 
 module.exports = router;

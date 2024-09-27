@@ -24,7 +24,7 @@ function SoldierTestProfile({ testName, soldierID }) {
 
     useEffect(() => {
         fetchSoldier(soldierID).then((fetchedSoldier) => {
-            if (soldier == null) {
+            if (fetchedSoldier == null) {
                 alert("Error fetching soldier");
                 return;
             }
@@ -47,7 +47,7 @@ function SoldierTestProfile({ testName, soldierID }) {
                     <div class="row">
                         <div class="col">
                             <span>
-                                <img src={soldier.profilePic ? soldier.profilePic : defImg} className="rounded-circle profile-picture-big" alt="avatar" />
+                                <img src={soldier.profilePic ? soldier.profilePic : "defImg"} className="rounded-circle profile-picture-big" alt="avatar" />
                             </span>    
                         </div>
                         <div class="col">

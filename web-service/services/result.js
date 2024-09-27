@@ -1,4 +1,4 @@
-const Result = require('../models/result');
+const {Result} = require('../models/result');
 
 const createResult = async (testID, soldierID, score, isCompleted) => { 
     const result = await Result.findOne({ testID, soldierID });
@@ -26,8 +26,8 @@ const getResult = async (testName, soldierID) => {
     return result;
 }
 
-const updateScore = async (testID, soldierID, score) => {
-    const result = await Result.findOne({ testID, soldierID });
+const updateScore = async (testName, soldierID, score) => {
+    const result = await Result.findOne({ testName, soldierID });
 
     if (result === null) {
         throw new Error('Result not found');

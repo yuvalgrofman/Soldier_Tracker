@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const {Schema} = require("mongoose");
 
 const Result = new mongoose.Schema({
 
@@ -7,7 +8,7 @@ const Result = new mongoose.Schema({
         nullable: false
     },
     soldierID: {
-        type: ObjectId,
+        type: Schema.Types.ObjectId,
         nullable : false
     }, 
     score: {

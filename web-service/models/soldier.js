@@ -5,7 +5,7 @@ const Soldier = new mongoose.Schema({
         type: String,
         nullable: false,
     },
-    citizinshipID : {
+    citizenshipID : {
         type: Number,
         nullable: false,
     },

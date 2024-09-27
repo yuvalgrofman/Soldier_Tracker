@@ -1,10 +1,10 @@
 const testService = require('../services/test');
 
 const getTest = async (req, res) => {
-    const { name }  = req.body;
+    const testName  = req.params.testName;
 
     try {
-        const test = await testService.getTest(name);
+        const test = await testService.getTest(testName);
         return res.send(test);
     } catch (error) {
         return res

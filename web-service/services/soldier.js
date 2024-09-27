@@ -1,7 +1,7 @@
-const Soldier = require('../models/soldier');
+const {Soldier} = require('../models/soldier');
 
 const createSoldier = async (name, img, section, platoon, company, medicalProfile,
-     citizinshipID, armyID, address) => { 
+                             citizenshipID, armyID, address) => {
     const soldier = await Soldier.findOne({ armyID });
 
     if (soldier !== null) {
@@ -15,7 +15,7 @@ const createSoldier = async (name, img, section, platoon, company, medicalProfil
         platoon,
         company,
         address,
-        citizinshipID,
+        citizenshipID,
         medicalProfile,
         armyID,
     });

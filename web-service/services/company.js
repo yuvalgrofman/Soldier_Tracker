@@ -1,8 +1,7 @@
-const Company = require('../models/company');
+const {Company} = require('../models/company');
 
 const createCompany = async (name, platoonIds, commander) => { 
-    const company = await Company.findOne({ name });
-
+    const company = await Company.findOne({ name: name });
     if (company !== null) {
         throw new Error('Company already exists');
     }

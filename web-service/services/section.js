@@ -1,4 +1,4 @@
-const Section = require('../models/section');
+const {Section} = require('../models/section');
 
 const createSection = async (name, soldierIds, commander) => { 
     await Section.create({
@@ -16,7 +16,7 @@ const addSoldierToSection = async (sectionId, soldierId) => {
         throw new Error('Section not found');
     }
 
-    section.soldiers.push(soldierId);
+    section.soldierIds.push(soldierId);
     await section.save();
 }
 

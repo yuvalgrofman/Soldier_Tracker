@@ -7,7 +7,7 @@ const Platoon = new mongoose.Schema({
         nullable: false,
     },
     sectionIds : {
-        type : [ObjectId],
+        type : [mongoose.Schema.Types.ObjectId],
         nullable : false,
     },
     commander: {

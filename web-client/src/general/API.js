@@ -1,51 +1,52 @@
-import img from '../images/omer1.jpeg'
+import img from '../general/omer1.jpg'
 
-let s1 = { id: 1, armyID: 1 , name: "Yuval", grade : 100, profilePic: img}
-let s2 = { id: 2, armyID: 2 ,name: "Omri", grade : 90, profilePic: img }
-let s3 = { id: 3, armyID: 3 ,name: "Yaakov", grade : 80, profilePic: img }
-let s4 = { id: 4, armyID: 4 ,name: "Osher", grade : 70, profilePic: img }
-let s5 = { id: 5, armyID: 5 ,name: "Oshri", grade : 60, profilePic: img }
-let s6 = { id: 6, armyID: 6 ,name: "Tamir", grade: 50, profilePic: img }
-let s7 = { id: 3, armyID: 7 ,name: "Ilay", grade : 80, profilePic: img }
-let s8 = { id: 4, armyID: 8, name: "Yair", grade : 70, profilePic: img }
-let s9 = { id: 5, armyID: 9 ,name: "Itay", grade : 60, profilePic: img }
-let s10 = { id: 6, armyID: 10 ,name: "Liav", grade: 50, profilePic: img }
-let s11 = { id: 3, armyID: 11 ,name: "Nachshon", grade : 80, profilePic: img }
-let s12 = { id: 4, armyID: 12, name: "Yonatan", grade : 70, profilePic: img }
 
-let r1 = { testName: "Test 1", SoldierID: 1, score: "100", isCompleted: true } 
+// All objectId fields are for testing, and are automatically created in MongoDB.
+let s1 = { citizenshipID: 1 , objectId: 1 , armyID: 1 , name: "Yuval", section: "Sec 1", platoon: "Plat 1", company: "Yud", profilePic: img}
+let s2 = { citizenshipID: 2 , objectId: 2 , armyID: 2 ,name: "Omri", section: "Sec 1", platoon: "Plat 1", company: "Yud",  profilePic: img }
+let s3 = { citizenshipID: 3 , objectId: 3 , armyID: 3 ,name: "Yaakov", section: "Sec 1", platoon: "Plat 2", company: "Yud",  profilePic: img }
+let s4 = { citizenshipID: 4 , objectId: 4 , armyID: 4 ,name: "Osher", section: "Sec 1", platoon: "Plat 2", company: "Yud",  profilePic: img }
+let s5 = { citizenshipID: 5 , objectId: 5 , armyID: 5 ,name: "Oshri", section: "Sec 1", platoon: "Plat 2", company: "Yud",  profilePic: img }
+let s6 = { citizenshipID: 6 , objectId: 6 , armyID: 6 ,name: "Tamir", section: "Sec 2", platoon: "Plat 2", company: "Yud", profilePic: img }
+let s7 = { citizenshipID: 7 , objectId: 7 , armyID: 7 ,name: "Ilay", section: "Sec 2", platoon: "Plat 1", company: "Yud",  profilePic: img }
+let s8 = { citizenshipID: 8, objectId: 8, armyID: 8, name: "Yair", section: "Sec 2", platoon: "Plat 1", company: "Yud",  profilePic: img }
+let s9 = { citizenshipID: 9 , objectId: 9 , armyID: 9 ,name: "Itay", section: "Sec 2", platoon: "Plat 1", company: "Yud",  profilePic: img }
+let s10 = { citizenshipID: 10, objectId: 10, armyID: 10 ,name: "Liav", section: "Sec 2", platoon: "Plat 2", company: "Yud", profilePic: img }
+let s11 = { citizenshipID: 11, objectId: 11, armyID: 11 ,name: "Nachshon", section: "Sec 3", platoon: "Plat 2", company: "Yud",  profilePic: img }
+let s12 = { citizenshipID: 12, objectId: 12, armyID: 12, name: "Yonatan", section: "Sec 3", platoon: "Plat 1", company: "Yud", profilePic: img }
 
-let test = {
+let r11 = { objectId: 101, testName: "Test 1", SoldierID: 1, score: 100, isCompleted: true }
+let r21 = { objectId: 102, testName: "Test 2", SoldierID: 1, score: 95, isCompleted: true }
+let r12 = { objectId: 103, testName: "Test 1", SoldierID: 2, score: 70, isCompleted: true }
+let r13 = { objectId: 104, testName: "Test 1", SoldierID: 3, score: 50, isCompleted: false }
+
+
+let test1 = {
     name: "Test 1",
-    soldiers: [
-        s1, s2, s3, s4,  s5,  s6,
-        s7, s8, s9, s10, s11, s12
-    ],
-    format: "HIGH",
+    type: "HIGH",
     findBySoldierId: (id) => test.soldiers.find((s) => (s.id == id)),
     excellent: 80,
-    pass: 60
+    pass: 60,
+    results: [ 101, 103, 104 ] // Real objectIds aren't numbers, it's for testing...
 }
 
-let buttonNames = ["Add Soldier", "Create Company", "akjdhakjdhakjdhakj Daskjdhakjdhakjdh", "B4", "B5", "B6"]
-let buttonPages = ["B1", "B2", "B3", "B4", "B5", "B6"]
-let soldiers = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12]
+
 
 async function fetchTest(testName) {
     return test;
-    // const res = await fetch("http://127.0.0.1:5022/api/Tests/", {
+    // const res = await fetch("http://127.0.0.1:5022/api/Tests/ + testName", {
     //     method: "GET",
-    //     body: JSON.stringify({ testName }),
     // });
     
     // if (!res.ok) return null;
 
     // return JSON.parse(await res.text());
+    return test1
 }
 
 async function postSoldierToSection(sectionID, soldierID) {
     // const res = await fetch("http://127.0.0.1:5022/api/Force/addSoldier/", {
-    //     method: "GET",
+    //     method: "POST",
     //     body: JSON.stringify({ soldierID, sectionID }),
     // });
     
@@ -60,12 +61,14 @@ async function fetchSoldier(armyID) {
     // if (!res.ok) return null;
 
     // return JSON.parse(await res.text());
+
+    let ss = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12]
+    for (const s of ss) { if (s.armyID == armyID) {return s} }
 }
 
 async function fetchResultByTestAndSoldier(testName, soldierID) {
-    const res = await fetch("http://127.0.0.1:5022/api/Results/", {
+    const res = await fetch("http://127.0.0.1:5022/api/Results/" + testName + "-" + soldierID, {
         method: "GET",
-        body: JSON.stringify({ testName, soldierID }),
     });
     
     if (!res.ok) return null;
@@ -85,13 +88,13 @@ async function postPlatoon(platoon) {
     return response;
 }
 
-async function postResult(testId, soldierId, score) {
+async function postResult(testName, soldierId, score) {
     const response = await fetch("http://127.0.0.1:5022/api/Result/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({testId, soldierId, score}),
+        body: JSON.stringify({testName, soldierId, score}),
     });
 
     return response;
@@ -165,4 +168,6 @@ async function postVerifyUser(username, password) {
     return response;
 }
 
-export { fetchTest, fetchSoldier, fetchResultByTestAndSoldier, postSoldier, postUser, postResult} 
+export { fetchTest, fetchSoldier, fetchResultByTestAndSoldier, postSoldier, postUser, postResult,
+    // For testing:
+    s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, test1, r11, r21 , r13, r12}

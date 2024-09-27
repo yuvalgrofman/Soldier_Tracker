@@ -1,4 +1,4 @@
-const Test = require('../models/test');
+const {Test} = require('../models/test');
 
 const createTest = async (name, pass, excellent, type) => { 
     const test = await Test.findOne({ name });

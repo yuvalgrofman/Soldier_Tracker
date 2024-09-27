@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const company = require("./company");
 
 const Section = new mongoose.Schema({
     name: {
@@ -7,7 +6,7 @@ const Section = new mongoose.Schema({
         nullable: false,
     },
     soldierIds: {
-        type : [ObjectId],
+        type : [mongoose.Schema.Types.ObjectId],
         nullable : true,
     },
     commander: {
