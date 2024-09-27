@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { fetchSoldier, fetchTest, fetchResult, fetchResultByTestAndSoldier, postResult } from "../general/API";
-import placeholder from "../images/placeholder.png" 
+import placeholder from "../images/placeholder.png"
 
 
 function saveFunc(testName, soldierID, score) {
@@ -33,8 +33,7 @@ function SoldierTestProfile({ testName, soldierID }) {
                 setScore(fetchedResult.score);
             })
         })
-    })
-
+    }, [soldierID, testName])
 
     return (
         <main className="container w-30 shadow mt-4 p-0 rounded-2" id="chat-app">
@@ -61,8 +60,8 @@ function SoldierTestProfile({ testName, soldierID }) {
                 <div class="col top-bot-margin-60">
                     <input
                         type="text"
-                        className="font-size-240p form-control w-20 margin-40p center-text"
                         value={score}
+                        className="font-size-240p form-control w-20 margin-40p center-text"
                         onChange={ ev => setScore(ev.target.value) }
                     ></input>
                 </div>
@@ -75,7 +74,7 @@ function SoldierTestProfile({ testName, soldierID }) {
                             <button
                                 type="button"
                                 className="btn bg-light-purple darken-on-hover w-30 text-white fw-600 py-2 mb-4"
-                                onClick={ saveFunc(testName, soldierID, score) }
+                                onClick={ ev => saveFunc(testName, soldierID, score) }
                             >Save</button>
                         </div>
                     <div class="col">

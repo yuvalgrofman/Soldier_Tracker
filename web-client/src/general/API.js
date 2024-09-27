@@ -67,13 +67,14 @@ async function fetchSoldier(armyID) {
 }
 
 async function fetchResultByTestAndSoldier(testName, soldierID) {
-    const res = await fetch("http://127.0.0.1:5022/api/Results/" + testName + "-" + soldierID, {
-        method: "GET",
-    });
-    
-    if (!res.ok) return null;
-
-    return JSON.parse(await res.text());
+    // const res = await fetch("http://127.0.0.1:5022/api/Results/" + testName + "-" + soldierID, {
+    //     method: "GET",
+    // });
+    //
+    // if (!res.ok) return null;
+    //
+    // return JSON.parse(await res.text());
+    return r11
 }
 
 async function postPlatoon(platoon) {
@@ -89,15 +90,16 @@ async function postPlatoon(platoon) {
 }
 
 async function postResult(testName, soldierId, score) {
-    const response = await fetch("http://127.0.0.1:5022/api/Result/", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({testName, soldierId, score}),
-    });
-
-    return response;
+    // const response = await fetch("http://127.0.0.1:5022/api/Result/", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({testName, soldierId, score}),
+    // });
+    //
+    // return response;
+    return;
 }
 
 async function postCompany(company) {
