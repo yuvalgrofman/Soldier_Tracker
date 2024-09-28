@@ -14,19 +14,20 @@ import {s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, test1, r11, r21 , r13
 import AddUser from "./AddUser/AddUser";
 import SoldierTestProfile from "./SoldierTestProfile/SoldierTestProfile";
 import AddSoldier from "./AddSoldier/AddSoldier";
-import ButtonGrid from "./general/ButtonGrid";
 import Homepage from "./Homepage/Homepage";
 import Content from "./Content/Content";
 import SoldierList from "./SoldierList/SoldierList";
 import Setting from "./Setting/Setting";
+import Login from "./Login/Login";
 
 function App() {
 
     return (
         <BrowserRouter>
             <Routes>
+                <Route path="/" element={<Login /> } />
                 <Route path="/Home" element={<Homepage /> } />
-                {/* <Route path="/" element={<ButtonGrid buttonNames={buttonNames} buttonPages={buttonPages} /> } /> */}
+
                 <Route path="/Settings" element={<Setting/> } />
                 <Route path="/Settings/AddUser" element={ <AddUser /> } />
                 <Route path="/Settings/AddSoldier" element={ <AddSoldier /> } />

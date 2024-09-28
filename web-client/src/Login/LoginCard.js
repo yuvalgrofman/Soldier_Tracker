@@ -2,13 +2,12 @@
 
 import "./login.css";
 
-import InputField from "./../shared/InputField";
+import InputField from "./../general/InputField";
 import SubmitFormButton from "./SubmitFormButton";
 import { useState } from "react";
 
-import PasswordInputField from "../shared/PasswordInputField/PasswordInputField";
-import Link from "../shared/Link.js";
-import { fetchToken } from "../shared/api.js";
+import PasswordInputField from "../general/PasswordInputField/PasswordInputField";
+import Link from "../general/Link.js";
 
 function LoginCard({ setUserByToken }) {
     let [input, setInput] = useState({ username: "", password: "" });
@@ -16,12 +15,7 @@ function LoginCard({ setUserByToken }) {
 
     const signInFunction = async (event) => {
         event.preventDefault();
-        let token = await fetchToken(input);
-        if (token === null) {
-            setInputErrorMessage("Wrong username or password");
-        } else {
-            setUserByToken(token, input.username);
-        }
+        return;
     };
 
     const handleChange = (name, value) => {
@@ -70,9 +64,9 @@ function LoginCard({ setUserByToken }) {
                         <SubmitFormButton writingOnButton="Continue" signInFunction={signInFunction} />
 
                         {/* redirection to sign up */}
-                        <div className="mx-auto">
+                        {/* <div className="mx-auto">
                             <Link initialText="Don't have an account?&nbsp;" linkText="Sign up" link="/register" />
-                        </div>
+                        </div> */}
                     </div>
                 </form>
             </div>
