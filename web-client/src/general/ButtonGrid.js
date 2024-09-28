@@ -3,11 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import './ButtonGrid.css'
 import '../index.css'
 
-const ButtonGrid = ({ buttonNames, buttonPages }) => {
+const ButtonGrid = ({ buttonNames, buttonPages, pagesURL }) => {
   const navigate = useNavigate();
 
   const handleButtonClick = (route) => {
-    navigate(route);
+    if (pagesURL) {
+      navigate(`/${pagesURL}/${route}`);
+    } else {
+      navigate(route);
+    }
   };
 
   return (

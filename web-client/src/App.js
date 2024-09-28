@@ -18,21 +18,23 @@ import ButtonGrid from "./general/ButtonGrid";
 import Homepage from "./Homepage/Homepage";
 import Content from "./Content/Content";
 import SoldierList from "./SoldierList/SoldierList";
+import Setting from "./Setting/Setting";
 
 function App() {
 
     return (
-
         <BrowserRouter>
             <Routes>
-                <Route path="/Home" element={<Homepage test={test1} /> } />
-                <Route path="/AddUser" element={ <AddUser /> } />
-                <Route path="/AddSoldier" element={ <AddSoldier /> } />
+                <Route path="/Home" element={<Homepage /> } />
                 {/* <Route path="/" element={<ButtonGrid buttonNames={buttonNames} buttonPages={buttonPages} /> } /> */}
-                <Route path="/Test/:testName" element={<TestStatus/> } />
+                <Route path="/Settings" element={<Setting/> } />
+                <Route path="/Settings/AddUser" element={ <AddUser /> } />
+                <Route path="/Settings/AddSoldier" element={ <AddSoldier /> } />
+
+                <Route path="/Content/:contentLink" element={<Content/> } />
+                <Route path="/Test/:testLink" element={<TestStatus/> } />
                 <Route path="/Test/:testName/:soldierID" element={<SoldierTestProfile/> } />
-                {/* <Route path="/" element={<Content testNames={buttonNames} testPages = {buttonPages}/> } /> */}
-                {/* <Route path="/" element={<SoldierList soldiers={soldiers}/> } /> */}
+                <Route path="/Soldiers/:force/:id" element={<SoldierList /> } />
 
             </Routes>
         </BrowserRouter>
