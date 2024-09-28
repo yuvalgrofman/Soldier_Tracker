@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { fetchSoldier, fetchTest, fetchResultByTestAndSoldier, postResult } from "../general/API";
 import placeholder from "../images/placeholder.png"
+import { useParams } from "react-router-dom";
 
 
 function saveFunc(testName, soldierID, score) {
@@ -14,7 +15,9 @@ function saveFunc(testName, soldierID, score) {
     });
 }
 
-function SoldierTestProfile({ testName, soldierID }) {
+function SoldierTestProfile() {
+    const { testName, soldierID } = useParams();
+
     const [soldier, setSoldier] = useState({
         name: null,
         profilePic : placeholder
