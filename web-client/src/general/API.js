@@ -1,5 +1,7 @@
 // import img from '../general/omer1.jpg'
-import img from '../images/placeholder.png'
+// import img from '../images/placeholder.png'
+import img from '../images/image1.jpeg'
+
 
 
 // All objectId fields are for testing, and are automatically created in MongoDB.
@@ -16,16 +18,19 @@ let s10 = { citizenshipID: 10, objectId: 10, armyID: 10 ,name: "Liav", section: 
 let s11 = { citizenshipID: 11, objectId: 11, armyID: 11 ,name: "Nachshon", section: "Sec 3", platoon: "Plat 2", company: "Yud",  profilePic: img }
 let s12 = { citizenshipID: 12, objectId: 12, armyID: 12, name: "Yonatan", section: "Sec 3", platoon: "Plat 1", company: "Yud", profilePic: img }
 
-let r11 = { objectId: 101, testName: "Test 1", SoldierID: 1, score: 100, isCompleted: true }
-let r21 = { objectId: 102, testName: "Test 2", SoldierID: 1, score: 95, isCompleted: true }
-let r12 = { objectId: 103, testName: "Test 1", SoldierID: 2, score: 70, isCompleted: true }
-let r13 = { objectId: 104, testName: "Test 1", SoldierID: 3, score: 50, isCompleted: false }
+let soldiers = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12]
+
+// Result saves soldiers by their armyID
+let r11 = { objectId: 101, testName: "Test 1", soldierID: 1, score: 100, isCompleted: true }
+let r12 = { objectId: 103, testName: "Test 1", soldierID: 2, score: 70, isCompleted: true }
+let r13 = { objectId: 104, testName: "Test 1", soldierID: 3, score: 50, isCompleted: false }
+
+let r21 = { objectId: 102, testName: "Test 2", soldierID: 1, score: 95, isCompleted: true }
 
 
 let test1 = {
-    name: "Test 1",
+    name: "TestOne",
     type: "HIGH",
-    findBySoldierId: (id) => test.soldiers.find((s) => (s.id === id)),
     excellent: 80,
     pass: 60,
     results: [ 101, 103, 104 ] // Real objectIds aren't numbers, it's for testing...
@@ -34,7 +39,7 @@ let test1 = {
 
 
 async function fetchTest(testName) {
-    return test;
+    return test1;
     // const res = await fetch("http://127.0.0.1:5022/api/Tests/ + testName", {
     //     method: "GET",
     // });
@@ -43,6 +48,15 @@ async function fetchTest(testName) {
 
     // return JSON.parse(await res.text());
 }
+
+
+async function fetchTestResults(test) {
+    return [r11, r12, r13];
+}
+
+// async function fetchSoldiers() {
+//     return [s1, s2, s3];
+// }
 
 async function postSoldierToSection(sectionID, soldierID) {
     // const res = await fetch("http://127.0.0.1:5022/api/Force/addSoldier/", {
@@ -63,7 +77,22 @@ async function fetchSoldier(armyID) {
     // return JSON.parse(await res.text());
 
     let ss = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12]
-    for (const s of ss) { if (s.armyID === armyID) {return s} }
+    for (const s of ss) {
+        if (s.armyID == armyID) {
+            return s
+        }
+    }
+}
+
+async function fetchSoldiers(armyIDList) {
+    let ss = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12]
+    let res = []
+    for (const s of ss) {
+        if (armyIDList.includes(s.armyID)) {
+            res.push(s)
+        }
+    }
+    return res
 }
 
 async function fetchResultByTestAndSoldier(testName, soldierID) {
@@ -127,7 +156,7 @@ async function postSection(section) {
 }
 
 async function postSoldier(soldier) {
-    if (soldier.name === "Yuval")
+    if (soldier.name == "Yuval")
         return { status: 409 }
     return {}
 
@@ -143,7 +172,7 @@ async function postSoldier(soldier) {
 }
 
 async function postUser(user) {
-    if (user.name === "Yuval")
+    if (user.name == "Yuval")
         return { status: 409 }
     return {}
 
@@ -170,7 +199,10 @@ async function postVerifyUser(username, password) {
     return response;
 }
 
-export { fetchTest, fetchSoldier, fetchResultByTestAndSoldier, postSoldier, postUser, postResult,
-    postSection, postPlatoon, postCompany, postSoldierToSection, postVerifyUser,
+
+export {
+    fetchTest, fetchSoldier, fetchResultByTestAndSoldier, fetchTestResults, fetchSoldiers,
+    postSoldier, postUser, postResult, postSection, postPlatoon, postCompany,
+    postSoldierToSection, postVerifyUser, 
     // For testing:
     s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, test1, r11, r21 , r13, r12}
