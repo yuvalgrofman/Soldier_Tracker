@@ -35,3 +35,7 @@
 #menu:focus {
     background-image: linear-gradient(rgb(0 0 0/10%) 0 0);
 }
+
+* {
+    text-decoration: none !important;
+}
