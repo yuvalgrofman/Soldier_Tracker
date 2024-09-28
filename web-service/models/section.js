@@ -6,7 +6,7 @@ const Section = new mongoose.Schema({
         nullable: false,
     },
     soldierIds: {
-        type : [mongoose.Schema.Types.ObjectId],
+        type : Number,
         nullable : true,
     },
     commander: {
