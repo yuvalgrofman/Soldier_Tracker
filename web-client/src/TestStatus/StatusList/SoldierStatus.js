@@ -4,19 +4,20 @@ import StateBox from "../../general/StateBox";
 import '../TestStatus.css'
 import defImg from "../../images/default-img-icon.png"
 
-function SoldierStatus({ soldier, test}) {
+function SoldierStatus({ result, soldier, test}) {
+
     let format_to_lambda = {
         "HIGH": (a,b) => a >= b,
         "LOW": (a,b) => a <= b
     }
     let soldierState;
 
-    if (test.format in format_to_lambda) {
-        let cmp = format_to_lambda[test.format]
+    if (test.type in format_to_lambda) {
+        let cmp = format_to_lambda[test.type]
         
-        if (cmp(test.findBySoldierId(soldier.id).grade, test.excellent)) {
+        if (cmp(result.score, test.excellent)) {
             soldierState = "EXCELLENT";        
-        } else if (cmp(test.findBySoldierId(soldier.id).grade, test.pass)) {
+        } else if (cmp(result.score, test.pass)) {
             soldierState = "PASSED";        
         } else {
             soldierState = "FAILED";
@@ -34,7 +35,7 @@ function SoldierStatus({ soldier, test}) {
                 {soldier.name}
             </span>
             <span className="ms-4 d-inline-block text-truncate score-box" style={{ maxWidth: 200 }}>
-                {test.findBySoldierId(soldier.id).grade}
+                {result.score}
             </span>
             <span className="ms-2 d-inline-block">
                 <StateBox state = { soldierState }  />
