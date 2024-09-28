@@ -1,4 +1,5 @@
-import img from '../general/omer1.jpg'
+// import img from '../general/omer1.jpg'
+import img from '../images/placeholder.png'
 
 
 // All objectId fields are for testing, and are automatically created in MongoDB.
@@ -24,7 +25,7 @@ let r13 = { objectId: 104, testName: "Test 1", SoldierID: 3, score: 50, isComple
 let test1 = {
     name: "Test 1",
     type: "HIGH",
-    findBySoldierId: (id) => test.soldiers.find((s) => (s.id == id)),
+    findBySoldierId: (id) => test.soldiers.find((s) => (s.id === id)),
     excellent: 80,
     pass: 60,
     results: [ 101, 103, 104 ] // Real objectIds aren't numbers, it's for testing...
@@ -41,7 +42,6 @@ async function fetchTest(testName) {
     // if (!res.ok) return null;
 
     // return JSON.parse(await res.text());
-    return test1
 }
 
 async function postSoldierToSection(sectionID, soldierID) {
@@ -63,7 +63,7 @@ async function fetchSoldier(armyID) {
     // return JSON.parse(await res.text());
 
     let ss = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12]
-    for (const s of ss) { if (s.armyID == armyID) {return s} }
+    for (const s of ss) { if (s.armyID === armyID) {return s} }
 }
 
 async function fetchResultByTestAndSoldier(testName, soldierID) {
@@ -127,7 +127,7 @@ async function postSection(section) {
 }
 
 async function postSoldier(soldier) {
-    if (soldier.name == "Yuval")
+    if (soldier.name === "Yuval")
         return { status: 409 }
     return {}
 
@@ -143,7 +143,7 @@ async function postSoldier(soldier) {
 }
 
 async function postUser(user) {
-    if (user.name == "Yuval")
+    if (user.name === "Yuval")
         return { status: 409 }
     return {}
 
@@ -171,5 +171,6 @@ async function postVerifyUser(username, password) {
 }
 
 export { fetchTest, fetchSoldier, fetchResultByTestAndSoldier, postSoldier, postUser, postResult,
+    postSection, postPlatoon, postCompany, postSoldierToSection, postVerifyUser,
     // For testing:
     s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, test1, r11, r21 , r13, r12}
