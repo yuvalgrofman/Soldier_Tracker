@@ -29,8 +29,8 @@ function App() {
                 <Route path="/AddUser" element={ <AddUser /> } />
                 <Route path="/AddSoldier" element={ <AddSoldier /> } />
                 {/* <Route path="/" element={<ButtonGrid buttonNames={buttonNames} buttonPages={buttonPages} /> } /> */}
-                {/* <Route path="/" element={<TestStatus test={test} /> } /> */}
-                <Route path="/SoldierTestProfile" element={<SoldierTestProfile testName={test1.name} soldierID={s1.objectId} /> } />
+                <Route path="/Test/:testName" element={<TestStatus/> } />
+                <Route path="/Test/:testName/:soldierID" element={<SoldierTestProfile/> } />
                 {/* <Route path="/" element={<Content testNames={buttonNames} testPages = {buttonPages}/> } /> */}
                 {/* <Route path="/" element={<SoldierList soldiers={soldiers}/> } /> */}
 
