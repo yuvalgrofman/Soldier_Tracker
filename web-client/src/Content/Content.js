@@ -12,7 +12,7 @@ function Content() {
 
     return (
         <main className="container-sm w-80 shadow mt-4 p-0 rounded-2">
-            <div className = "card-header d-flex flex-column align-items-center bg-light-gray">
+            <div className = "card-header d-flex flex-column align-items-center bg-light-gray title-bar">
                 <span className="d-flex justify-content-center w-100 fw-bold">{contentDisplay.name}</span>
             </div>
             <ButtonGrid buttonNames={buttonNames} buttonPages={buttonPages} pagesURL={'Test'} />        

@@ -21,6 +21,8 @@ function SoldierList({ exception }) {
     const [buttonPages, setButtonPages] = useState([]);
     const [query, setQuery] = useState("");
 
+    let linkPrefix = exception ? "/Exceptions/" : "/Soldiers/";
+
     const fetchSubUnitsMap = {
         "Company": fetchCompanyPlatoons,
         "Platoon": fetchPlatoonSections
@@ -39,7 +41,7 @@ function SoldierList({ exception }) {
         fetchSubUnitsMap[forceType](id).then((subUnits) => {
             let names = subUnits.map((subUnit) => (subUnit.name));
             let pages = subUnits.map((subUnit) => {
-                return "/Soldiers/" + subUnitsMap[forceType] + "/" + subUnit.objectId;
+                return linkPrefix + subUnitsMap[forceType] + "/" + subUnit.objectId;
             });
             setButtonNames(names);
             setButtonPages(pages);
@@ -85,8 +87,8 @@ function SoldierList({ exception }) {
     });
         
     return (
-        <main className="container-sm w-80 shadow mt-4 p-0 rounded-2">
-            <div className = "card-header d-flex flex-column align-items-center bg-light-gray">
+        <main className="container-sm w-80 shadow mt-4 p-0 rounded-4">
+            <div className = "card-header d-flex flex-column align-items-center bg-light-gray title-bar">
                 <span className="d-flex justify-content-center w-100 fw-bold">{title}</span>
             </div>
             {
@@ -104,7 +106,7 @@ function SoldierList({ exception }) {
                 </div>
             }
             <SearchBar doSearch={setQuery} />
-            <div className="card border-0"> 
+            <div className="card border-0 soldier-list-body"> 
                 <div className = "card-body p-3">
                     <ul className="list-group list-group-flush overflow-auto"
                         id="status-list">

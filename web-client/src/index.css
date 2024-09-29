@@ -73,7 +73,7 @@
 
 /* Global Settings */
 body {
-    background-color: #FBFCF8;
+    background-color: #4B5320;
 }
 
 .btn:focus, .btn-close:focus {
@@ -103,4 +103,9 @@ body {
 
 .center-text {
     text-align: center;
+}
+
+.title-bar {
+  border-top-left-radius: 10px !important; /* Rounded top-left corner */
+  border-top-right-radius: 10px !important; /* Rounded top-right corner */
 }

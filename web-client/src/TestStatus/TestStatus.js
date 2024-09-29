@@ -25,8 +25,8 @@ function TestStatus() {
 
     if (test) {
         return (
-            <main className="container-sm w-80 shadow mt-4 p-0 rounded-2">
-                <div className="card border-0"> 
+            <main className="container-sm w-80 shadow mt-4 p-0 rounded-4">
+                <div className="card border-0 title-bar"> 
                     <Upper testName={test.name} doSearch={setQuery} />
                     <StatusList test={test} query={query}/>
                 </div>

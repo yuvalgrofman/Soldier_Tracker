@@ -55,8 +55,8 @@ function SoldierTestProfile() {
 
     return (
         <main className="container-sm w-80 shadow mt-4 p-0 rounded-2">
-            <div className="card border-0 "> 
-                <div className = "card-header d-flex flex-column align-items-center bg-light-gray">
+            <div className="card border-0 title-bar"> 
+                <div className = "card-header d-flex flex-column align-items-center bg-light-gray title-bar">
                     <span className="d-flex justify-content-center w-100 h1 fw-bold">{testName}</span>
                 </div>
 
