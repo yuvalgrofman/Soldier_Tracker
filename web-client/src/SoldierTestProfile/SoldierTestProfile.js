@@ -10,7 +10,7 @@ import alert from "bootstrap/js/src/alert";
 function saveFunc(testName, soldierID, score) {
     postResult(testName, soldierID, score).then((response) => {
         if (response == null) {
-            alert("Error saving result");
+            window.alert("Error saving result");
             return;
         }
     });
@@ -41,7 +41,7 @@ function SoldierTestProfile() {
     }, [soldierID, testName])
 
     return (
-        <main className="container w-30 shadow mt-4 p-0 rounded-2" id="chat-app">
+        <main className="container-sm w-80 shadow mt-4 p-0 rounded-2">
             <div className="card border-0 "> 
                 <div className = "card-header d-flex flex-column align-items-center bg-light-gray">
                     <span className="d-flex justify-content-center w-100 h1 fw-bold">{testName}</span>
@@ -66,7 +66,7 @@ function SoldierTestProfile() {
                     <input
                         type="text"
                         value={score}
-                        className="font-size-240p form-control w-20 margin-40p center-text"
+                        className="font-size-240p form-control w-70 margin-15p center-text"
                         onChange={ ev => setScore(ev.target.value) }
                     ></input>
                 </div>
@@ -78,7 +78,7 @@ function SoldierTestProfile() {
                     <div className="col">
                             <button
                                 type="button"
-                                className="btn bg-light-purple darken-on-hover w-30 text-white fw-600 py-2 mb-4"
+                                className="btn bg-light-purple darken-on-hover w-80 text-white fw-600 py-2 mb-4"
                                 onClick={ () => saveFunc(testName, soldierID, score) }
                             >Save</button>
                         </div>
@@ -86,7 +86,7 @@ function SoldierTestProfile() {
                             <button
                                 type="button"
                                 onClick={() => navigate(-1)}
-                                className="btn bg-light-purple darken-on-hover w-30 text-white fw-600 py-2 mb-4"
+                                className="btn bg-light-purple darken-on-hover w-80 text-white fw-600 py-2 mb-4"
                             >Cancel</button>
                         </div>
                     </div>
