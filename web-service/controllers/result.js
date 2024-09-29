@@ -26,4 +26,17 @@ const getResult = async (req, res) => {
     }
 }
 
-module.exports = { getResult, updateResult };
+const getResultByObjectId = async (req, res) => {
+    const { resultObjectId } = req.params;
+
+    try {
+        const result = await resultService.getResultByObjectId(resultObjectId);
+        return res.send(result);
+    } catch (error) {
+        return res
+            .status(404)
+            .send(error.message);
+    }
+}
+
+module.exports = { getResult, updateResult, getResultByObjectId };
