@@ -54,4 +54,45 @@ const addSoldierToSection = async (req, res) => {
     }
 }
 
-module.exports = { createCompany, createPlatoon, createSection, addSoldierToSection };
+const getSection = async (req, res) => {
+    const { sectionId } = req.params;
+
+    try {
+        const section = await sectionService.getSection(sectionId);
+        return res.send(section);
+    } catch (error) {
+        return res
+            .status(404)
+            .send(error.message);
+    }
+}
+
+const getCompany = async (req, res) => {
+    const { companyId } = req.params;
+
+    try {
+        const company = await companyService.getCompany(companyId);
+        return res.send(company);
+    } catch (error) {
+        return res
+            .status(404)
+            .send(error.message);
+    }
+}
+
+const getPlatoon = async (req, res) => {
+    const { platoonId } = req.params;
+
+    try {
+        const platoon = await platoonService.getPlatoon(platoonId);
+        return res.send(platoon);
+    } catch (error) {
+        return res
+            .status(404)
+            .send(error.message);
+    }
+}
+
+module.exports = { getCompany, getPlatoon, getSection,
+    createCompany, createPlatoon, createSection,
+    addSoldierToSection };
