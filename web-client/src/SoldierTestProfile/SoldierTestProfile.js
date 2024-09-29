@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import { fetchSoldier, fetchTest, fetchResultByTestAndSoldier, postResult } from "../general/API";
 import placeholder from "../images/placeholder.png"
-import { useParams } from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
+import alert from "bootstrap/js/src/alert";
 
 
 function saveFunc(testName, soldierID, score) {
@@ -16,6 +17,7 @@ function saveFunc(testName, soldierID, score) {
 }
 
 function SoldierTestProfile() {
+    const navigate = useNavigate();
     const { testName, soldierID } = useParams();
 
     const [soldier, setSoldier] = useState({
@@ -81,7 +83,11 @@ function SoldierTestProfile() {
                             >Save</button>
                         </div>
                     <div className="col">
-                            <button type="button" className="btn bg-light-purple darken-on-hover w-30 text-white fw-600 py-2 mb-4" >Cancel</button>
+                            <button
+                                type="button"
+                                onClick={() => navigate(-1)}
+                                className="btn bg-light-purple darken-on-hover w-30 text-white fw-600 py-2 mb-4"
+                            >Cancel</button>
                         </div>
                     </div>
                 </div>
