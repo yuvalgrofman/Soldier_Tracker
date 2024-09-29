@@ -1,6 +1,6 @@
 import React from 'react';
 import ButtonGrid from '../general/ButtonGrid';
-import { fetchSettingDisplays } from '../general/API';
+import { fetchSettingDisplays } from '../general/Display';
 
 function Setting() {
     const settingDisplay = fetchSettingDisplays();

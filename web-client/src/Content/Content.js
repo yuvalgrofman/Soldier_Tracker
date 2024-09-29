@@ -2,7 +2,7 @@ import React from 'react';
 import ButtonGrid from '../general/ButtonGrid';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchContentDisplay } from '../general/API';
+import { fetchContentDisplay } from '../general/Display';
 
 function Content() {
     const { contentLink } = useParams();

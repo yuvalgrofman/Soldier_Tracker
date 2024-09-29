@@ -3,31 +3,48 @@
 import SoldierListElement from "./SoldierListElement";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { fetchSectionSoldiers, fetchPlatoonSoldiers, fetchCompanySoldiers } from "../general/API";
+import {
+    fetchSectionSoldiers, fetchPlatoonSoldiers, fetchCompanySoldiers,
+    fetchSection, fetchPlatoon, fetchCompany } from "../general/API";
 
-function SoldierList() {
-    const { force, id } = useParams();
+function SoldierList({ exception }) {
+    const { forceType, id } = useParams();
 
     const [soldiers, setSoldiers] = useState([]);
+    // const [subUnits, setForce] = useState([]);
 
-    const fetchForceMap = {
+    // const fetchForceMap = {
+    //     "Section" : fetchSection,
+    //     "Platoon": fetchPlatoon,
+    //     "Company": fetchCompany
+    // }
+
+    const fetchForceSoldiersMap = {
         "Section" : fetchSectionSoldiers,
         "Platoon": fetchPlatoonSoldiers,
         "Company": fetchCompanySoldiers
     }
 
     useEffect(() => {
-        fetchForceMap[force](id).then((soldiers) => {
-            setSoldiers(soldiers);
+        fetchForceSoldiersMap[forceType](id).then((fetchedSoldiers) => {
+            setSoldiers(fetchedSoldiers);
+
+            // fetchForceMap[forceType](id).then((fetchedForce) => {
+            //     let subUnits = [];
+            // });
         });
-    }, [force, id]);
+    }, [forceType, id]);
 
     
-    const soldierComponents = soldiers.map((soldier) => (
-        <SoldierListElement
-            soldier={soldier}
-        />
-    ));
+    const soldierComponents = soldiers.map((soldier) => {
+        if (exception) {
+            if (soldier.exception) {
+                return <SoldierListElement soldier={soldier} />;
+            }
+            return null;
+        }
+        return <SoldierListElement soldier={soldier} />;
+    });
 
     return (
         <main className="container-sm w-80 shadow mt-4 p-0 rounded-2">

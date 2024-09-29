@@ -1,28 +1,93 @@
-// import img from '../general/omer1.jpg'
-// import img from '../images/placeholder.png'
-import img from '../images/image1.jpeg'
+import profilePic1 from "../images/s1.jpeg"
+import profilePic2 from "../images/s2.jpeg"
+import profilePic3 from "../images/s3.jpeg"
+import profilePic4 from "../images/s4.jpeg"
 
 //  ------------------------------------------------------------------------------------------------
 
-// All objectId fields are for testing, and are automatically created in MongoDB.
-let s1 = { citizenshipID: 1 , objectId: 1 , armyID: 1 , name: "Yuval", section: "Sec 1", platoon: "Plat 1", company: "Yud", profilePic: img}
-let s2 = { citizenshipID: 2 , objectId: 2 , armyID: 2 ,name: "Omri", section: "Sec 1", platoon: "Plat 1", company: "Yud",  profilePic: img }
-let s3 = { citizenshipID: 3 , objectId: 3 , armyID: 3 ,name: "Yaakov", section: "Sec 1", platoon: "Plat 2", company: "Yud",  profilePic: img }
-let s4 = { citizenshipID: 4 , objectId: 4 , armyID: 4 ,name: "Osher", section: "Sec 1", platoon: "Plat 2", company: "Yud",  profilePic: img }
-let s5 = { citizenshipID: 5 , objectId: 5 , armyID: 5 ,name: "Oshri", section: "Sec 1", platoon: "Plat 2", company: "Yud",  profilePic: img }
-let s6 = { citizenshipID: 6 , objectId: 6 , armyID: 6 ,name: "Tamir", section: "Sec 2", platoon: "Plat 2", company: "Yud", profilePic: img }
-let s7 = { citizenshipID: 7 , objectId: 7 , armyID: 7 ,name: "Ilay", section: "Sec 2", platoon: "Plat 1", company: "Yud",  profilePic: img }
-let s8 = { citizenshipID: 8, objectId: 8, armyID: 8, name: "Yair", section: "Sec 2", platoon: "Plat 1", company: "Yud",  profilePic: img }
-let s9 = { citizenshipID: 9 , objectId: 9 , armyID: 9 ,name: "Itay", section: "Sec 2", platoon: "Plat 1", company: "Yud",  profilePic: img }
-let s10 = { citizenshipID: 10, objectId: 10, armyID: 10 ,name: "Liav", section: "Sec 2", platoon: "Plat 2", company: "Yud", profilePic: img }
-let s11 = { citizenshipID: 11, objectId: 11, armyID: 11 ,name: "Nachshon", section: "Sec 3", platoon: "Plat 2", company: "Yud",  profilePic: img }
-let s12 = { citizenshipID: 12, objectId: 12, armyID: 12, name: "Yonatan", section: "Sec 3", platoon: "Plat 1", company: "Yud", profilePic: img }
+let s1 = {
+    name: "Yuval", citizenshipID: 1, armyID: 1, profilePic: profilePic1, section: "1", platoon: "1",
+    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
+    religion: "Jewish", sensitivities: "None", exception: false
+}
 
-let soldiers = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12]
+let s2 = {
+    name: "Omri", citizenshipID: 2, armyID: 2, profilePic: profilePic2, section: "1", platoon: "1",
+    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
+    religion: "Jewish", sensitivities: "None", exception: false
+}
+
+let s3 = {
+    name: "Yaakov", citizenshipID: 3, armyID: 3, profilePic: profilePic3, section: "1", platoon: "2",
+    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
+    religion: "Jewish", sensitivities: "None", exception: true 
+}
+
+let s4 = {
+    name: "Osher", citizenshipID: 4, armyID: 4, profilePic: profilePic4, section: "1", platoon: "2",
+    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
+    religion: "Jewish", sensitivities: "None", exception: false
+}
+
+let s5 = {
+    name: "Oshri", citizenshipID: 5, armyID: 5, profilePic: profilePic1, section: "1", platoon: "2",
+    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
+    religion: "Jewish", sensitivities: "None", exception: false
+}
+
+let s6 = {
+    name: "Tamir", citizenshipID: 6, armyID: 6, profilePic: profilePic2, section: "2", platoon: "2",
+    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
+    religion: "Jewish", sensitivities: "None", exception: true
+}
+
+let s7 = {
+    name: "Ilay", citizenshipID: 7, armyID: 7, profilePic: profilePic3, section: "2", platoon: "1",
+    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
+    religion: "Jewish", sensitivities: "None", exception: false
+}
+
+let s8 = {
+    name: "Yair", citizenshipID: 8, armyID: 8, profilePic: profilePic4, section: "2", platoon: "1",
+    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
+    religion: "Jewish", sensitivities: "None", exception: false
+}
+
+let s9 = {
+    name: "Itay", citizenshipID: 9, armyID: 9, profilePic: profilePic1, section: "2", platoon: "1",
+    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
+    religion: "Jewish", sensitivities: "None", exception: false
+}
+
+let s10 = {
+    name: "Liav", citizenshipID: 10, armyID: 10, profilePic: profilePic2, section: "2", platoon: "2",
+    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
+    religion: "Jewish", sensitivities: "None", exception: false
+}
+
+let s11 = {
+    name: "Nachshon", citizenshipID: 11, armyID: 11, profilePic: profilePic3, section: "3", platoon: "2",
+    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
+    religion: "Jewish", sensitivities: "None", exception: true
+}
+
+let s12 = {
+    name: "Yonatan", citizenshipID: 12, armyID: 12, profilePic: profilePic4, section: "3", platoon: "1",
+    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
+    religion: "Jewish", sensitivities: "None", exception: true
+}
+
+// ------------------------------------------------------------------------------------------------
+
+let r1 = { objectId: 101, testName: "10 Meters", soldierID: 1, score: 100, isCompleted: true, status: "EXCELLENT" };
+let r2 = { objectId: 102, testName: "25 Meters", soldierID: 1, score: 80, isCompleted: true, status: "PASSED" };
+let r3 = { objectId: 103, testName: "50 Meters", soldierID: 1, score: 70, isCompleted: true, status: "FAILED" };
+
+// ------------------------------------------------------------------------------------------------
 
 // Result saves soldiers by their armyID
-let r11 = { objectId: 101, testName: "Test 1", soldierID: 1, score: 100, isCompleted: true }
-let r12 = { objectId: 103, testName: "Test 1", soldierID: 2, score: 70, isCompleted: true }
+let r11 = { objectId: 101, testName: "25 Meters", soldierID: 1, score: 100, isCompleted: true }
+let r12 = { objectId: 103, testName: "25  Meters", soldierID: 2, score: 70, isCompleted: true }
 let r13 = { objectId: 104, testName: "Test 1", soldierID: 3, score: 50, isCompleted: false }
 
 let r21 = { objectId: 102, testName: "Test 2", soldierID: 1, score: 95, isCompleted: true }
@@ -48,66 +113,12 @@ let plat1 = { name: "Platoon 1", sectionIds: [1, 2], commander: "MM 1" }
 let plat2 = { name: "Platoon 2", sectionIds: [3, 4], commander: "MM 2" }
 let plat3 = { name: "Platoon 3", sectionIds: [5, 6], commander: "MM 3" }
 
-let comp1 = { name: "Company 1", platoonIds: [1, 2], commander: "MC 1" }
-
-//  ------------------------------------------------------------------------------------------------
-
-let testDisplay1 = { name: "10 Meter Range", link: "10MeterRange" }
-let testDisplay2 = { name: "25 Meter Range", link: "25MeterRange" }
-let testDisplay3 = { name: "50 Meter Range", link: "50MeterRange" }
-
-let testDisplay4 = { name: "Shooting Positions", link: "ShootingPositions" }
-let testDisplay5 = { name: "Shooting & Walking", link: "ShootingWalking" }
-let testDisplay6 = { name: "Shooting At Night", link: "ShootingAtNight" }
-
-let testDisplay7 = { name: "Running", link: "Running" }
-let testDisplay8 = { name: "Sprints", link: "Sprints" }
-let testDisplay9 = { name: "Obstacle Course", link: "ObstacleCourse" }
-
-let testDisplay10 = { name: "Clearing Buildings", link: "ClearingBuildings" }
-let testDisplay11 = { name: "Room Clearing", link: "RoomClearing" }
-let testDisplay12 = { name: "Urban Combat", link: "UrbanCombat" }
-
-let testDisplay13 = { name: "Trench Warfare", link: "TrenchWarfare" }
-let testDisplay14 = { name: "Open Field Combat", link: "OpenFieldCombat" }
-let testDisplay15 = { name: "Warfare In Forests", link: "WarfareInForests" }
-
-let contentDisplay1 = { name: "Shooting 1", link: "ShootingOne", tests: [testDisplay1, testDisplay2, testDisplay3] }
-let contentDisplay2 = { name: "Shooting 2", link: "ShootingTwo", tests: [testDisplay4, testDisplay5, testDisplay6] }
-let contentDisplay3 = { name: "Physical Exams", link: "Physical", tests: [testDisplay7, testDisplay8, testDisplay9] }
-let contentDisplay4 = { name: "Urban Warfare", link: "Urban", tests: [testDisplay10, testDisplay11, testDisplay12] }
-let contentDisplay5 = { name: "Open Warfare", link: "Open", tests: [testDisplay13, testDisplay14, testDisplay15] }
-
-const contents = [contentDisplay1, contentDisplay2, contentDisplay3, contentDisplay4, contentDisplay5]
+let comp1 = { name: "Company 1", platoonIds: [7, 8, 9], commander: "MC 1" }
 
 // ------------------------------------------------------------------------------------------------
+// Fetch:
 
-let settingsDisplay1 = { name: "Add Soldier", link: "AddSoldier" }
-let settingsDisplay2 = { name: "Add User", link: "AddUser" }
-// let settingsDisplay3 = { name: "Add Section", link: "AddSection" }
-
-let settingDisplay = { name: "Settings", link: "Settings", tests: [ settingsDisplay1, settingsDisplay2 ] }
-
-//------------------------------------------------------------------------------------------------
-// FETCH:
-
-function fetchSettingDisplays() {
-    return settingDisplay;
-}
-
-function fetchContentDisplays() {
-    return contents;
-}
-
-function fetchContentDisplay(contentLink) {
-    return contents.find(c => c.link === contentLink);
-}
-
-function fetchTestDisplay(contentLink, testLink) {
-    return contents.find(c => c.link === contentLink).tests.find(t => t.link === testLink);
-}
-
-async function fetchTest(testName) {
+async function fetchTest(testLink) {
     return test1;
     // const res = await fetch("http://127.0.0.1:5022/api/Tests/ + testName", {
     //     method: "GET",
@@ -118,7 +129,7 @@ async function fetchTest(testName) {
     // return JSON.parse(await res.text());
 }
 
-async function fetchTestResults(test) {
+async function fetchTestResults(testLink) {
     return [r11, r12, r13];
 }
 
@@ -175,8 +186,7 @@ async function fetchCompanySoldiers(companyID) {
     return [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12]
 }
 
-
-async function fetchResultByTestAndSoldier(testName, soldierID) {
+async function fetchResultByTestAndSoldier(testLink, soldierID) {
     // const res = await fetch("http://127.0.0.1:5022/api/Results/" + testName + "-" + soldierID, {
     //     method: "GET",
     // });
@@ -187,8 +197,33 @@ async function fetchResultByTestAndSoldier(testName, soldierID) {
     return r11
 }
 
-async function fetchContentTest(contentName) {
-    return 
+async function fetchSoldierResults(soldierId) {
+    return [r1, r2, r3];
+}
+
+async function fetchSection(sectionID) {
+    let sectionMap = {
+        1: sect1,
+        2: sect2,
+        3: sect3,
+        4: sect4,
+        5: sect5,
+        6: sect6,
+    }
+    return sectionMap[sectionID];
+}
+
+async function fetchPlatoon(platoonID) {
+    let platoonMap = {
+        7: plat1,
+        8: plat2,
+        9: plat3,
+    }
+    return platoonMap[platoonID];
+}
+
+async function fetchCompany(companyID) {
+    return comp1;
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -215,7 +250,7 @@ async function postPlatoon(platoon) {
     return response;
 }
 
-async function postResult(testName, soldierId, score) {
+async function postResult(testLink, soldierId, score) {
     // const response = await fetch("http://127.0.0.1:5022/api/Result/", {
     //     method: "POST",
     //     headers: {
@@ -296,11 +331,10 @@ async function postVerifyUser(username, password) {
     return response;
 }
 
-
 export {
     fetchTest, fetchSoldier, fetchResultByTestAndSoldier, fetchTestResults, fetchSoldiers,
-    fetchContentDisplays, fetchContentDisplay, fetchTestDisplay, fetchContentTest, fetchSettingDisplays,
-    fetchCompanySoldiers, fetchPlatoonSoldiers, fetchSectionSoldiers,
+    fetchCompanySoldiers, fetchPlatoonSoldiers, fetchSectionSoldiers, fetchSoldierResults,
+    fetchCompany, fetchPlatoon, fetchSection,
     postSoldier, postUser, postResult, postSection, postPlatoon, postCompany,
     postSoldierToSection, postVerifyUser, 
     // For testing:

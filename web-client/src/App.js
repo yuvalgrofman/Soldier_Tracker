@@ -19,6 +19,7 @@ import Content from "./Content/Content";
 import SoldierList from "./SoldierList/SoldierList";
 import Setting from "./Setting/Setting";
 import Login from "./Login/Login";
+import SoldierProfile from "./SoldierProfile/SoldierProfile.js";
 
 function App() {
 
@@ -35,8 +36,11 @@ function App() {
                 <Route path="/Content/:contentLink" element={<Content/> } />
                 <Route path="/Test/:testLink" element={<TestStatus/> } />
                 <Route path="/Test/:testName/:soldierID" element={<SoldierTestProfile/> } />
-                <Route path="/Soldiers/:force/:id" element={<SoldierList /> } />
+                <Route path="/Soldiers/:forceType/:id" element={<SoldierList /> } />
+                <Route path="/Exceptions/:forceType/:id" element={<SoldierList exception={true}/> } />
 
+
+                <Route path="/Soldier/:id" element={<SoldierProfile />}/>
             </Routes>
         </BrowserRouter>
     );

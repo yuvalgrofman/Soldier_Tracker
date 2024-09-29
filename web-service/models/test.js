@@ -5,6 +5,10 @@ const Test = new mongoose.Schema({
         type: String,
         nullable: false,
     },
+    link: {
+        type: String,
+        nullable: false,
+    },
     // HIGH/LOW
     type: {
         type: String,

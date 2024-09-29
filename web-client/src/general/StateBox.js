@@ -11,7 +11,7 @@ function StateBox({ state }) {
                 "EXCELLENT": "btn-warning", 
 
                 "EXCEPTION": "btn-danger",
-                "GOOD" : "btn-success"
+                "NORMAL" : "btn-success"
         }
 
         if (state in state_to_style) {

@@ -1,0 +1,16 @@
+.profile-picture-big {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 3px solid #ddd; /* Optional border for the image */
+}
+
+.list-group-item {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.badge {
+  font-size: 14px;
+  padding: 5px 10px;
+}

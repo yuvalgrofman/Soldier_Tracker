@@ -2,8 +2,7 @@ import React from 'react';
 import HomepageBar from './HomepageBar';
 import ButtonGrid from '../general/ButtonGrid';
 import './Homepage.css';
-import { useState, useEffect } from 'react';
-import { fetchContentDisplays } from '../general/API';
+import { fetchContentDisplays } from '../general/Display';
 
 function Homepage() {
     // const [buttonNames, setButtonNames] = useState([]);
@@ -19,7 +18,7 @@ function Homepage() {
     // }, []);
 
     const buttonNamesBar = ['Soldiers', 'Exceptions', 'Settings'];
-    const buttonPagesBar = ['/Soldiers', '/Excpetions', '/Settings'];
+    const buttonPagesBar = ['/Soldiers/Platoon/1', '/Exceptions', '/Settings'];
 
     const contents = fetchContentDisplays();
     const buttonNames = contents.map((content) => content.name);

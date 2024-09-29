@@ -9,18 +9,17 @@ function SoldierListElement({ soldier }) {
     let navigate = useNavigate();
 
     const getState = function () {
-        // TODO: iterate over tests and check if there is an exception
-        if (soldier.armyID % 2) {
+        if (soldier.exception) {
             return "EXCEPTION";
         }
-        return "GOOD";
+        return "NORMAL";
     }
 
     soldierState = getState();
 
     return (
         <li
-            onClick={() => {navigate("soldiertest/" + soldier.armyID)}}
+            onClick={() => {navigate("/Soldier/" + soldier.armyID)}}
             className="list-group-item d-flex align-items-center mx-0 darken-on-hover"
         >
             <span>
