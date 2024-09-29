@@ -26,6 +26,16 @@ const getResult = async (testLink, soldierID) => {
     return result;
 }
 
+const getResultByObjectId = async (resultObjectId) => {
+    const result = await Result.findOne({ _id: resultObjectId });
+
+    if (result.length === 0) {
+        throw new Error('Result not found');
+    }
+
+    return result;
+}
+
 const updateScore = async (testLink, soldierID, score) => {
     const result = await Result.findOne({ testLink, soldierID });
 
@@ -39,4 +49,4 @@ const updateScore = async (testLink, soldierID, score) => {
     return result;
 }
 
-module.exports = { getResult, createResult };
+module.exports = { getResult, createResult, getResultByObjectId };
