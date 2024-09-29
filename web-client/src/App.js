@@ -10,7 +10,6 @@ import SoldierStatus from "./TestStatus/StatusList/SoldierStatus"
 import StatusList from "./TestStatus/StatusList/StatusList";
 import TestStatus from "./TestStatus/TestStatus";
 
-import {s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, test1, r11, r21 , r13, r12} from "./general/API.js"
 import AddUser from "./AddUser/AddUser";
 import SoldierTestProfile from "./SoldierTestProfile/SoldierTestProfile";
 import AddSoldier from "./AddSoldier/AddSoldier";
@@ -35,7 +34,7 @@ function App() {
 
                 <Route path="/Content/:contentLink" element={<Content/> } />
                 <Route path="/Test/:testLink" element={<TestStatus/> } />
-                <Route path="/Test/:testName/:soldierID" element={<SoldierTestProfile/> } />
+                <Route path="/Test/:testLink/:soldierID" element={<SoldierTestProfile/> } />
                 <Route path="/Soldiers/:forceType/:id" element={<SoldierList /> } />
                 <Route path="/Exceptions/:forceType/:id" element={<SoldierList exception={true}/> } />
 
