@@ -34,7 +34,7 @@ function App() {
 
                 <Route path="/Content/:contentLink" element={<Content/> } />
                 <Route path="/Test/:testLink" element={<TestStatus/> } />
-                <Route path="/Test/:testName/:soldierID" element={<SoldierTestProfile/> } />
+                <Route path="/Test/:testLink/:soldierID" element={<SoldierTestProfile/> } />
                 <Route path="/Soldiers/:forceType/:id" element={<SoldierList /> } />
                 <Route path="/Exceptions/:forceType/:id" element={<SoldierList exception={true}/> } />
 

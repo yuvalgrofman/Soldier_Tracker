@@ -1,14 +1,14 @@
 /** @format */
 
 import { useEffect, useState } from "react";
-import { fetchSoldier, fetchTest, fetchResultByTestAndSoldier, postResult } from "../general/API";
+import { fetchSoldier, fetchTest, fetchResultByTestAndSoldier, fetchTestName, postResult } from "../general/API";
 import placeholder from "../images/placeholder.png"
 import {useNavigate, useParams} from "react-router-dom";
 import alert from "bootstrap/js/src/alert";
 
 
-function saveFunc(testName, soldierID, score) {
-    postResult(testName, soldierID, score).then((response) => {
+function saveFunc(testLink, soldierID, score) {
+    postResult(testLink, soldierID, score).then((response) => {
         if (response == null) {
             window.alert("Error saving result");
         }
@@ -17,7 +17,7 @@ function saveFunc(testName, soldierID, score) {
 
 function SoldierTestProfile() {
     const navigate = useNavigate();
-    const { testName, soldierID } = useParams();
+    const { testLink, soldierID } = useParams();
 
     const [soldier, setSoldier] = useState({
         name: null,
@@ -25,6 +25,7 @@ function SoldierTestProfile() {
     });
 
     const [score, setScore] = useState(0);
+    const [testName, setTestName] = useState("");
 
     useEffect(() => {
         fetchSoldier(soldierID).then((fetchedSoldier) => {
@@ -32,12 +33,25 @@ function SoldierTestProfile() {
                 alert("Error fetching soldier");
                 return;
             }
-            setSoldier(fetchedSoldier)
-            fetchResultByTestAndSoldier(testName, soldierID).then((fetchedResult) => {
-                setScore(fetchedResult.score);
+            fetchResultByTestAndSoldier(testLink, soldierID).then((fetchedResult) => {
+                if (fetchedResult == null) {
+                    alert("Error fetching result");
+                    return;
+                }
+
+                fetchTestName(testLink).then((fetchedTestName) => {
+                    if (fetchedTestName == null) {
+                        alert("Error fetching test name");
+                        return;
+                    }
+
+                    setTestName(fetchedTestName);
+                    setScore(fetchedResult.score);
+                    setSoldier(fetchedSoldier);
+                })
             })
         })
-    }, [soldierID, testName])
+    }, [soldierID, testLink])
 
     return (
         <main className="container-sm w-80 shadow mt-4 p-0 rounded-2">
@@ -78,7 +92,7 @@ function SoldierTestProfile() {
                             <button
                                 type="button"
                                 className="btn bg-light-purple darken-on-hover w-80 text-white fw-600 py-2 mb-4"
-                                onClick={ () => saveFunc(testName, soldierID, score) }
+                                onClick={ () => saveFunc(testLink, soldierID, score) }
                             >Save</button>
                         </div>
                     <div className="col">

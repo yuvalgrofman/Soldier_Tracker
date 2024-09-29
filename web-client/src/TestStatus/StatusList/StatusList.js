@@ -33,7 +33,7 @@ function StatusList({ test }) {
     }, test);
 
     const soldierComponents = results.map((result) => (
-        <Link to={`/Test/${test.name}/${result.soldierID}`} key={result.soldierID}>
+        <Link to={`/Test/${test.link}/${result.soldierID}`} key={result.soldierID}>
             <SoldierStatus
                 soldier={soldiers.find((soldier) => soldier.armyID == result.soldierID)}
                 result={result}

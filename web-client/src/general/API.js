@@ -130,7 +130,7 @@ let r123 = { objectId: 136, testName: "50 Meters", soldierID: 12, score: 100, is
 // ------------------------------------------------------------------------------------------------
 
 let t1 = {
-    name: "10 Meters",
+    name: "10 Meter Range",
     link: "10MeterRange",
     type: "HIGH",
     excellent: 90,
@@ -139,7 +139,7 @@ let t1 = {
 }
 
 let t2 = {
-    name: "25 Meters",
+    name: "25 Meter Range",
     link: "25MeterRange",
     type: "HIGH",
     excellent: 90,
@@ -148,7 +148,7 @@ let t2 = {
 }
 
 let t3 = {
-    name: "50 Meters",
+    name: "50 Meter Range",
     link: "50MeterRange",
     type: "HIGH",
     excellent: 90,
@@ -192,6 +192,11 @@ async function fetchTest(testLink) {
     // if (!res.ok) return null;
 
     // return JSON.parse(await res.text());
+}
+
+async function fetchTestName(testLink) {
+    let test = tests.find(test => test.link == testLink)
+    return test.name
 }
 
 async function fetchTestResults(test) {
@@ -263,8 +268,12 @@ async function fetchResultByTestAndSoldier(testLink, soldierID) {
     // return JSON.parse(await res.text());
     let test = tests.find(test => test.link == testLink)
     let results = test.results
-    return results.find(result => result.soldierID == soldierID)
-
+    for (const resultID of results) {
+        let result = objects.find(obj => obj.objectId == resultID)
+        if (result.soldierID == soldierID) {
+            return result
+        }
+    }
 }
 
 async function fetchSoldierResults(soldierId) {
@@ -396,7 +405,7 @@ async function postVerifyUser(username, password) {
 export {
     fetchTest, fetchSoldier, fetchResultByTestAndSoldier, fetchTestResults, fetchSoldiers,
     fetchCompanySoldiers, fetchPlatoonSoldiers, fetchSectionSoldiers, fetchSoldierResults,
-    fetchCompany, fetchPlatoon, fetchSection,
+    fetchCompany, fetchPlatoon, fetchSection, fetchTestName,
     postSoldier, postUser, postResult, postSection, postPlatoon, postCompany,
     postSoldierToSection, postVerifyUser
 } 
