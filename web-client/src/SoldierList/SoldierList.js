@@ -11,6 +11,7 @@ function SoldierList({ exception }) {
     const { forceType, id } = useParams();
 
     const [soldiers, setSoldiers] = useState([]);
+    const [title, setTitle] = useState("");
     // const [subUnits, setForce] = useState([]);
 
     // const fetchForceMap = {
@@ -27,6 +28,15 @@ function SoldierList({ exception }) {
 
     useEffect(() => {
         fetchForceSoldiersMap[forceType](id).then((fetchedSoldiers) => {
+            let title = "";
+            if (forceType === "Section") {
+                title = "Company " + fetchedSoldiers[0].company  + " -  Platoon " + fetchedSoldiers[0].platoon + " - Section " + fetchedSoldiers[0].section;
+            } else if (forceType === "Platoon") {
+                title = "Company " + fetchedSoldiers[0].company  + " -  Platoon " + fetchedSoldiers[0].platoon;
+            } else {
+                title = "Company " + fetchedSoldiers[0].company;
+            }
+            setTitle(title);
             setSoldiers(fetchedSoldiers);
 
             // fetchForceMap[forceType](id).then((fetchedForce) => {
@@ -48,6 +58,9 @@ function SoldierList({ exception }) {
 
     return (
         <main className="container-sm w-80 shadow mt-4 p-0 rounded-2">
+            <div className = "card-header d-flex flex-column align-items-center bg-light-gray">
+                <span className="d-flex justify-content-center w-100 fw-bold">{title}</span>
+            </div>
             <div className="card border-0"> 
                 <div className = "card-body p-3">
                     <ul className="list-group list-group-flush overflow-auto"
