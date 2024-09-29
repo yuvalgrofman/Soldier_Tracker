@@ -11,7 +11,6 @@ function saveFunc(testName, soldierID, score) {
     postResult(testName, soldierID, score).then((response) => {
         if (response == null) {
             window.alert("Error saving result");
-            return;
         }
     });
 }
