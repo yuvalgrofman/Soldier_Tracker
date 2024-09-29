@@ -1,4 +1,4 @@
-const {Platoon} = require('../models/platoon');
+const Platoon = require('../models/platoon');
 
 const createPlatoon = async (name, sectionIds, commander) => { 
     await Platoon.create({

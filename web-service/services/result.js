@@ -1,4 +1,4 @@
-const {Result} = require('../models/result');
+const Result = require('../models/result');
 
 const createResult = async (testID, soldierID, score, isCompleted) => { 
     const result = await Result.findOne({ testID, soldierID });

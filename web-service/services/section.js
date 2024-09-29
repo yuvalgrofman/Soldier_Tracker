@@ -1,4 +1,4 @@
-const {Section} = require('../models/section');
+const Section = require('../models/section');
 
 const createSection = async (name, soldierIds, commander) => { 
     await Section.create({
