@@ -3,6 +3,6 @@ const testController = require("../controllers/test.js");
 const express = require("express");
 const router = express.Router();
 
-router.get("/:testName", testController.getTest);
+router.get("/:testLink", testController.getTest);
 
 module.exports = router;

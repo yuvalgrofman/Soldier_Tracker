@@ -3,7 +3,7 @@ const {Schema} = require("mongoose");
 
 const Result = new mongoose.Schema({
 
-    testName: {
+    testLink: {
         type: String,
         nullable: false
     },
@@ -18,7 +18,8 @@ const Result = new mongoose.Schema({
     isCompleted: {
         type: Boolean,
         default: false,
-    }, status: {
+    },
+    status: {
         type: String,
         nullable: false,
     }

@@ -1,10 +1,10 @@
 const resultService = require('../services/result');
 
 const updateResult = async (req, res) => {
-    const { testName, soldierId, score } = req.body;
+    const { testLink, soldierId, score } = req.body;
 
     try {
-        const result = await resultService.updateScore(testName, soldierId, score);
+        const result = await resultService.updateScore(testLink, soldierId, score);
         return res.send(result);
     } catch (error) {
         return res
@@ -14,10 +14,10 @@ const updateResult = async (req, res) => {
 }
 
 const getResult = async (req, res) => {
-    const { testName, soldierId } = req.params;
+    const { testLink, soldierId } = req.params;
 
     try {
-        const result = await resultService.getResult(testName, soldierId);
+        const result = await resultService.getResult(testLink, soldierId);
         return res.send(result);
     } catch (error) {
         return res

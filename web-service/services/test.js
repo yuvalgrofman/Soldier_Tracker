@@ -1,7 +1,7 @@
 const Test = require('../models/test');
 
-const createTest = async (name, pass, excellent, type) => { 
-    const test = await Test.findOne({ name });
+const createTest = async (name, link, pass, excellent, type) => {
+    const test = await Test.findOne({ link });
 
     if (test !== null) {
         throw new Error('Test already exists');
@@ -9,6 +9,7 @@ const createTest = async (name, pass, excellent, type) => {
 
     await Test.create({
         name,
+        link,
         pass,
         excellent,
         type,
@@ -16,8 +17,8 @@ const createTest = async (name, pass, excellent, type) => {
 
 }
 
-const updatePass = async (testID, pass) => {
-    const test = await Test.findOne(testID);
+const updatePass = async (link, pass) => {
+    const test = await Test.findOne({link});
 
     if (test.length === 0) {
         throw new Error('Test not found');
@@ -27,8 +28,8 @@ const updatePass = async (testID, pass) => {
     await test.save();
 }
 
-const updateExcellent = async (testID, excellent) => {
-    const test = await Test.findOne(testID);
+const updateExcellent = async (link, excellent) => {
+    const test = await Test.findOne({link});
 
     if (test.length === 0) {
         throw new Error('Test not found');
@@ -38,8 +39,8 @@ const updateExcellent = async (testID, excellent) => {
     await test.save();
 }
 
-const getTest = async (name) => {
-    const test = await Test.findOne({ name });
+const getTest = async (link) => {
+    const test = await Test.findOne({ link });
     
     if (test.length === 0) {
         throw new Error('Test not found');
