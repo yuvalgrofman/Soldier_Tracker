@@ -120,7 +120,7 @@ let comp1 = { name: "Company 1", platoonIds: [7, 8, 9], commander: "MC 1" }
 
 async function fetchTest(testLink) {
     return test1;
-    // const res = await fetch("http://127.0.0.1:5022/api/Tests/ + testName", {
+    // const res = await fetch("http://127.0.0.1:5022/api/Tests/ + testLink", {
     //     method: "GET",
     // });
     
@@ -129,7 +129,22 @@ async function fetchTest(testLink) {
     // return JSON.parse(await res.text());
 }
 
+async function fetchResultByObjectId(resultObjId) {
+    // No need for implementation in local version!!
+
+    // const res = await fetch("http://127.0.0.1:5022/api/Results/" + resultObjId, {
+    //     method: "GET",
+    // });
+    //
+    // if (!res.ok) return null;
+    //
+    // return JSON.parse(await res.text());
+}
+
 async function fetchTestResults(testLink) {
+    // const resultObjIds =  (await fetchTest(testLink)).results
+    // return resultObjIds.map(async (objId) => await fetchResultByObjectId(objId))
+
     return [r11, r12, r13];
 }
 
@@ -151,6 +166,8 @@ async function fetchSoldier(armyID) {
 }
 
 async function fetchSoldiers(armyIDList) {
+    // return (armyIDList).map(async (soldierId) => await fetchSoldier(soldierId))
+
     let ss = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12]
     let res = []
     for (const s of ss) {
@@ -162,6 +179,9 @@ async function fetchSoldiers(armyIDList) {
 }
 
 async function fetchSectionSoldiers(sectionID) {
+    // const section = await fetchSection(sectionID)
+    // return (section.soldierIds).map(async (soldierId) => await fetchSoldier(soldierId))
+
     let sectionMap = {
         1: [s1, s2],
         2: [s3, s4],
@@ -174,6 +194,10 @@ async function fetchSectionSoldiers(sectionID) {
 } 
 
 async function fetchPlatoonSoldiers(platoonID) {
+    // const platoon = await fetchPlatoon(platoonID)
+    // const sectionSoldiers = (platoon.sectionIds).map(async (secId) => await fetchSectionSoldiers(secId))
+    // return sectionSoldiers.flat(1)
+
     let platoonMap = {
         1: [s1, s2, s3, s4],
         2: [s5, s6, s7, s8],
@@ -183,11 +207,15 @@ async function fetchPlatoonSoldiers(platoonID) {
 }
 
 async function fetchCompanySoldiers(companyID) {
+    // const company = await fetchCompany(companyID)
+    // const platoonSoldiers = (company.platoonIds).map(async (platId) => await fetchPlatoonSoldiers(platId))
+    // return platoonSoldiers.flat(1)
+
     return [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12]
 }
 
 async function fetchResultByTestAndSoldier(testLink, soldierID) {
-    // const res = await fetch("http://127.0.0.1:5022/api/Results/" + testName + "-" + soldierID, {
+    // const res = await fetch("http://127.0.0.1:5022/api/Results/" + testLink + "-" + soldierID, {
     //     method: "GET",
     // });
     //
@@ -202,6 +230,14 @@ async function fetchSoldierResults(soldierId) {
 }
 
 async function fetchSection(sectionID) {
+    // const res = await fetch("http://127.0.0.1:5022/api/Force/section/" + sectionID, {
+    //     method: "GET",
+    // });
+    //
+    // if (!res.ok) return null;
+    //
+    // return JSON.parse(await res.text());
+
     let sectionMap = {
         1: sect1,
         2: sect2,
@@ -214,6 +250,15 @@ async function fetchSection(sectionID) {
 }
 
 async function fetchPlatoon(platoonID) {
+    // const res = await fetch("http://127.0.0.1:5022/api/Force/platoon/" + platoonID, {
+    //     method: "GET",
+    // });
+    //
+    // if (!res.ok) return null;
+    //
+    // return JSON.parse(await res.text());
+
+
     let platoonMap = {
         7: plat1,
         8: plat2,
@@ -223,6 +268,14 @@ async function fetchPlatoon(platoonID) {
 }
 
 async function fetchCompany(companyID) {
+    // const res = await fetch("http://127.0.0.1:5022/api/Force/company/" + companyID, {
+    //     method: "GET",
+    // });
+    //
+    // if (!res.ok) return null;
+    //
+    // return JSON.parse(await res.text());
+
     return comp1;
 }
 
@@ -256,7 +309,7 @@ async function postResult(testLink, soldierId, score) {
     //     headers: {
     //         "Content-Type": "application/json",
     //     },
-    //     body: JSON.stringify({testName, soldierId, score}),
+    //     body: JSON.stringify({testLink, soldierId, score}),
     // });
     //
     // return response;
@@ -299,7 +352,7 @@ async function postSoldier(soldier) {
     //     },
     //     body: JSON.stringify(soldier),
     // });
-
+    // console.log(response)
     // return response;
 }
 
