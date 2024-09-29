@@ -18,7 +18,7 @@ function Homepage() {
     // }, []);
 
     const buttonNamesBar = ['Soldiers', 'Exceptions', 'Settings'];
-    const buttonPagesBar = ['/Soldiers/Platoon/1', '/Exceptions', '/Settings'];
+    const buttonPagesBar = ['/Soldiers/Company/1009', '/Exceptions/Company/1009', '/Settings'];
 
     const contents = fetchContentDisplays();
     const buttonNames = contents.map((content) => content.name);

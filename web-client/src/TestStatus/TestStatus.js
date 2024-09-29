@@ -8,35 +8,32 @@ import { fetchTest } from "../general/API";
 import { useEffect, useState } from "react";
 
 function TestStatus() {
-    const { testName } = useParams();
+    const { testLink } = useParams();
 
-    const [test, setTest] = useState({
-        name: "Null",
-        type: "HIGH",
-        findBySoldierId: (id) => null,
-        excellent: 0,
-        pass: 0,
-        results: [ ] // Real objectIds aren't numbers, it's for testing...
-    });
+    const [test, setTest] = useState(null);
 
     useEffect(() => {
-        fetchTest(testName).then((fetchedTest) => {
+        fetchTest(testLink).then((fetchedTest) => {
             if (fetchedTest == null) {
                 alert("Error fetching test");
                 return;
             }
             setTest(fetchedTest);
         });
-    }, testName);
+    }, testLink);
 
-    return (
-        <main className="container-sm w-80 shadow mt-4 p-0 rounded-2">
-            <div className="card border-0"> 
-                <Upper testName={test.name} />
-                <StatusList test={test} />
-            </div>
-        </main>
-    );
+    if (test) {
+        return (
+            <main className="container-sm w-80 shadow mt-4 p-0 rounded-2">
+                <div className="card border-0"> 
+                    <Upper testName={test.name} />
+                    <StatusList test={test} />
+                </div>
+            </main>
+        );
+    }
+    return null;
+
 }
 
 export default  TestStatus;
