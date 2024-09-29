@@ -11,6 +11,7 @@ function TestStatus() {
     const { testLink } = useParams();
 
     const [test, setTest] = useState(null);
+    const [query, setQuery] = useState("");
 
     useEffect(() => {
         fetchTest(testLink).then((fetchedTest) => {
@@ -26,8 +27,8 @@ function TestStatus() {
         return (
             <main className="container-sm w-80 shadow mt-4 p-0 rounded-2">
                 <div className="card border-0"> 
-                    <Upper testName={test.name} />
-                    <StatusList test={test} />
+                    <Upper testName={test.name} doSearch={setQuery} />
+                    <StatusList test={test} query={query}/>
                 </div>
             </main>
         );

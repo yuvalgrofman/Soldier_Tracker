@@ -15,7 +15,7 @@ function StateBox({ state }) {
         }
 
         if (state in state_to_style) {
-                const btnClass = `btn ${state_to_style[state]} disable`;
+                const btnClass = `btn ${state_to_style[state]} disable state-box`;
                 return (
                         <button type="button" class={btnClass}>{state}</button>
                 );
@@ -24,7 +24,7 @@ function StateBox({ state }) {
 
         // If state not defined - return warning
         return (
-                <button type="button" class="btn btn-black disable"></button>
+                <button type="button" class="btn btn-black disable state-box"></button>
         );
 }
 

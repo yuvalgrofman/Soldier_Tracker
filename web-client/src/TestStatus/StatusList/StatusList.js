@@ -8,7 +8,7 @@ import { fetchTestResults, fetchSoldiers } from "../../general/API";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-function StatusList({ test }) {
+function StatusList({ test, query }) {
     const [results, setResults] = useState([]);
     const [soldiers, setSoldiers] = useState([]);
 
@@ -32,15 +32,32 @@ function StatusList({ test }) {
         });
     }, test);
 
-    const soldierComponents = results.map((result) => (
-        <Link to={`/Test/${test.link}/${result.soldierID}`} key={result.soldierID}>
-            <SoldierStatus
-                soldier={soldiers.find((soldier) => soldier.armyID == result.soldierID)}
-                result={result}
-                test={test}
-            />
-        </Link>
-    ));
+    const soldierComponents = results.map((result) => {
+        if (query === "") {
+            return (
+                <Link to={`/Test/${test.link}/${result.soldierID}`} key={result.soldierID}>
+                    <SoldierStatus
+                        soldier={soldiers.find((soldier) => soldier.armyID == result.soldierID)}
+                        result={result}
+                        test={test}
+                    />
+                </Link>
+            );
+        }
+        let soldier = soldiers.find((soldier) => soldier.armyID == result.soldierID);
+        if (soldier.name.toLowerCase().includes(query.toLowerCase())) {
+            return (
+                <Link to={`/Test/${test.link}/${result.soldierID}`} key={result.soldierID}>
+                    <SoldierStatus
+                        soldier={soldier}
+                        result={result}
+                        test={test}
+                    />
+                </Link>
+            );
+        }
+        return null;
+    });
 
     return (
         <div className = "card-body p-3">

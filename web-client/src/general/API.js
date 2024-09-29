@@ -309,7 +309,7 @@ async function fetchResultByTestAndSoldier(testLink, soldierID) {
 async function fetchSoldierResults(soldierId) {
     let res = []
     for (const test of tests) {
-        let result = fetchResultByTestAndSoldier(test.link, soldierId)
+        let result = await fetchResultByTestAndSoldier(test.link, soldierId)
         res.push(result)
     }
     return res
@@ -349,6 +349,24 @@ async function fetchCompany(companyID) {
     // return JSON.parse(await res.text());
 
     return objects.find(obj => obj.objectId == companyID)
+}
+
+async function fetchPlatoonSections(platoonID) {
+    let platoon = objects.find(obj => obj.objectId == platoonID)
+    let res = []
+    for (const sectionID of platoon.sectionIds) {
+        res.push(objects.find(obj => obj.objectId == sectionID))
+    }
+    return res
+}
+
+async function fetchCompanyPlatoons(companyID) {
+    let company = objects.find(obj => obj.objectId == companyID)
+    let res = []
+    for (const platoonID of company.platoonIds) {
+        res.push(objects.find(obj => obj.objectId == platoonID))
+    }
+    return res
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -460,6 +478,7 @@ export {
     fetchTest, fetchSoldier, fetchResultByTestAndSoldier, fetchTestResults, fetchSoldiers,
     fetchCompanySoldiers, fetchPlatoonSoldiers, fetchSectionSoldiers, fetchSoldierResults,
     fetchCompany, fetchPlatoon, fetchSection, fetchTestName,
+    fetchCompanyPlatoons, fetchPlatoonSections,
     postSoldier, postUser, postResult, postSection, postPlatoon, postCompany,
     postSoldierToSection, postVerifyUser
 }
