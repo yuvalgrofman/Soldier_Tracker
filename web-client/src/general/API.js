@@ -18,13 +18,13 @@ let s2 = {
 }
 
 let s3 = {
-    name: "Yaakov", citizenshipID: 3, armyID: 3, profilePic: profilePic3, section: "1", platoon: "2",
+    name: "Yaakov", citizenshipID: 3, armyID: 3, profilePic: profilePic3, section: "2", platoon: "1",
     company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
     religion: "Jewish", sensitivities: "None", exception: true 
 }
 
 let s4 = {
-    name: "Osher", citizenshipID: 4, armyID: 4, profilePic: profilePic4, section: "1", platoon: "2",
+    name: "Osher", citizenshipID: 4, armyID: 4, profilePic: profilePic4, section: "2", platoon: "1",
     company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
     religion: "Jewish", sensitivities: "None", exception: false
 }
@@ -36,43 +36,43 @@ let s5 = {
 }
 
 let s6 = {
-    name: "Tamir", citizenshipID: 6, armyID: 6, profilePic: profilePic2, section: "2", platoon: "2",
+    name: "Tamir", citizenshipID: 6, armyID: 6, profilePic: profilePic2, section: "1", platoon: "2",
     company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
     religion: "Jewish", sensitivities: "None", exception: true
 }
 
 let s7 = {
-    name: "Ilay", citizenshipID: 7, armyID: 7, profilePic: profilePic3, section: "2", platoon: "1",
+    name: "Ilay", citizenshipID: 7, armyID: 7, profilePic: profilePic3, section: "1", platoon: "2",
     company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
     religion: "Jewish", sensitivities: "None", exception: false
 }
 
 let s8 = {
-    name: "Yair", citizenshipID: 8, armyID: 8, profilePic: profilePic4, section: "2", platoon: "1",
+    name: "Yair", citizenshipID: 8, armyID: 8, profilePic: profilePic4, section: "1", platoon: "2",
     company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
     religion: "Jewish", sensitivities: "None", exception: false
 }
 
 let s9 = {
-    name: "Itay", citizenshipID: 9, armyID: 9, profilePic: profilePic1, section: "2", platoon: "1",
+    name: "Itay", citizenshipID: 9, armyID: 9, profilePic: profilePic1, section: "1", platoon: "3",
     company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
     religion: "Jewish", sensitivities: "None", exception: false
 }
 
 let s10 = {
-    name: "Liav", citizenshipID: 10, armyID: 10, profilePic: profilePic2, section: "2", platoon: "2",
+    name: "Liav", citizenshipID: 10, armyID: 10, profilePic: profilePic2, section: "1", platoon: "3",
     company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
     religion: "Jewish", sensitivities: "None", exception: false
 }
 
 let s11 = {
-    name: "Nachshon", citizenshipID: 11, armyID: 11, profilePic: profilePic3, section: "3", platoon: "2",
+    name: "Nachshon", citizenshipID: 11, armyID: 11, profilePic: profilePic3, section: "2", platoon: "3",
     company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
     religion: "Jewish", sensitivities: "None", exception: true
 }
 
 let s12 = {
-    name: "Yonatan", citizenshipID: 12, armyID: 12, profilePic: profilePic4, section: "3", platoon: "1",
+    name: "Yonatan", citizenshipID: 12, armyID: 12, profilePic: profilePic4, section: "2", platoon: "3",
     company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
     religion: "Jewish", sensitivities: "None", exception: true
 }
