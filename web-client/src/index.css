@@ -72,8 +72,25 @@
 }
 
 /* Global Settings */
+:root {
+    --diag-ang: 45deg;
+}
+
+html{
+    height: 100%;
+}
+
 body {
-    background-color: #4B5320;
+    --background-col: #4B5320;
+    --diagonal-col: #8f1f1f;
+    /*background-color: #4B5320;*/
+    background: linear-gradient(var(--diag-ang), var(--background-col) 45%,
+                                        var(--diagonal-col) 45% 49.5%,
+                                        var(--background-col) 49.5% 50.5%,
+                                        var(--diagonal-col) 50.5% 55%,
+                                        var(--background-col) 55%);
+    background-repeat: no-repeat;
+    background-size:100vw;
 }
 
 .btn:focus, .btn-close:focus {
