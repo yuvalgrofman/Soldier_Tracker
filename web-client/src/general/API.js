@@ -208,6 +208,8 @@ async function fetchResultByObjectId(resultObjId) {
 }
 
 async function fetchTestName(testLink) {
+    // return (await fetchTest(testLink)).name
+
     let test = tests.find(test => test.link == testLink)
     return test.name
 }
@@ -361,6 +363,9 @@ async function fetchPlatoonSections(platoonID) {
 }
 
 async function fetchCompanyPlatoons(companyID) {
+    // const company = await fetchCompany(companyID)
+    // return platoons = (company.platoonIds).map(async (platId) => await fetchPlatoon(platId))
+
     let company = objects.find(obj => obj.objectId == companyID)
     let res = []
     for (const platoonID of company.platoonIds) {
