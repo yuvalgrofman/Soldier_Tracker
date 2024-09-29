@@ -10,7 +10,7 @@ const createSection = async (name, soldierIds, commander) => {
 }
 
 const addSoldierToSection = async (sectionId, soldierId) => {
-    const section = await Section.findById(sectionId);
+    const section = await Section.findById({_id: sectionId});
 
     if (section === null) {
         throw new Error('Section not found');
@@ -21,7 +21,7 @@ const addSoldierToSection = async (sectionId, soldierId) => {
 }
 
 const getSection = async (sectionId) => {
-    const section = await Section.findById(sectionId);
+    const section = await Section.findById({_id: sectionId});
     
     if (section.length === 0) {
         throw new Error('Section not found');

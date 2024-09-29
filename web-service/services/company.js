@@ -15,7 +15,7 @@ const createCompany = async (name, platoonIds, commander) => {
 }
 
 const getCompany = async (companyId) => {   
-    const company = await Company.findById( companyId );
+    const company = await Company.findById({_id: companyId});
     
     if (company.length === 0) {
         throw new Error('Company not found');
