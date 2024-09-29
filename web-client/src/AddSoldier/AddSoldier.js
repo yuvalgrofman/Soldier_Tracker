@@ -56,8 +56,6 @@ function AddSoldier() {
 
         if (!soldier.name) {
             error = "Username is required";
-        } else if (!soldier.profilePic) {
-            error = "Profile Picture is required";
         } else if (!soldier.ID) {
             error = "ID is required";
         } else if (!soldier.armyID) {
@@ -66,11 +64,12 @@ function AddSoldier() {
             error = "Medical Profile is required";
         } else if (!soldier.company || !soldier.platoon || !soldier.section) {
             error = "Soldier's Unit is required";
-        } else if ("/^\d{9}$/".test(soldier.ID)) {
+        } else if (!(/\d{9}/.test(soldier.ID))) {
+            console.log(soldier.ID)
             error = "Soldier ID must be 9 digits"
-        } else if ("/^\d{6,}$/".test(soldier.armyID)) {
+        } else if (!(/^\d{6,}$/.test(soldier.armyID))) {
             error = "Soldier's Army ID must contain at least 6 digits "
-        } else if (soldier.medicalProfile == null || "/^\d{2}$/".test(soldier.medicalProfile)) {
+        } else if (soldier.medicalProfile == null || !(/^\d{2}$/.test(soldier.medicalProfile))) {
             error = "Medical Profile must be 2 digits"
         } else {
             handleSubmit(setError);
