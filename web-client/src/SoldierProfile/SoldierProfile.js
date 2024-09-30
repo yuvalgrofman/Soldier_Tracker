@@ -51,7 +51,7 @@ function SoldierProfile() {
   }, [id]);
 
   return (
-    <main className="container w-50 shadow mt-4 p-4 rounded-2">
+    <main className="container w-80 shadow mt-4 p-4 rounded-2">
       <div className="card border-0">
         <div className="card-body text-center">
           <div className="card-header d-flex flex-column align-items-center bg-light">
@@ -70,20 +70,24 @@ function SoldierProfile() {
 
           {/* Soldier Details */}
           <div className="row">
-            <div className="col-md-6">
+            <div className="col-md-1">
+            </div>
+            <div className="col-md-5">
               <p><strong>Citizenship ID:</strong> {soldier.citizenshipID}</p>
               <p><strong>Army ID:</strong> {soldier.armyID}</p>
               <p><strong>Company:</strong> {soldier.company}</p>
               <p><strong>Platoon:</strong> {soldier.platoon}</p>
               <p><strong>Section:</strong> {soldier.section}</p>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-5">
               <p><strong>Address:</strong> {soldier.address}</p>
               <p><strong>Medical Profile:</strong> {soldier.medicalProfile}</p>
-              <p><strong>Right Handed:</strong> {soldier.rightHanded ? "Yes" : "No"}</p>
+              <p><strong>Dominant hand:</strong> {soldier.rightHanded ? "Right" : "Left"}</p>
               <p><strong>Religion:</strong> {soldier.religion}</p>
               <p><strong>Sensitivities:</strong> {soldier.sensitivities}</p>
               <p><strong>Packal:</strong> {soldier.packal}</p>
+            </div>
+            <div className="col-md-1">
             </div>
           </div>
 
