@@ -61,21 +61,65 @@ function AddCompany() {
         setError(error);
     };
 
-    //OHAD NOTE: I am not messing with this section since I have no idea what
-    //           is going on with the database right now :)
     const handleSubmit = async (setError) => {
-        const response = await fetch("http://127.0.0.1:5022/api/Company", {
+        const companyDB = {
+            name: company.name,
+            commander: company.commander,
+            platoonIds: []
+        }
+
+        const response = await fetch("http://127.0.0.1:5022/api/company", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(company),
+            body: JSON.stringify(companyDB),
         });
 
         if (response["status"] === 409) {
             setError("Company already exists");
         } else {
             setError("");
+
+            const platoonIds = []
+
+            for (let i = 1; i < company.platoons_num + 1; i++) {
+                const sectionIds = []
+
+                // Creating the sections
+                for (let j = 1; j < company.sections_num + 1; j++) {
+                    const newSection = {name: "Section " + j.toString(), soldierIds: []}
+
+                    const response = await fetch("http://127.0.0.1:5022/api/section", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(newSection),
+                    });
+                    sectionIds.push(response.sectionId)
+                }
+
+                const newPlatoon =  {name: "Platoon " + i.toString(), sectionIds}
+
+                const response = await fetch("http://127.0.0.1:5022/api/platoon", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(newPlatoon),
+                });
+                platoonIds.push(response.platoonId)
+            }
+
+            const response = await fetch("http://127.0.0.1:5022/api/updatePlatoons", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({name: company.name, platoonIds }),
+            });
+
             navigate("/");
         }
     };

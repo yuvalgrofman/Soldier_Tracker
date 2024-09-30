@@ -15,12 +15,25 @@ const createCompany = async (req, res) => {
     }
 }
 
+const updatePlatoons = async (req, res) => {
+    const {platoonIds, name} = req.body;
+
+    try {
+        const platoon = await companyService.updatePlatoons(name, platoonIds);
+        return res.send("Updated successfully");
+    } catch (error) {
+        return res
+            .status(404)
+            .send(error.message);
+    }
+}
+
 const createPlatoon = async (req, res) => {
     const { name, sectionIds, commander } = req.body;
 
     try {
-        await platoonService.createPlatoon(name, sectionIds, commander);
-        return res.send('Platoon created');
+        const platoon = await platoonService.createPlatoon(name, sectionIds, commander);
+        return res.send({platoonId: platoon._id});
     } catch (error) {
         return res
             .status(404)
@@ -32,8 +45,8 @@ const createSection = async (req, res) => {
     const { name, soldierIds, commander } = req.body;
 
     try {
-        await sectionService.createSection(name, soldierIds, commander);
-        return res.send('Section created');
+        const section = await sectionService.createSection(name, soldierIds, commander);
+        return res.send({sectionId: section._id});
     } catch (error) {
         return res
             .status(404)
@@ -93,6 +106,7 @@ const getPlatoon = async (req, res) => {
     }
 }
 
+
 module.exports = { getCompany, getPlatoon, getSection,
     createCompany, createPlatoon, createSection,
-    addSoldierToSection };
+    addSoldierToSection, updatePlatoons };

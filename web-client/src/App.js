@@ -19,18 +19,22 @@ import SoldierList from "./SoldierList/SoldierList";
 import Setting from "./Setting/Setting";
 import Login from "./Login/Login";
 import SoldierProfile from "./SoldierProfile/SoldierProfile.js";
+import AddCompany from "./AddCompany/AddCompany";
 
 function App() {
 
     return (
         <BrowserRouter>
             <Routes>
+                <Route path="/AddCompany" element={<AddCompany />} />
+
                 <Route path="/" element={<Login /> } />
                 <Route path="/Home" element={<Homepage /> } />
 
                 <Route path="/Settings" element={<Setting/> } />
                 <Route path="/Settings/AddUser" element={ <AddUser /> } />
                 <Route path="/Settings/AddSoldier" element={ <AddSoldier /> } />
+                <Route path="/Settings/AddCompany" element={ <AddCompany /> } />
 
                 <Route path="/Content/:contentLink" element={<Content/> } />
                 <Route path="/Test/:testLink" element={<TestStatus/> } />

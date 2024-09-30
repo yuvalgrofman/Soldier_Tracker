@@ -6,7 +6,6 @@ const createSection = async (name, soldierIds, commander) => {
         soldierIds,
         commander,
     });
-
 }
 
 const addSoldierToSection = async (sectionId, soldierId) => {

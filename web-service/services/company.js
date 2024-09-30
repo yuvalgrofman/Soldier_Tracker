@@ -14,6 +14,12 @@ const createCompany = async (name, platoonIds, commander) => {
 
 }
 
+const updatePlatoons = async (name, platoonIds) => {
+    const company = await getCompanyByName(name)
+    company.platoonIds = platoonIds
+    await company.save()
+}
+
 const getCompany = async (companyId) => {   
     const company = await Company.findById({_id: companyId});
     
@@ -35,4 +41,4 @@ const getCompanyByName = async (name) => {
 }
 
 
-module.exports = { createCompany, getCompany, getCompanyByName };
+module.exports = { createCompany, getCompany, getCompanyByName, updatePlatoons };

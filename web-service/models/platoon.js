@@ -12,7 +12,7 @@ const Platoon = new mongoose.Schema({
     },
     commander: {
         type: String,
-        nullable: false,
+        nullable: true,
     },
 });
 

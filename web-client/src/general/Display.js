@@ -34,8 +34,9 @@ const contents = [contentDisplay1, contentDisplay2, contentDisplay3, contentDisp
 
 let settingsDisplay1 = { name: "Add Soldier", link: "AddSoldier" }
 let settingsDisplay2 = { name: "Add User", link: "AddUser" }
+let settingsDisplay3 = { name: "Add Company", link: "AddCompany" }
 
-let settingDisplay = { name: "Settings", link: "Settings", tests: [ settingsDisplay1, settingsDisplay2 ] }
+let settingDisplay = { name: "Settings", link: "Settings", tests: [ settingsDisplay1, settingsDisplay2, settingsDisplay3 ] }
 
 // DISPLAY FUNCTIONS --------------------------------------------------------------------------------------
 
