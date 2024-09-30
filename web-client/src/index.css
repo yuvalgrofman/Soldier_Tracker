@@ -105,6 +105,7 @@ body {
                                         var(--background-col) 55%);
     background-repeat: no-repeat;
     background-size:100vw;
+    background-attachment: fixed;
 }
 
 .btn:focus, .btn-close:focus {
