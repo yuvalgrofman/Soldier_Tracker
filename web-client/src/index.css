@@ -17,7 +17,11 @@
 }
 
 .w-30 {
-    width: 30%;  
+    width: 30%;
+}
+
+.h-200 {
+    height: 200px !important;
 }
 
 .va {

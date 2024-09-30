@@ -60,7 +60,7 @@ function SoldierTestProfile() {
                     <span className="d-flex justify-content-center w-100 h1 fw-bold">{testName}</span>
                 </div>
 
-                <div className="container text-center d-flex mt-5 align-items-center flex-column bg-white">
+                <div className="container text-center d-flex mt-5 h-200 align-items-center flex-column bg-white">
                     <div className="row">
                         <div className="col">
                             <span>
