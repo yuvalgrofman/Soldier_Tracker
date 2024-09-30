@@ -1,7 +1,7 @@
 const Soldier = require('../models/soldier');
 
 const createSoldier = async (name, img, section, platoon, company, medicalProfile,
-                             citizenshipID, armyID, address) => {
+                             citizenshipID, armyID, address, religion) => {
     const soldier = await Soldier.findOne({ armyID });
     if (soldier !== null) {
         throw new Error('Soldier already exists');
@@ -14,6 +14,7 @@ const createSoldier = async (name, img, section, platoon, company, medicalProfil
         platoon,
         company,
         address,
+        religion,
         citizenshipID,
         medicalProfile,
         armyID,

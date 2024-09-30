@@ -74,7 +74,7 @@ let s11 = {
 let s12 = {
     name: "Yonatan", citizenshipID: 12, armyID: 12, profilePic: profilePic4, section: "2", platoon: "3",
     company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
-    religion: "Jewish", sensitivities: "None", exception: true
+    religion: "Jewish", sensitivities: "None", exception: false
 }
 
 // ------------------------------------------------------------------------------------------------

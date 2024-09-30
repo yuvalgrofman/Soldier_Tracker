@@ -18,12 +18,12 @@ const getSoldier = async (req, res) => {
 }
 
 const createSoldier = async (req, res) => {
-    const { name, img, section, platoon, company, medicalProfile, citizinshipID, armyID, address }
+    const { name, img, section, platoon, company, medicalProfile, citizinshipID, armyID, religion, address }
         = req.body;
 
     try {
         await soldierService.createSoldier(name, img, section, platoon, company,
-            medicalProfile, citizinshipID, armyID, address);
+            medicalProfile, citizinshipID, armyID, address, religion);
         return res.send('Soldier created');
     } catch (error) {
         return res

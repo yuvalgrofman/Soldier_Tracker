@@ -25,9 +25,10 @@ function AddSoldier() {
         armyID: "",
         medicalProfile: "",
         address: "",
+        religion: "",
         company: "",
         platoon: "",
-        section: ""
+        section: "",
     });
 
     const [error, setError] = React.useState("");
@@ -158,6 +159,16 @@ function AddSoldier() {
                                         idOfInputField="AddSoldier-Address"
                                         updateFunction={(value) => {
                                             handleChange("address", value);
+                                        }}
+                                        inputType="text"
+                                    />
+
+                                    {/*Religion*/}
+                                    <InputField
+                                        labelOfInputField="Religion"
+                                        idOfInputField="AddSoldier-Religion"
+                                        updateFunction={(value) => {
+                                            handleChange("religion", value);
                                         }}
                                         inputType="text"
                                     />
