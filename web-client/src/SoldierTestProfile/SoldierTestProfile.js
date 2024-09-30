@@ -91,7 +91,7 @@ function SoldierTestProfile() {
                     <div className="col">
                             <button
                                 type="button"
-                                className="btn bg-light-purple darken-on-hover w-80 text-white fw-600 py-2 mb-4"
+                                className="btn bg-dark-red darken-on-hover w-80 text-white fw-600 py-2 mb-4"
                                 onClick={ () => saveFunc(testLink, soldierID, score) }
                             >Save</button>
                         </div>
@@ -99,7 +99,7 @@ function SoldierTestProfile() {
                             <button
                                 type="button"
                                 onClick={() => navigate(-1)}
-                                className="btn bg-light-purple darken-on-hover w-80 text-white fw-600 py-2 mb-4"
+                                className="btn bg-dark-red darken-on-hover w-80 text-white fw-600 py-2 mb-4"
                             >Cancel</button>
                         </div>
                     </div>

@@ -71,6 +71,16 @@
     background-color: #5469D4;
 }
 
+.dark-red {
+    color: #8f1f1f;
+}
+
+.bg-dark-red {
+    background-color: #8f1f1f;
+    filter: brightness(1.1);
+    color: white !important;
+}
+
 .bg-light-gray {
     background-color: #f0f2f5;
 }

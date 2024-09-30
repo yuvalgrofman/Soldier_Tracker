@@ -20,7 +20,7 @@ const ButtonGrid = ({ buttonNames, buttonPages, pagesURL }) => {
           {buttonNames.map((name, index) => (
             <div className="col-6 mb-3 d-flex justify-content-center align-items-center" key={index}>
               <button
-                className="btn btn-primary btn-block rounded-4 w-80 bg-light-purple darken-on-hover gridButton"
+                className="btn darken-on-hover btn-block rounded-4 w-80 bg-dark-red  gridButton"
                 onClick={() => handleButtonClick(buttonPages[index])}
               >
                 {name}

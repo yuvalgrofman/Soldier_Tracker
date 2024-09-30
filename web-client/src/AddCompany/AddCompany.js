@@ -185,7 +185,7 @@ function AddCompany() {
                                             onClick={(event) => {
                                                 validateAndSubmit(event, setError);
                                             }}
-                                            className="btn bg-light-purple darken-on-hover w-100 text-white fw-600 py-2 mb-4"
+                                            className="btn bg-dark-red darken-on-hover w-100 text-white fw-600 py-2 mb-4"
                                         >
                                             Submit
                                         </button>

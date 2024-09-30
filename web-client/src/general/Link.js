@@ -6,7 +6,7 @@ function Link({ initialText, linkText, link }) {
         <>
             <span>{initialText}</span>
             <span 
-                className="text-decoration-none darken-on-hover light-purple fw-600"
+                className="text-decoration-none darken-on-hover dark-red fw-600"
                 onClick={() => navigate(link)}
             >
                 {linkText}
