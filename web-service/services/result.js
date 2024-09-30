@@ -36,13 +36,14 @@ const getResultByObjectId = async (resultObjectId) => {
     return result;
 }
 
-const updateScore = async (testLink, soldierID, score) => {
+const updateScore = async (testLink, soldierID, score, status) => {
     const result = await Result.findOne({ testLink, soldierID });
 
     if (result === null) {
         throw new Error('Result not found');
     }
 
+    result.status = status;
     result.score = score;
     result.isCompleted = true;
     await result.save();

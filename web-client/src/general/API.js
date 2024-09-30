@@ -398,13 +398,13 @@ async function postPlatoon(platoon) {
     return response;
 }
 
-async function postResult(testLink, soldierId, score) {
+async function postUpdateResult(testLink, soldierID, score, status) {
     // const response = await fetch("http://127.0.0.1:5022/api/Result/", {
     //     method: "POST",
     //     headers: {
     //         "Content-Type": "application/json",
     //     },
-    //     body: JSON.stringify({testName, soldierId, score}),
+    //     body: JSON.stringify({testLink, soldierID, score, status}),
     // });
     //
     // return response;
@@ -489,11 +489,16 @@ async function postVerifyUser(username, password) {
     return response;
 }
 
+async function updateSoldiersException(soldierId, exception) {
+    // Don't implement yet, exception field will be changed from boolean to integer.
+    return
+}
+
 export {
     fetchTest, fetchSoldier, fetchResultByTestAndSoldier, fetchTestResults, fetchSoldiers,
     fetchCompanySoldiers, fetchPlatoonSoldiers, fetchSectionSoldiers, fetchSoldierResults,
     fetchCompany, fetchPlatoon, fetchSection, fetchTestName,
-    fetchCompanyPlatoons, fetchPlatoonSections,
-    postSoldier, postUser, postResult, postSection, postPlatoon, postCompany,
+    fetchCompanyPlatoons, fetchPlatoonSections, updateSoldiersException,
+    postSoldier, postUser, postUpdateResult, postSection, postPlatoon, postCompany,
     postSoldierToSection, postVerifyUser, updatePlatoons
 }

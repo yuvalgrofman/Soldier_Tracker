@@ -13,6 +13,7 @@ const Result = new mongoose.Schema({
     }, 
     score: {
         type: Number,
+        default: 0,
         nullable: false,
     }, 
     isCompleted: {
@@ -21,6 +22,7 @@ const Result = new mongoose.Schema({
     },
     status: {
         type: String,
+        default: "FAILED",
         nullable: false,
     }
     

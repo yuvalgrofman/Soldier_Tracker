@@ -1,10 +1,10 @@
 const resultService = require('../services/result');
 
 const updateResult = async (req, res) => {
-    const { testLink, soldierId, score } = req.body;
+    const { testLink, soldierID, score, status } = req.body;
 
     try {
-        const result = await resultService.updateScore(testLink, soldierId, score);
+        const result = await resultService.updateScore(testLink, soldierID, score, status);
         return res.send(result);
     } catch (error) {
         return res

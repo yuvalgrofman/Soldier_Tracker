@@ -1,18 +1,51 @@
 /** @format */
 
 import { useEffect, useState } from "react";
-import { fetchSoldier, fetchTest, fetchResultByTestAndSoldier, fetchTestName, postResult } from "../general/API";
+import {
+    fetchSoldier,
+    fetchTest,
+    fetchResultByTestAndSoldier,
+    fetchTestName,
+    postUpdateResult,
+    updateSoldiersException
+} from "../general/API";
 import placeholder from "../images/placeholder.png"
 import {useNavigate, useParams} from "react-router-dom";
 import alert from "bootstrap/js/src/alert";
 
 
-function saveFunc(testLink, soldierID, score) {
-    postResult(testLink, soldierID, score).then((response) => {
+function saveFunc(test, testLink, soldierID, score) {
+
+    let format_to_lambda = {
+        "HIGH": (a,b) => a >= b,
+        "LOW": (a,b) => a <= b
+    }
+    let status;
+    if (test.type in format_to_lambda) {
+        let cmp = format_to_lambda[test.type]
+
+        if (cmp(result.score, test.excellent)) {
+            status = "EXCELLENT";
+        } else if (cmp(result.score, test.pass)) {
+            status = "PASSED";
+        } else {
+            status = "FAILED";
+        }
+    }
+
+    postUpdateResult(testLink, soldierID, score, status).then((response) => {
         if (response == null) {
             window.alert("Error saving result");
         }
     });
+
+    if (status == "FAILED") {
+        updateSoldiersException(soldierID, true).then((response) => {
+            if (response == null) {
+                window.alert("Error saving result");
+            }
+        });
+    }
 }
 
 function SoldierTestProfile() {
@@ -26,6 +59,7 @@ function SoldierTestProfile() {
 
     const [score, setScore] = useState(0);
     const [testName, setTestName] = useState("");
+    const [test, setTest] = useState({})
 
     useEffect(() => {
         fetchSoldier(soldierID).then((fetchedSoldier) => {
@@ -39,13 +73,14 @@ function SoldierTestProfile() {
                     return;
                 }
 
-                fetchTestName(testLink).then((fetchedTestName) => {
-                    if (fetchedTestName == null) {
+                fetchTest(testLink).then((fetchedTest) => {
+                    if (fetchedTest.name == null) {
                         alert("Error fetching test name");
                         return;
                     }
 
-                    setTestName(fetchedTestName);
+                    setTest(fetchedTest)
+                    setTestName(fetchedTest.name);
                     setScore(fetchedResult.score);
                     setSoldier(fetchedSoldier);
                 })
@@ -92,7 +127,7 @@ function SoldierTestProfile() {
                             <button
                                 type="button"
                                 className="btn bg-dark-red darken-on-hover w-80 text-white fw-600 py-2 mb-4"
-                                onClick={ () => saveFunc(testLink, soldierID, score) }
+                                onClick={ () => saveFunc(test, testLink, soldierID, score) }
                             >Save</button>
                         </div>
                     <div className="col">
