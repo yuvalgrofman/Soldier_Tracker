@@ -24,7 +24,6 @@ function AddUser() {
         username: "",
         password: "",
         confirmPassword: "",
-        profilePic: "",
     });
 
     const [error, setError] = React.useState("");
@@ -65,8 +64,6 @@ function AddUser() {
             error = "Confirm password is required";
         } else if (user.password !== user.confirmPassword) {
             error = "Confirm password is not match";
-        } else if (!user.profilePic) {
-            error = "Picture is required";
         } else {
             handleSubmit(setError);
         }
@@ -75,7 +72,8 @@ function AddUser() {
     };
 
     const handleSubmit = async (setError) => {
-        const response = await postUser(user);
+        const userDB = { username: user.username, password: user.password }
+        const response = await postUser(userDB);
 
         if (response["status"] === 409) {
             setError("User already exists");
@@ -125,17 +123,6 @@ function AddUser() {
                                         // updateFunction={updatueUserConfirmPassword}
                                         updateFunction={(value) => {
                                             handleChange("confirmPassword", value);
-                                        }}
-                                    />
-
-                                    {/*Picture*/}
-                                    <ImgField
-                                        name="profilePic"
-                                        id="form-picture"
-                                        text="picture"
-                                        value={user.picture}
-                                        handleChange={(value) => {
-                                            handleChange("profilePic", value);
                                         }}
                                     />
 
