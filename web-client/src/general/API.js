@@ -440,7 +440,7 @@ async function postSoldier(soldier) {
         return { status: 409 }
     return {}
 
-    // const response = await fetch("http://127.0.0.1:5022/api/Soldiers", {
+    // const response = await fetch("http://127.0.0.1:5022/api/Force/soldiers", {
     //     method: "POST",
     //     headers: {
     //         "Content-Type": "application/json",
@@ -449,6 +449,16 @@ async function postSoldier(soldier) {
     // });
 
     // return response;
+}
+
+async function updatePlatoons(name, platoonIds) {
+    fetch("http://127.0.0.1:5022/api/Force/updatePlatoons", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({name, platoonIds }),
+    });
 }
 
 async function postUser(user) {
@@ -485,5 +495,5 @@ export {
     fetchCompany, fetchPlatoon, fetchSection, fetchTestName,
     fetchCompanyPlatoons, fetchPlatoonSections,
     postSoldier, postUser, postResult, postSection, postPlatoon, postCompany,
-    postSoldierToSection, postVerifyUser
+    postSoldierToSection, postVerifyUser, updatePlatoons
 }

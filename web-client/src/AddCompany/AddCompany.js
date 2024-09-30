@@ -4,6 +4,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import InputField from "../general/InputField.js";
 import "../general/Form.css";
+import {postCompany, postPlatoon, postSection, updatePlatoons} from "../general/API.js";
 
 /**
  * Regitser function returns the form page.
@@ -68,13 +69,7 @@ function AddCompany() {
             platoonIds: []
         }
 
-        const response = await fetch("http://127.0.0.1:5022/api/company", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(companyDB),
-        });
+        const response = await postCompany(companyDB);
 
         if (response["status"] === 409) {
             setError("Company already exists");
@@ -90,35 +85,17 @@ function AddCompany() {
                 for (let j = 1; j < company.sections_num + 1; j++) {
                     const newSection = {name: "Section " + j.toString(), soldierIds: []}
 
-                    const response = await fetch("http://127.0.0.1:5022/api/section", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify(newSection),
-                    });
+                    const response = await postSection(newSection)
                     sectionIds.push(response.sectionId)
                 }
 
                 const newPlatoon =  {name: "Platoon " + i.toString(), sectionIds}
 
-                const response = await fetch("http://127.0.0.1:5022/api/platoon", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(newPlatoon),
-                });
+                const response = await postPlatoon(newPlatoon)
                 platoonIds.push(response.platoonId)
             }
 
-            const response = await fetch("http://127.0.0.1:5022/api/updatePlatoons", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({name: company.name, platoonIds }),
-            });
+            const response = await updatePlatoons(company.name, platoonIds)
 
             navigate("/");
         }
