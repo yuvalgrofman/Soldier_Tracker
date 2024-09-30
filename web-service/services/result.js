@@ -1,6 +1,6 @@
 const Result = require('../models/result');
 
-const createResult = async (testLink, soldierID, score, isCompleted) => {
+const createResult = async (testLink, soldierID) => {
     const result = await Result.findOne({ testLink, soldierID });
 
     if (result !== null) {
@@ -10,8 +10,6 @@ const createResult = async (testLink, soldierID, score, isCompleted) => {
     await Result.create({
         testLink,
         soldierID,
-        score,
-        isCompleted,
     });
 
 }
@@ -50,4 +48,4 @@ const updateScore = async (testLink, soldierID, score, status) => {
     return result;
 }
 
-module.exports = { getResult, createResult, getResultByObjectId };
+module.exports = { getResult, createResult, getResultByObjectId, updateScore };

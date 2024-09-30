@@ -13,6 +13,19 @@ const updateResult = async (req, res) => {
     }
 }
 
+const createResult = async (req, res) => {
+    const { testLink, soldierID } = req.body;
+
+    try {
+        const result = await resultService.createResult(testLink, soldierID);
+        return res.send(result);
+    } catch (error) {
+        return res
+            .status(404)
+            .send(error.message);
+    }
+}
+
 const getResult = async (req, res) => {
     const { testLink, soldierId } = req.params;
 
@@ -39,4 +52,4 @@ const getResultByObjectId = async (req, res) => {
     }
 }
 
-module.exports = { getResult, updateResult, getResultByObjectId };
+module.exports = { getResult, updateResult, createResult, getResultByObjectId };

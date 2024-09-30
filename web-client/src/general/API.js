@@ -399,7 +399,7 @@ async function postPlatoon(platoon) {
 }
 
 async function postUpdateResult(testLink, soldierID, score, status) {
-    // const response = await fetch("http://127.0.0.1:5022/api/Result/", {
+    // const response = await fetch("http://127.0.0.1:5022/api/Results/update", {
     //     method: "POST",
     //     headers: {
     //         "Content-Type": "application/json",
@@ -408,7 +408,18 @@ async function postUpdateResult(testLink, soldierID, score, status) {
     // });
     //
     // return response;
-    return;
+}
+
+async function postCreateResult(testLink, soldierID) {
+    // const response = await fetch("http://127.0.0.1:5022/api/Results/create", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({ testLink, soldierID }),
+    // });
+    //
+    // return response;
 }
 
 async function postCompany(company) {
