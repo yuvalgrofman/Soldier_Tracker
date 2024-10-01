@@ -13,6 +13,19 @@ const getGantt = async (req, res) => {
     }
 }
 
+const getBoard = async (req, res) => {
+    const { company, week } = req.params;
+
+    try {
+        const board = await ganttService.getBoard(company, week);
+        return res.send(board);
+    } catch (error) {
+        return res
+            .status(404)
+            .send(error.message);
+    }
+}
+
 const updateGantt = async (req, res) => {
     const { link, company, week, newData } = req.body;
 
@@ -40,4 +53,4 @@ const createGantt = async (req, res) => {
 }
 
 
-module.exports = { createGantt, updateGantt, getGantt };
+module.exports = { createGantt, getBoard, updateGantt, getGantt };

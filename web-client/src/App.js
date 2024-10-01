@@ -15,6 +15,7 @@ import SoldierTestProfile from "./SoldierTestProfile/SoldierTestProfile";
 import AddSoldier from "./AddSoldier/AddSoldier";
 import Homepage from "./Homepage/Homepage";
 import Content from "./Content/Content";
+import Schedule from "./Schedule/Schedule";
 import SoldierList from "./SoldierList/SoldierList";
 import Setting from "./Setting/Setting";
 import Login from "./Login/Login";
@@ -31,12 +32,14 @@ function App() {
                 <Route path="/" element={<Login /> } />
                 <Route path="/Home" element={<Homepage /> } />
 
+                <Route path="/Schedule/:company/:weekNum" element={<Schedule/> } />
+
                 <Route path="/Settings" element={<Setting/> } />
                 <Route path="/Settings/AddUser" element={ <AddUser /> } />
                 <Route path="/Settings/AddSoldier" element={ <AddSoldier /> } />
                 <Route path="/Settings/AddCompany" element={ <AddCompany /> } />
 
-                <Route path="/Content/:contentLink" element={<Content/> } />
+                <Route path="/Schedule/:contentLink" element={<Content/> } />
                 <Route path="/Test/:testLink" element={<TestStatus/> } />
                 <Route path="/Test/:testLink/:soldierID" element={<SoldierTestProfile/> } />
 

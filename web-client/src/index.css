@@ -81,8 +81,16 @@
     color: white !important;
 }
 
+.w-12p5 {
+    width: 12.5%;
+}
+
 .bg-light-gray {
     background-color: #f0f2f5;
+}
+
+.bg-gray {
+    background-color: #c9c9c9;
 }
 
 /* Global Settings */

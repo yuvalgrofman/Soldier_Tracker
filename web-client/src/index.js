@@ -24,7 +24,6 @@ document.addEventListener("mousemove", evt => {
     let mouseAng = Math.atan(y / x);
     mouseAngDiv = mouseAng / 50;
     diagonalAngle = baseDiagonalAngle + mouseAngDiv;
-    console.log("x:", x ,"y:",y,"ang",mouseAng);
     rootb.style.setProperty("--diag-ang", diagonalAngle + "rad");
 })
 

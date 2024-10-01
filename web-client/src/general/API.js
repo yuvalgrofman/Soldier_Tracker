@@ -180,6 +180,30 @@ let objects = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12,
     t1, t2, t3, sect1, sect2, sect3, sect4, sect5, sect6, plat1, plat2, plat3, comp1]
 
 // ------------------------------------------------------------------------------------------------
+
+let gantt1 = {
+    subject: "Running",
+    sunday: "2km run",
+    wednesday: "500m x 4 run",
+    thursday: "1.5km run",
+    saturday: "3km run",
+}
+
+let gantt2 = {
+    subject: "Safety",
+    sunday: "Safety hour",
+}
+
+let gantt3 = {
+    subject: "Digital Campus",
+    monday: "3 videos about shooting basics",
+    tuesday: "grenade test",
+    friday: "two tests about shooting basics",
+    saturday: "video about first-aid",
+}
+
+// ------------------------------------------------------------------------------------------------
+
 // Fetch:
 
 async function fetchTest(testLink) {
@@ -376,7 +400,7 @@ async function fetchCompanyPlatoons(companyID) {
 
 async function fetchGantt(link, company, week) {
     const res = await fetch("http://127.0.0.1:5022/api/Gantt/" +
-            company.toString() + "-" + week.toString() + "-" + link.toString(), {
+        company.toString() + "-" + week.toString() + "-" + link.toString(), {
         method: "GET",
     });
 
@@ -385,6 +409,21 @@ async function fetchGantt(link, company, week) {
     };
 
     return JSON.parse(await res.text());
+}
+
+async function fetchBoard(company, week) {
+    // const res = await fetch("http://127.0.0.1:5022/api/Gantt/board/" +
+    //     company.toString() + "-" + week.toString(), {
+    //     method: "GET",
+    // });
+    //
+    // if (!res.ok) {
+    //     return null
+    // };
+    //
+    // return await res.text(); // An array of JSONs
+
+    return [gantt1, gantt2, gantt3]
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -537,6 +576,8 @@ async function postGantt(link, subject, company, week) {
     return response;
 }
 
+// newData should be a JSON with fields named with days (for example: sunday), and the value of that field is the text.
+// Not all days must be defined in newData (for example to create an empty cell)
 async function updateGantt(link, company, week, newData) {
     const response = await fetch("http://127.0.0.1:5022/api/Gantt/update", {
         method: "POST",
@@ -552,7 +593,7 @@ async function updateGantt(link, company, week, newData) {
 export {
     fetchTest, fetchSoldier, fetchResultByTestAndSoldier, fetchTestResults, fetchSoldiers,
     fetchCompanySoldiers, fetchPlatoonSoldiers, fetchSectionSoldiers, fetchSoldierResults,
-    fetchCompany, fetchPlatoon, fetchSection, fetchTestName, fetchGantt,
+    fetchCompany, fetchPlatoon, fetchSection, fetchTestName, fetchGantt, fetchBoard,
     fetchCompanyPlatoons, fetchPlatoonSections, updateSoldiersException,
     postSoldier, postUser, postUpdateResult, postSection, postPlatoon, postCompany,
     postSoldierToSection, postVerifyUser, updatePlatoons, postGantt, updateGantt

@@ -33,5 +33,15 @@ const getGantt = async (link, company, week) => {
     return gantt;
 }
 
+const getBoard = async (company, week) => {
+    const board = await Gantt.find({company, week});
 
-module.exports = { createGantt, updateGantt, getGantt };
+    if (gantt.length === 0) {
+        throw new Error('Section not found');
+    }
+
+    return board;
+}
+
+
+module.exports = { createGantt, updateGantt, getBoard, getGantt };
