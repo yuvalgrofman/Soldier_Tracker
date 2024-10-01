@@ -14,7 +14,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import alert from "bootstrap/js/src/alert";
 
 
-function saveFunc(test, testLink, soldierID, score) {
+function saveFunc(test, testLink, soldierID, score, prevStatus) {
 
     let format_to_lambda = {
         "HIGH": (a,b) => a >= b,
@@ -24,9 +24,9 @@ function saveFunc(test, testLink, soldierID, score) {
     if (test.type in format_to_lambda) {
         let cmp = format_to_lambda[test.type]
 
-        if (cmp(result.score, test.excellent)) {
+        if (cmp(score, test.excellent)) {
             status = "EXCELLENT";
-        } else if (cmp(result.score, test.pass)) {
+        } else if (cmp(score, test.pass)) {
             status = "PASSED";
         } else {
             status = "FAILED";
@@ -39,8 +39,16 @@ function saveFunc(test, testLink, soldierID, score) {
         }
     });
 
-    if (status == "FAILED") {
-        updateSoldiersException(soldierID, true).then((response) => {
+    if (status == "FAILED" && prevStatus != "FAILED") {
+        updateSoldiersException(soldierID, "SUB").then((response) => {
+            if (response == null) {
+                window.alert("Error saving result");
+            }
+        });
+    }
+
+    if (prevStatus == "FAILED" && status != "FAILED") {
+        updateSoldiersException(soldierID, "ADD").then((response) => {
             if (response == null) {
                 window.alert("Error saving result");
             }
@@ -60,6 +68,15 @@ function SoldierTestProfile() {
     const [score, setScore] = useState(0);
     const [testName, setTestName] = useState("");
     const [test, setTest] = useState({})
+
+    let prevStatus
+    fetchResultByTestAndSoldier(testLink, soldierID).then((fetchedResult) => {
+        if (fetchedResult == null) {
+            alert("Error fetching result");
+            return;
+        }
+        prevStatus = fetchedResult.status;
+    });
 
     useEffect(() => {
         fetchSoldier(soldierID).then((fetchedSoldier) => {
@@ -127,7 +144,7 @@ function SoldierTestProfile() {
                             <button
                                 type="button"
                                 className="btn bg-dark-red darken-on-hover w-80 text-white fw-600 py-2 mb-4"
-                                onClick={ () => saveFunc(test, testLink, soldierID, score) }
+                                onClick={ () => saveFunc(test, testLink, soldierID, score, prevStatus) }
                             >Save</button>
                         </div>
                     <div className="col">

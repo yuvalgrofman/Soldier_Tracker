@@ -23,7 +23,7 @@ const Result = new mongoose.Schema({
     },
     status: {
         type: String,
-        default: "FAILED",
+        default: "UNDEFINED",
         nullable: false,
     }
     

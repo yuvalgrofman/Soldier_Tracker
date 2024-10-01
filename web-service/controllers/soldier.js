@@ -33,4 +33,17 @@ const createSoldier = async (req, res) => {
     }
 }
 
-module.exports = { getSoldier, createSoldier };
+const updateSoldierException = async (req, res) => {
+    const {armyID, mode} = req.body;
+
+    try {
+        await soldierService.updateSoldierException(armyID, mode);
+        return res.send('Updated successfully');
+    } catch (error) {
+        return res
+            .status(404)
+            .send(error.message);
+    }
+}
+
+module.exports = { getSoldier, updateSoldierException, createSoldier };

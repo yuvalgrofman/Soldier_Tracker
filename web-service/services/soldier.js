@@ -32,5 +32,16 @@ const getSoldier = async (armyID) => {
     return soldier;
 }
 
+const updateSoldierException = async (armyID, mode) => {
+    const soldier = getSoldier(armyID)
 
-module.exports = { getSoldier, createSoldier };
+    if (mode == "ADD") {
+        soldier.exception = (soldier.exception + 1)
+    } else if (mode == "SUB") {
+        soldier.exception = (soldier.exception - 1)
+    }
+
+    soldier.save()
+}
+
+module.exports = { getSoldier, updateSoldierException, createSoldier };

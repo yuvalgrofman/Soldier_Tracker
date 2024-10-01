@@ -9,7 +9,7 @@ function SoldierListElement({ soldier }) {
     let navigate = useNavigate();
 
     const getState = function () {
-        if (soldier.exception) {
+        if (soldier.exception > 0) {
             return "EXCEPTION";
         }
         return "NORMAL";

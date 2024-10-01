@@ -54,8 +54,8 @@ const Soldier = new mongoose.Schema({
         nullable: true,
     },
     exception: {
-        type: Boolean,
-        default: false,
+        type: Number,
+        default: 0,
         nullable: false,
     }
 });
