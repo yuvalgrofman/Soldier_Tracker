@@ -12,6 +12,7 @@ const routerUser = require("./routes/user.js");
 const routerSoldier = require("./routes/soldier.js");
 const routerTest = require("./routes/test.js");
 const routerResult = require("./routes/result.js");
+const routerGantt = require("./routes/gantt.js")
 
 app.use(express.static("public"));
 app.use(express.json());
@@ -21,6 +22,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/SoldiersDB");
 
 
 app.use("/api/Results", routerResult);
+app.use("/api/Gantt", routerGantt);
 app.use("/api/Users", routerUser);
 app.use("/api/Soldiers", routerSoldier);
 app.use("/api/Test", routerTest);

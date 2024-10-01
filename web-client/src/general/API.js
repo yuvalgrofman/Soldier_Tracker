@@ -374,6 +374,19 @@ async function fetchCompanyPlatoons(companyID) {
     return res
 }
 
+async function fetchGantt(link, company, week) {
+    const res = await fetch("http://127.0.0.1:5022/api/Gantt/" +
+            company.toString() + "-" + week.toString() + "-" + link.toString(), {
+        method: "GET",
+    });
+
+    if (!res.ok) {
+        return null
+    };
+
+    return JSON.parse(await res.text());
+}
+
 // ------------------------------------------------------------------------------------------------
 // POST:
 
@@ -402,7 +415,7 @@ async function postUpdateResult(testLink, soldierID, score, status) {
     // const response = await fetch("http://127.0.0.1:5022/api/Results/update", {
     //     method: "POST",
     //     headers: {
-    //         "Content-Type": "application/json",
+    //         "Schedule-Type": "application/json",
     //     },
     //     body: JSON.stringify({testLink, soldierID, score, status}),
     // });
@@ -414,7 +427,7 @@ async function postCreateResult(testLink, soldierID) {
     // const response = await fetch("http://127.0.0.1:5022/api/Results/create", {
     //     method: "POST",
     //     headers: {
-    //         "Content-Type": "application/json",
+    //         "Schedule-Type": "application/json",
     //     },
     //     body: JSON.stringify({ testLink, soldierID }),
     // });
@@ -454,7 +467,7 @@ async function postSoldier(soldier) {
     // const response = await fetch("http://127.0.0.1:5022/api/Force/soldiers", {
     //     method: "POST",
     //     headers: {
-    //         "Content-Type": "application/json",
+    //         "Schedule-Type": "application/json",
     //     },
     //     body: JSON.stringify(soldier),
     // });
@@ -468,7 +481,7 @@ async function updatePlatoons(name, platoonIds) {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({name, platoonIds }),
+        body: JSON.stringify({name, platoonIds}),
     });
 }
 
@@ -480,7 +493,7 @@ async function postUser(user) {
     // const response = await fetch("http://127.0.0.1:5022/api/Users", {
     //     method: "POST",
     //     headers: {
-    //         "Content-Type": "application/json",
+    //         "Schedule-Type": "application/json",
     //     },
     //     body: JSON.stringify(user),
     // });
@@ -512,11 +525,35 @@ async function updateSoldiersException(soldierId, mode) {
     return response
 }
 
+async function postGantt(link, subject, company, week) {
+    const response = await fetch("http://127.0.0.1:5022/api/Gantt/create", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({link, subject, company, week}),
+    });
+
+    return response;
+}
+
+async function updateGantt(link, company, week, newData) {
+    const response = await fetch("http://127.0.0.1:5022/api/Gantt/update", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({link, company, week, newData}),
+    });
+
+    return response;
+}
+
 export {
     fetchTest, fetchSoldier, fetchResultByTestAndSoldier, fetchTestResults, fetchSoldiers,
     fetchCompanySoldiers, fetchPlatoonSoldiers, fetchSectionSoldiers, fetchSoldierResults,
-    fetchCompany, fetchPlatoon, fetchSection, fetchTestName,
+    fetchCompany, fetchPlatoon, fetchSection, fetchTestName, fetchGantt,
     fetchCompanyPlatoons, fetchPlatoonSections, updateSoldiersException,
     postSoldier, postUser, postUpdateResult, postSection, postPlatoon, postCompany,
-    postSoldierToSection, postVerifyUser, updatePlatoons
+    postSoldierToSection, postVerifyUser, updatePlatoons, postGantt, updateGantt
 }
