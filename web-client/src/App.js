@@ -19,7 +19,7 @@ import Schedule from "./Schedule/Schedule";
 import SoldierList from "./SoldierList/SoldierList";
 import Setting from "./Setting/Setting";
 import Login from "./Login/Login";
-import SoldierProfile from "./SoldierProfile/SoldierProfile.js";
+import SoldierProfile from "./SoldierProfile/SoldierProfile";
 import AddCompany from "./AddCompany/AddCompany";
 
 function App() {
@@ -39,7 +39,7 @@ function App() {
                 <Route path="/Settings/AddSoldier" element={ <AddSoldier /> } />
                 <Route path="/Settings/AddCompany" element={ <AddCompany /> } />
 
-                <Route path="/Schedule/:contentLink" element={<Content/> } />
+                <Route path="/Content/:contentLink" element={<Content/> } />
                 <Route path="/Test/:testLink" element={<TestStatus/> } />
                 <Route path="/Test/:testLink/:soldierID" element={<SoldierTestProfile/> } />
 
