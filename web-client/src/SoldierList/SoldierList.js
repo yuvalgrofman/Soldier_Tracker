@@ -67,26 +67,24 @@ function SoldierList({ exception }) {
                 title = "Company " + fetchedSoldiers[0].company;
             }
 
-            if (exception) {
-                let armyIDs = fetchedSoldiers.map((soldier) => (soldier.armyID));
-                fetchTestsFailedByUsers(armyIDs).then((fetchedTestFails) => {
-                    setTestFails(fetchedTestFails);
-                    setTitle(title);
-                    setSoldiers(fetchedSoldiers);
-                });
-            } else {
+            let armyIDs = fetchedSoldiers.map((soldier) => (soldier.armyID));
+            fetchTestsFailedByUsers(armyIDs).then((fetchedTestFails) => {
+                setTestFails(fetchedTestFails);
                 setTitle(title);
                 setSoldiers(fetchedSoldiers);
-            }
+            });
         });
     }, [forceType, id]);
 
+    const isException = (soldier) => {
+        return testFails[soldier.armyID] != null;
+    }
     
     const soldierComponents = soldiers.map((soldier) => {
         if (query !== "" && !soldier.name.toLowerCase().includes(query.toLowerCase()))
             return null;
 
-        if (exception && soldier.exception) {
+        if (exception && isException(soldier)) {
             let testFailed = testFails[soldier.armyID][0];
             return <SoldierListElement soldier={soldier} testFailed={testFailed} />;
         } else if (exception)

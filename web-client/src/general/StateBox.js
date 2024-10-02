@@ -15,9 +15,12 @@ function StateBox({ state, text }) {
         }
 
         if (state in state_to_style) {
-                const btnClass = `btn ${state_to_style[state]} disable state-box`;
+                const style = {
+                        'width': 'fit-content',
+                }
+                const btnClass = `btn ${state_to_style[state]} disable state-box `;
                 return (
-                        <button type="button" class={btnClass}>{ text ? text : state }</button>
+                        <button type="button" style={style} class={btnClass}>{ text ? text : state }</button>
                 );
         } 
 

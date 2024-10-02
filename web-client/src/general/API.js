@@ -10,13 +10,13 @@ import { fetchAllTestDisplays } from "./Display"
 let s1 = {
     name: "Yuval", citizenshipID: 1, armyID: 1, profilePic: profilePic1, section: "1", platoon: "1",
     company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
-    religion: "Jewish", sensitivities: "None", exception: 0
+    religion: "Jewish", sensitivities: "None", exception: 1
 }
 
 let s2 = {
     name: "Omri", citizenshipID: 2, armyID: 2, profilePic: profilePic2, section: "1", platoon: "1",
     company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
-    religion: "Jewish", sensitivities: "None", exception: 0
+    religion: "Jewish", sensitivities: "None", exception: 1
 }
 
 let s3 = {
@@ -28,13 +28,13 @@ let s3 = {
 let s4 = {
     name: "Osher", citizenshipID: 4, armyID: 4, profilePic: profilePic4, section: "2", platoon: "1",
     company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
-    religion: "Jewish", sensitivities: "None", exception: 0
+    religion: "Jewish", sensitivities: "None", exception: 1
 }
 
 let s5 = {
     name: "Oshri", citizenshipID: 5, armyID: 5, profilePic: profilePic1, section: "1", platoon: "2",
     company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
-    religion: "Jewish", sensitivities: "None", exception: 0
+    religion: "Jewish", sensitivities: "None", exception: 1
 }
 
 let s6 = {
@@ -46,13 +46,13 @@ let s6 = {
 let s7 = {
     name: "Ilay", citizenshipID: 7, armyID: 7, profilePic: profilePic3, section: "1", platoon: "2",
     company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
-    religion: "Jewish", sensitivities: "None", exception: 0
+    religion: "Jewish", sensitivities: "None", exception: 1
 }
 
 let s8 = {
     name: "Yair", citizenshipID: 8, armyID: 8, profilePic: profilePic4, section: "1", platoon: "2",
     company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
-    religion: "Jewish", sensitivities: "None", exception: 0
+    religion: "Jewish", sensitivities: "None", exception: 1
 }
 
 let s9 = {
@@ -64,7 +64,7 @@ let s9 = {
 let s10 = {
     name: "Liav", citizenshipID: 10, armyID: 10, profilePic: profilePic2, section: "1", platoon: "3",
     company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
-    religion: "Jewish", sensitivities: "None", exception: 0
+    religion: "Jewish", sensitivities: "None", exception: 1
 }
 
 let s11 = {
@@ -292,8 +292,8 @@ async function fetchTestsFailedByUsers(armyIDs) {
     // }
 
     let soldierTestsFails = {};
-    for (const armyID in armyIDs) {
-        for (const test in tests) {
+    for (let armyID of armyIDs) {
+        for (let test of tests) {
             let result = await fetchResultByTestAndSoldier(test.link, armyID)
             if (result.status == "FAILED") {
                 if (armyID in soldierTestsFails) {
@@ -366,7 +366,7 @@ async function fetchResultByTestAndSoldier(testLink, soldierID) {
     // return JSON.parse(await res.text());
     let test = tests.find(test => test.link == testLink)
     let results = test.results
-    for (const resultID of results) {
+    for (let resultID of results) {
         let result = objects.find(obj => obj.objectId == resultID)
         if (result.soldierID == soldierID) {
             return result

@@ -1,4 +1,4 @@
 .state-box {
-  width: 115px;
+  min-width: 115px !important;
   height: 40px;
 }
