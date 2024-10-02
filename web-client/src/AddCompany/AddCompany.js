@@ -70,6 +70,13 @@ function AddCompany() {
             platoonIds: []
         }
 
+        let platoonCommanders = [company.platoon1Commander, company.platoon2Commander, company.platoon3Commander]
+        let sectionCommanders = [
+            [company.section11Commander, company.section12Commander, company.section13Commander],
+            [company.section21Commander, company.section22Commander, company.section23Commander],
+            [company.section31Commander, company.section32Commander, company.section33Commander]
+        ]
+
         const response = await postCompany(companyDB);
 
         if (response.status === 409) {
@@ -84,13 +91,13 @@ function AddCompany() {
 
                 // Creating the sections
                 for (let j = 1; j < company.sections_num + 1; j++) {
-                    const newSection = {name: "Section " + j.toString(), soldierIds: []}
+                    const newSection = {name: "Section " + j.toString(), soldierIds: [], commander: sectionCommanders[i-1][j-1]}
 
                     const response = await postSection(newSection)
                     sectionIds.push(response.sectionId)
                 }
 
-                const newPlatoon =  {name: "Platoon " + i.toString(), sectionIds}
+                const newPlatoon =  {name: "Platoon " + i.toString(), sectionIds, commander: platoonCommanders[i-1]}
 
                 const response = await postPlatoon(newPlatoon)
                 platoonIds.push(response.platoonId)
