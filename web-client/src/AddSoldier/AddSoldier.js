@@ -18,6 +18,7 @@ import "../general/Form.css";
 function AddSoldier() {
     const navigate = useNavigate();
 
+    // TODO: add fielde to form
     const [soldier, setSoldier] = React.useState({
         name: "",
         profilePic: "",
