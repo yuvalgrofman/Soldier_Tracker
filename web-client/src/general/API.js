@@ -3,6 +3,8 @@ import profilePic2 from "../images/s2.jpeg"
 import profilePic3 from "../images/s3.jpeg"
 import profilePic4 from "../images/s4.jpeg"
 
+import { fetchAllTestDisplays } from "./Display"
+
 //  ------------------------------------------------------------------------------------------------
 
 let s1 = {
@@ -265,6 +267,46 @@ async function fetchSoldier(armyID) {
     }
 }
 
+async function fetchTestFailedBySoldier(armyID) {
+    let testDisplays = fetchAllTestDisplays();
+    let tests = [];
+    for (const testDisplay in testDisplays) {
+        tests.push(fetchTest(testDisplay.link));
+    }
+    
+    for (const test of tests) {
+        let result = await fetchResultByTestAndSoldier(test.link, armyID)
+        if (result.status == "FAILED") {
+            return test.name;
+        }
+    }
+
+    return null;
+}
+
+async function fetchTestsFailedByUsers(armyIDs) {
+    // let testDisplays = fetchAllTestDisplays();
+    // let tests = [];
+    // for (const testDisplay in testDisplays) {
+    //     tests.push(await fetchTest(testDisplay.link));
+    // }
+
+    let soldierTestsFails = {};
+    for (const armyID in armyIDs) {
+        for (const test in tests) {
+            let result = await fetchResultByTestAndSoldier(test.link, armyID)
+            if (result.status == "FAILED") {
+                if (armyID in soldierTestsFails) {
+                    soldierTestsFails[armyID].push(test.name)
+                } else {
+                    soldierTestsFails[armyID] = [test.name]
+                }
+            }
+        }
+    }
+    return soldierTestsFails;
+}
+
 async function fetchSoldiers(armyIDList) {
     // return (armyIDList).map(async (soldierId) => await fetchSoldier(soldierId))
 
@@ -474,6 +516,27 @@ async function postCreateResult(testLink, soldierID) {
     // return response;
 }
 
+// Receives JSON of the following format and creates the company with it's platoons and sections
+// {
+//     name: "",
+//     commander: "",
+//     platoon1Commander: "",
+//     platoon2Commander: "",
+//     platoon3Commander: "",
+//     section11Commander: "",
+//     section12Commander: "",
+//     section13Commander: "",
+//     section21Commander: "",
+//     section22Commander: "",
+//     section23Commander: "",
+//     section31Commander: "",
+//     section32Commander: "",
+//     section33Commander: "",
+// }
+async function postCompanyPlatoonsAndSection(company) {
+    // TODO: implement function
+}
+
 async function postCompany(company) {
     const response = await fetch("http://127.0.0.1:5022/api/Force/company/", {
         method: "POST",
@@ -590,11 +653,39 @@ async function updateGantt(link, company, week, newData) {
     return response;
 }
 
-export {
-    fetchTest, fetchSoldier, fetchResultByTestAndSoldier, fetchTestResults, fetchSoldiers,
-    fetchCompanySoldiers, fetchPlatoonSoldiers, fetchSectionSoldiers, fetchSoldierResults,
-    fetchCompany, fetchPlatoon, fetchSection, fetchTestName, fetchGantt, fetchBoard,
-    fetchCompanyPlatoons, fetchPlatoonSections, updateSoldiersException,
-    postSoldier, postUser, postUpdateResult, postSection, postPlatoon, postCompany,
-    postSoldierToSection, postVerifyUser, updatePlatoons, postGantt, updateGantt
-}
+export { 
+    fetchTest,
+    fetchResultByObjectId,
+    fetchTestName,
+    fetchTestResults,
+    fetchSoldier,
+    fetchTestFailedBySoldier,
+    fetchTestsFailedByUsers,
+    fetchSoldiers,
+    fetchSectionSoldiers,
+    fetchPlatoonSoldiers,
+    fetchCompanySoldiers,
+    fetchResultByTestAndSoldier,
+    fetchSoldierResults,
+    fetchSection,
+    fetchPlatoon,
+    fetchCompany,
+    fetchPlatoonSections,
+    fetchCompanyPlatoons,
+    fetchGantt,
+    fetchBoard,
+    postSoldierToSection,
+    postPlatoon,
+    postUpdateResult,
+    postCreateResult,
+    postCompanyPlatoonsAndSection,
+    postCompany,
+    postSection,
+    postSoldier,
+    updatePlatoons,
+    postUser,
+    postVerifyUser,
+    updateSoldiersException,
+    postGantt,
+    updateGantt
+};

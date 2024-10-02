@@ -5,7 +5,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import {
     fetchSectionSoldiers, fetchPlatoonSoldiers, fetchCompanySoldiers,
-    fetchCompanyPlatoons, fetchPlatoonSections} from "../general/API";
+    fetchCompanyPlatoons, fetchPlatoonSections, fetchTestFailedBySoldier,
+    fetchTestsFailedByUsers} from "../general/API";
 
 import { useNavigate } from "react-router-dom";
 import "./SoldierList.css"
@@ -20,6 +21,7 @@ function SoldierList({ exception }) {
     const [buttonNames, setButtonNames] = useState([]);
     const [buttonPages, setButtonPages] = useState([]);
     const [query, setQuery] = useState("");
+    const [testFails, setTestFails] = useState({});
 
     let linkPrefix = exception ? "/Exceptions/" : "/Soldiers/";
 
@@ -58,32 +60,39 @@ function SoldierList({ exception }) {
         fetchForceSoldiersMap[forceType](id).then((fetchedSoldiers) => {
             let title = "";
             if (forceType === "Section") {
-                title = "Company " + fetchedSoldiers[0].company  + " -  Platoon " + fetchedSoldiers[0].platoon + " - Section " + fetchedSoldiers[0].section;
+                title = "Company " + fetchedSoldiers[0].company + " -  Platoon " + fetchedSoldiers[0].platoon + " - Section " + fetchedSoldiers[0].section;
             } else if (forceType === "Platoon") {
-                title = "Company " + fetchedSoldiers[0].company  + " -  Platoon " + fetchedSoldiers[0].platoon;
+                title = "Company " + fetchedSoldiers[0].company + " -  Platoon " + fetchedSoldiers[0].platoon;
             } else {
                 title = "Company " + fetchedSoldiers[0].company;
             }
-            setTitle(title);
-            setSoldiers(fetchedSoldiers);
+
+            if (exception) {
+                let armyIDs = fetchedSoldiers.map((soldier) => (soldier.armyID));
+                fetchTestsFailedByUsers(armyIDs).then((fetchedTestFails) => {
+                    setTestFails(fetchedTestFails);
+                    setTitle(title);
+                    setSoldiers(fetchedSoldiers);
+                });
+            } else {
+                setTitle(title);
+                setSoldiers(fetchedSoldiers);
+            }
         });
     }, [forceType, id]);
 
     
     const soldierComponents = soldiers.map((soldier) => {
-        if (exception && !soldier.exception) {
+        if (query !== "" && !soldier.name.toLowerCase().includes(query.toLowerCase()))
             return null;
-        }
 
-        if (query !== "" && !soldier.name.toLowerCase().includes(query.toLowerCase())) {
+        if (exception && soldier.exception) {
+            let testFailed = testFails[soldier.armyID][0];
+            return <SoldierListElement soldier={soldier} testFailed={testFailed} />;
+        } else if (exception)
             return null;
-        }
 
-        return (
-            <SoldierListElement
-                soldier={soldier}
-            />
-        )
+        return (<SoldierListElement soldier={soldier} />);
     });
         
     return (

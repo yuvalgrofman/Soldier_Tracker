@@ -4,7 +4,7 @@ import StateBox from "../general/StateBox";
 import { useNavigate } from 'react-router-dom';
 // import '../TestStatus.css'
 
-function SoldierListElement({ soldier }) {
+function SoldierListElement({ soldier, testFailed }) {
     let soldierState = "UNDEFINED";
     let navigate = useNavigate();
 
@@ -32,7 +32,7 @@ function SoldierListElement({ soldier }) {
                 {soldier.armyID}
             </span>
             <span className="ms-2 d-inline-block">
-                <StateBox state = { soldierState }  />
+                { testFailed ? <StateBox state = { soldierState } text={testFailed} /> : <StateBox state = { soldierState }  /> }
             </span>
         </li>
     );

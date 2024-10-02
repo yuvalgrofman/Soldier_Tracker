@@ -32,11 +32,11 @@ const contents = [contentDisplay1, contentDisplay2, contentDisplay3, contentDisp
 
 // SETTING OPTIONS ----------------------------------------------------------------------------------------
 
-let settingsDisplay1 = { name: "Add Soldier", link: "AddSoldier" }
-let settingsDisplay2 = { name: "Add User", link: "AddUser" }
-let settingsDisplay3 = { name: "Add Company", link: "AddCompany" }
+let addSoldierDisplay = { name: "Add Soldier", link: "AddSoldier" }
+let addUserDisplay = { name: "Add User", link: "AddUser" }
+let addCompanyDisplay = {name : "Add Company", link: "AddCompany"} 
 
-let settingDisplay = { name: "Settings", link: "Settings", tests: [ settingsDisplay1, settingsDisplay2, settingsDisplay3 ] }
+let settingDisplay = { name: "Settings", link: "Settings", tests: [ addSoldierDisplay, addUserDisplay, addCompanyDisplay ] }
 
 // DISPLAY FUNCTIONS --------------------------------------------------------------------------------------
 
