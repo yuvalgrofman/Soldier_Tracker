@@ -70,7 +70,7 @@ function SoldierStatus({ result, soldier, test }) {
         style={{
           width: 80,
           position: "absolute",
-          left: "300px", // Align it with the rest of the layout
+          left: "30%", // Align it with the rest of the layout
           top: "50%",
           transform: "translateY(-50%)",
         }}
@@ -81,7 +81,7 @@ function SoldierStatus({ result, soldier, test }) {
         className="ms-2 d-inline-block"
         style={{
           position: "absolute",
-          left: "400px", // Adjust this value to position the StateBox
+          left: "40%", // Adjust this value to position the StateBox
           top: "50%",
           transform: "translateY(-50%)",
         }}
