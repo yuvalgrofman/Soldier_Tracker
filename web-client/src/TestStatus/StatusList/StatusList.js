@@ -35,25 +35,25 @@ function StatusList({ test, query }) {
     const soldierComponents = results.map((result) => {
         if (query === "") {
             return (
-                <Link to={`/Test/${test.link}/${result.soldierID}`} key={result.soldierID}>
+                // <Link to={`/Test/${test.link}/${result.soldierID}`} key={result.soldierID}>
                     <SoldierStatus
                         soldier={soldiers.find((soldier) => soldier.armyID == result.soldierID)}
                         result={result}
                         test={test}
                     />
-                </Link>
+                /* </Link> */
             );
         }
         let soldier = soldiers.find((soldier) => soldier.armyID == result.soldierID);
         if (soldier.name.toLowerCase().includes(query.toLowerCase())) {
             return (
-                <Link to={`/Test/${test.link}/${result.soldierID}`} key={result.soldierID}>
+                // <Link to={`/Test/${test.link}/${result.soldierID}`} key={result.soldierID}>
                     <SoldierStatus
                         soldier={soldier}
                         result={result}
                         test={test}
                     />
-                </Link>
+                // </Link>
             );
         }
         return null;

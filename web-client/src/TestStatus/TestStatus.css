@@ -36,6 +36,10 @@
     background-image: linear-gradient(rgb(0 0 0/10%) 0 0);
 }
 
-* {
-    text-decoration: none !important;
+.soldier-input {
+  width: 80px;
+  position: absolute;
+  left: 300px; /* Adjust this value to fit your layout */
+  top: 50%;
+  transform: translateY(-50%);
 }
