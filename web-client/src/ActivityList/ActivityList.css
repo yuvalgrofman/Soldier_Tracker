@@ -1,0 +1,34 @@
+.soldierlist-bar {
+  display: flex;
+  width: 100%;
+  height: 70px;
+  background-color: #f8f9fa; /* Light gray background */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 0px; /* Rounded top-left corner */
+  border-top-right-radius: 0px; /* Rounded top-right corner */
+  overflow: hidden;
+}
+
+.soldierlist-bar-item {
+  flex: 1; /* Ensures each section is equally sized */
+  text-align: center;
+  cursor: pointer;
+  background-color: #dcdcdc; /* Background color for sections */
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.soldierlist-bar-item:not(:last-child) {
+  border-right: 1px solid black; /* Black vertical line between items */
+}
+
+.soldierlist-bar-item:hover {
+  background-color: #b0b0b0; /* Darken on hover */
+}
+
+.soldier-list-body {
+  border-top-left-radius: 0px; /* Rounded top-left corner */
+  border-top-right-radius: 0px; /* Rounded top-right corner */
+}

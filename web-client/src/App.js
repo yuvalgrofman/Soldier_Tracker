@@ -21,6 +21,7 @@ import Setting from "./Setting/Setting";
 import Login from "./Login/Login";
 import SoldierProfile from "./SoldierProfile/SoldierProfile";
 import AddCompany from "./AddCompany/AddCompany";
+import ActivityList from "./ActivityList/ActivityList";
 
 function App() {
 
@@ -46,8 +47,10 @@ function App() {
                 <Route path="/Soldiers/:forceType/:id" element={<SoldierList /> } />
                 <Route path="/Exceptions/:forceType/:id" element={<SoldierList exception={true}/> } />
 
-
+                <Route path="/Schedule/:company/:weekNum" element={<Schedule/> } />
                 <Route path="/Soldier/:id" element={<SoldierProfile />}/>
+                
+                <Route path="/Activity/:forceType/:id" element={<ActivityList/> } />
             </Routes>
         </BrowserRouter>
     );
