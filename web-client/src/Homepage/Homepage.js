@@ -3,13 +3,18 @@ import HomepageBar from './HomepageBar';
 import ButtonGrid from '../general/ButtonGrid';
 import './Homepage.css';
 import { fetchContentDisplays } from '../general/Display';
+import logo from '../images/logo.png'
+import exceptionIcon from '../images/icon-exception.png'
+import soldiersIcon from '../images/icon-soldier.png'
+import testsIcon from '../images/icon-tests.png'
+import settingsIcon from '../images/icon-settings.png'
+import { useNavigate } from 'react-router-dom';
 
-var style={  
-  backgroundImage: "url(" + "https://images.pexels.com/photos/34153/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" + ")",
-  backgroundPosition: 'center',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat'
-}
+//TODO: the new homepage replaced a previous tests menu. There should
+//      be a new tests menu (I added a button for it but still didn't
+//      implement the page itself)
+
+/* ~~ Old Home Page ~~
 
 function Homepage() {
 
@@ -27,5 +32,57 @@ function Homepage() {
         </main>
     );
 }
+*/
 
+function Homepage() {
+    const navigate = useNavigate();
+
+    const handleButtonClick = (route) => {
+        navigate(route);
+    };
+
+    return (
+        <div className="container d-flex flex-column align-items-center justify-content-center min-vh-100">
+            {/* logo */}
+            <div className="logo mb-3">
+                <img
+                    src={logo}
+                    alt="Logo"
+                    className="img-fluid"
+                />
+            </div>
+
+            {/* Icons */}
+            <div className="icons d-flex flex-wrap justify-content-center w-100">
+                <div className="icon-item text-center m-2">
+                    <div className="icon-link-wrapper" onClick={() => handleButtonClick('/Soldiers/Company/1009')}>
+                        <img src={soldiersIcon} alt="Soldiers" className="img-fluid" />
+                        <p className="icon-title">Soldiers</p>
+                    </div>
+                </div>
+
+                <div className="icon-item text-center m-2">
+                    <div className="icon-link-wrapper" onClick={() => handleButtonClick('not-implemented')}>
+                        <img src={testsIcon} alt="Tests" className="img-fluid" />
+                        <p className="icon-title">Tests</p>
+                    </div>
+                </div>
+
+                <div className="icon-item text-center m-2">
+                    <div className="icon-link-wrapper" onClick={() => handleButtonClick('/Exceptions/Company/1009')}>
+                        <img src={exceptionIcon} alt="Exceptions" className="img-fluid" />
+                        <p className="icon-title">Exceptions</p>
+                    </div>
+                </div>
+
+                <div className="icon-item text-center m-2">
+                    <div className="icon-link-wrapper" onClick={() => handleButtonClick('/Settings')}>
+                        <img src={settingsIcon} alt="Settings" className="img-fluid" />
+                        <p className="icon-title">Settings</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
 export default Homepage;

@@ -3,3 +3,27 @@
   border-bottom-right-radius: 10px; /* Rounded top-right corner */
   overflow: hidden; /* Hide the overflow */
 }
+
+.icons {
+  width: 100%; /* Ensure full width */
+  gap: 20px; /* Spacing between icons */
+  cursor: pointer;
+}
+
+.icons .icon-item img {
+  max-width: 100px;
+  transition: transform 0.3s ease;
+}
+.icons .icon-item:hover img {
+  transform: scale(1.1);
+}
+
+.icon-title {
+  font-size: 25px;
+  color:black;
+  text-decoration: none;
+}
+
+.icon-link-wrapper {
+  text-decoration: none;
+}
