@@ -102,18 +102,28 @@ html{
     height: 100%;
 }
 
-body {
-    --background-col: #4B5320;
-    --diagonal-col: #8f1f1f;
-    /*background-color: #4B5320;*/
-    background: linear-gradient(var(--diag-ang), var(--background-col) 45%,
-                                        var(--diagonal-col) 45% 49.5%,
-                                        var(--background-col) 49.5% 50.5%,
-                                        var(--diagonal-col) 50.5% 55%,
-                                        var(--background-col) 55%);
-    background-repeat: no-repeat;
-    background-size:100vw;
-    background-attachment: fixed;
+@media (max-width: 768px) {
+    body {
+        background-image: url("./images/background-mobile.png");
+        background-size: cover;
+        
+    }
+}
+@media (min-width: 768px) {
+    body {
+        background-image: url("./images/background-tablet.png");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+}
+@media (min-width: 992px) {
+    body {
+        background-image: url("./images/background-pc.png");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
 }
 
 .btn:focus, .btn-close:focus {

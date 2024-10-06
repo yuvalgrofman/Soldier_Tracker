@@ -3,7 +3,6 @@ import HomepageBar from './HomepageBar';
 import ButtonGrid from '../general/ButtonGrid';
 import './Homepage.css';
 import { fetchContentDisplays } from '../general/Display';
-import backgroundImage from '../images/background.jpeg';
 
 var style={  
   backgroundImage: "url(" + "https://images.pexels.com/photos/34153/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" + ")",

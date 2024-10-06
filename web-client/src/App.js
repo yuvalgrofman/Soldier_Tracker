@@ -26,33 +26,36 @@ import ActivityList from "./ActivityList/ActivityList";
 function App() {
 
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/AddCompany" element={<AddCompany />} />
+        <>
 
-                <Route path="/" element={<Login /> } />
-                <Route path="/Home" element={<Homepage /> } />
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/AddCompany" element={<AddCompany />} />
 
-                <Route path="/Schedule/:company/:weekNum" element={<Schedule/> } />
+                    <Route path="/" element={<Login /> } />
+                    <Route path="/Home" element={<Homepage /> } />
 
-                <Route path="/Settings" element={<Setting/> } />
-                <Route path="/Settings/AddUser" element={ <AddUser /> } />
-                <Route path="/Settings/AddSoldier" element={ <AddSoldier /> } />
-                <Route path="/Settings/AddCompany" element={ <AddCompany /> } />
+                    <Route path="/Schedule/:company/:weekNum" element={<Schedule/> } />
 
-                <Route path="/Content/:contentLink" element={<Content/> } />
-                <Route path="/Test/:testLink" element={<TestStatus/> } />
-                <Route path="/Test/:testLink/:soldierID" element={<SoldierTestProfile/> } />
+                    <Route path="/Settings" element={<Setting/> } />
+                    <Route path="/Settings/AddUser" element={ <AddUser /> } />
+                    <Route path="/Settings/AddSoldier" element={ <AddSoldier /> } />
+                    <Route path="/Settings/AddCompany" element={ <AddCompany /> } />
 
-                <Route path="/Soldiers/:forceType/:id" element={<SoldierList /> } />
-                <Route path="/Exceptions/:forceType/:id" element={<SoldierList exception={true}/> } />
+                    <Route path="/Content/:contentLink" element={<Content/> } />
+                    <Route path="/Test/:testLink" element={<TestStatus/> } />
+                    <Route path="/Test/:testLink/:soldierID" element={<SoldierTestProfile/> } />
 
-                <Route path="/Schedule/:company/:weekNum" element={<Schedule/> } />
-                <Route path="/Soldier/:id" element={<SoldierProfile />}/>
-                
-                <Route path="/Activity/:forceType/:id" element={<ActivityList/> } />
-            </Routes>
-        </BrowserRouter>
+                    <Route path="/Soldiers/:forceType/:id" element={<SoldierList /> } />
+                    <Route path="/Exceptions/:forceType/:id" element={<SoldierList exception={true}/> } />
+
+                    <Route path="/Schedule/:company/:weekNum" element={<Schedule/> } />
+                    <Route path="/Soldier/:id" element={<SoldierProfile />}/>
+                    
+                    <Route path="/Activity/:forceType/:id" element={<ActivityList/> } />
+                </Routes>
+            </BrowserRouter>
+        </>
     );
 }
 
