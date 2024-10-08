@@ -8,7 +8,7 @@ import { postSoldier } from "../general/API.js";
 import "../general/Form.css";
 
 /**
- * Regitser function returns the form page.
+ * Register function returns the form page.
  * which contains a form to form a new soldier, additionally
  * the form page contains a link to the login page.
  * The form validates the soldier input and if the input is valid
@@ -18,7 +18,6 @@ import "../general/Form.css";
 function AddSoldier() {
     const navigate = useNavigate();
 
-    // TODO: add fielde to form
     const [soldier, setSoldier] = React.useState({
         name: "",
         profilePic: "",
@@ -57,22 +56,21 @@ function AddSoldier() {
         let error = "";
 
         if (!soldier.name) {
-            error = "Username is required";
+            error = "שם החייל הוא שדה חובה";
         } else if (!soldier.ID) {
-            error = "ID is required";
+            error = "תעודת זהות היא שדה חובה";
         } else if (!soldier.armyID) {
-            error = "Army ID is required";
-        } else if(!soldier.medicalProfile) {
-            error = "Medical Profile is required";
+            error = "מס' צבא הוא שדה חובה";
+        } else if (!soldier.medicalProfile) {
+            error = "פרופיל רפואי הוא שדה חובה";
         } else if (!soldier.company || !soldier.platoon || !soldier.section) {
-            error = "Soldier's Unit is required";
+            error = "יש לציין את היחידה של החייל";
         } else if (!(/\d{9}/.test(soldier.ID))) {
-            console.log(soldier.ID)
-            error = "Soldier ID must be 9 digits"
+            error = "תעודת זהות של חייל חייבת להיות בת 9 ספרות";
         } else if (!(/^\d{6,}$/.test(soldier.armyID))) {
-            error = "Soldier's Army ID must contain at least 6 digits "
+            error = "מספר הצבא של החייל חייב לכלול לפחות 6 ספרות";
         } else if (soldier.medicalProfile == null || !(/^\d{2}$/.test(soldier.medicalProfile))) {
-            error = "Medical Profile must be 2 digits"
+            error = "פרופיל רפואי חייב להיות 2 ספרות";
         } else {
             handleSubmit(setError);
         }
@@ -84,7 +82,7 @@ function AddSoldier() {
         const response = await postSoldier(soldier);
 
         if (response["status"] === 409) {
-            setError("Soldier already exists");
+            setError("החייל כבר קיים");
         } else {
             setError("");
             navigate("/");
@@ -93,19 +91,19 @@ function AddSoldier() {
 
     return (
         <div className="p-5">
-            <main className="container form-container w-30 p-5 mt-5 shadow bg-white rounded-3">
+            <main className="container form-container w-30 p-5 mt-5 shadow bg-white rounded-3" style={{ textAlign: "right" }}>
                 <div className="row">
                     <div className="col col-12">
                         <div className="border-0 card">
                             <div className="d-flex flex-column card-body">
-                                {/*Title*/}
-                                <div className="d-flex justify-content-center h3 mb-3">Add Soldier</div>
+                                {/* Title */}
+                                <div className="d-flex justify-content-center h3 mb-3">הוסף חייל</div>
 
-                                {/*Signup form*/}
+                                {/* Signup form */}
                                 <form>
-                                    {/*Username input*/}
+                                    {/* Name input */}
                                     <InputField
-                                        labelOfInputField="Name"
+                                        labelOfInputField="שם"
                                         idOfInputField="AddSoldier-name"
                                         updateFunction={(value) => {
                                             handleChange("name", value);
@@ -113,20 +111,20 @@ function AddSoldier() {
                                         inputType="text"
                                     />
 
-                                    {/*Picture*/}
+                                    {/* Picture */}
                                     <ImgField
                                         name="profilePic"
                                         id="AddSoldier-picture"
-                                        text="picture"
+                                        text="תמונה"
                                         value={soldier.picture}
                                         handleChange={(value) => {
                                             handleChange("profilePic", value);
                                         }}
                                     />
 
-                                    {/*Id*/}
+                                    {/* ID */}
                                     <InputField
-                                        labelOfInputField="ID"
+                                        labelOfInputField="תעודת זהות"
                                         idOfInputField="AddSoldier-ID"
                                         updateFunction={(value) => {
                                             handleChange("ID", value);
@@ -134,9 +132,9 @@ function AddSoldier() {
                                         inputType="text"
                                     />
 
-                                    {/*Army Id*/}
+                                    {/* Army ID */}
                                     <InputField
-                                        labelOfInputField="Army ID"
+                                        labelOfInputField="מס׳ אישי"
                                         idOfInputField="AddSoldier-ArmyID"
                                         updateFunction={(value) => {
                                             handleChange("armyID", value);
@@ -144,9 +142,9 @@ function AddSoldier() {
                                         inputType="text"
                                     />
 
-                                    {/*Medical Profile*/}
+                                    {/* Medical Profile */}
                                     <InputField
-                                        labelOfInputField="Medical Profile"
+                                        labelOfInputField="פרופיל רפואי"
                                         idOfInputField="AddSoldier-MedicalProfile"
                                         updateFunction={(value) => {
                                             handleChange("medicalProfile", value);
@@ -154,9 +152,9 @@ function AddSoldier() {
                                         inputType="text"
                                     />
 
-                                    {/*Address*/}
+                                    {/* Address */}
                                     <InputField
-                                        labelOfInputField="Address"
+                                        labelOfInputField="כתובת"
                                         idOfInputField="AddSoldier-Address"
                                         updateFunction={(value) => {
                                             handleChange("address", value);
@@ -164,9 +162,9 @@ function AddSoldier() {
                                         inputType="text"
                                     />
 
-                                    {/*Religion*/}
+                                    {/* Religion */}
                                     <InputField
-                                        labelOfInputField="Religion"
+                                        labelOfInputField="דת"
                                         idOfInputField="AddSoldier-Religion"
                                         updateFunction={(value) => {
                                             handleChange("religion", value);
@@ -174,9 +172,9 @@ function AddSoldier() {
                                         inputType="text"
                                     />
 
-                                    {/*Company*/}
+                                    {/* Company */}
                                     <InputField
-                                        labelOfInputField="Company"
+                                        labelOfInputField="פלוגה"
                                         idOfInputField="AddSoldier-Company"
                                         updateFunction={(value) => {
                                             handleChange("company", value);
@@ -184,9 +182,9 @@ function AddSoldier() {
                                         inputType="text"
                                     />
 
-                                    {/*Platoon*/}
+                                    {/* Platoon */}
                                     <InputField
-                                        labelOfInputField="Platoon"
+                                        labelOfInputField="מחלקה"
                                         idOfInputField="AddSoldier-Platoon"
                                         updateFunction={(value) => {
                                             handleChange("platoon", value);
@@ -194,9 +192,9 @@ function AddSoldier() {
                                         inputType="text"
                                     />
 
-                                    {/*Section*/}
+                                    {/* Section */}
                                     <InputField
-                                        labelOfInputField="Section"
+                                        labelOfInputField="כיתה"
                                         idOfInputField="AddSoldier-Section"
                                         updateFunction={(value) => {
                                             handleChange("section", value);
@@ -204,7 +202,7 @@ function AddSoldier() {
                                         inputType="text"
                                     />
 
-                                    {/*Submit and redirection to sign in*/}
+                                    {/* Submit and redirection to sign in */}
                                     <div className="d-flex flex-column">
                                         <p className="error-message bold mx-auto mb-3">{error}</p>
 
@@ -215,16 +213,8 @@ function AddSoldier() {
                                             }}
                                             className="btn bg-dark-red darken-on-hover w-100 text-white fw-600 py-2 mb-4"
                                         >
-                                            Submit
+                                            שלח
                                         </button>
-
-                                        {/* <div className="mx-auto">
-                                            <Link
-                                                initialText="Already have an account?&nbsp;"
-                                                linkText="Sign in"
-                                                link="/"
-                                            />
-                                        </div> */}
                                     </div>
                                 </form>
                             </div>

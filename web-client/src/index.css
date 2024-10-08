@@ -159,3 +159,33 @@ html{
   border-top-left-radius: 10px !important; /* Rounded top-left corner */
   border-top-right-radius: 10px !important; /* Rounded top-right corner */
 }
+
+/* Importing more noticeable Google Fonts for both Hebrew and general text */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+/* Apply 'Rubik' for Hebrew text and 'Roboto' for everything else */
+html, body {
+    font-family: 'Roboto', sans-serif; /* Default font for the whole site (English and other text) */
+}
+
+/* Apply 'Rubik' font for Hebrew characters */
+html[lang="he"], 
+body[lang="he"], 
+:lang(he) {
+    font-family: 'Rubik', sans-serif; /* Hebrew-specific font */
+    direction: rtl; /* Ensure proper right-to-left direction for Hebrew */
+}
+
+/* Additional styling to make the font more noticeable */
+html, body {
+    font-size: 18px; /* Increase base font size for readability */
+    line-height: 1.6;
+}
+
+html[lang="he"], 
+body[lang="he"], 
+:lang(he) {
+    font-size: 18px;
+    font-weight: bold; /* Make Hebrew text bold */
+    line-height: 1.6;
+}

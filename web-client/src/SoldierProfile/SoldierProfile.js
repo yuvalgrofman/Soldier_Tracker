@@ -8,13 +8,8 @@ import StateBox from "../general/StateBox";
 import "./SoldierProfile.css";
 
 function SoldierProfile() {
-  // Example data for soldier results (can be fetched from an API)
-  let r1 = { objectId: 101, testName: "10 Meters", soldierID: 1111111, score: 100, isCompleted: true, status: "EXCELLENT" };
-  let r2 = { objectId: 102, testName: "25 Meters", soldierID: 1111111, score: 80, isCompleted: true, status: "PASSED" };
-  let r3 = { objectId: 103, testName: "50 Meters", soldierID: 1111111, score: 70, isCompleted: true, status: "FAILED" };
-
   const { id } = useParams();
-  const [soldierResults, setSoldierResults] = useState([r1, r2, r3]);
+  const [soldierResults, setSoldierResults] = useState([]);
 
   const [soldier, setSoldier] = useState({
     name: "Null",
@@ -73,19 +68,19 @@ function SoldierProfile() {
             <div className="col-md-1">
             </div>
             <div className="col-md-5">
-              <p><strong>Citizenship ID:</strong> {soldier.citizenshipID}</p>
-              <p><strong>Army ID:</strong> {soldier.armyID}</p>
-              <p><strong>Company:</strong> {soldier.company}</p>
-              <p><strong>Platoon:</strong> {soldier.platoon}</p>
-              <p><strong>Section:</strong> {soldier.section}</p>
+              <p><strong>תז:</strong> {soldier.citizenshipID}</p>
+              <p><strong>מ.א:</strong> {soldier.armyID}</p>
+              <p><strong>פלוגה:</strong> {soldier.company}</p>
+              <p><strong>מחלקה:</strong> {soldier.platoon}</p>
+              <p><strong>כיתה:</strong> {soldier.section}</p>
             </div>
             <div className="col-md-5">
-              <p><strong>Address:</strong> {soldier.address}</p>
-              <p><strong>Medical Profile:</strong> {soldier.medicalProfile}</p>
-              <p><strong>Dominant hand:</strong> {soldier.rightHanded ? "Right" : "Left"}</p>
-              <p><strong>Religion:</strong> {soldier.religion}</p>
-              <p><strong>Sensitivities:</strong> {soldier.sensitivities}</p>
-              <p><strong>Packal:</strong> {soldier.packal}</p>
+              <p><strong>כתובת:</strong> {soldier.address}</p>
+              <p><strong>פרופיל רפואי:</strong> {soldier.medicalProfile}</p>
+              <p><strong>יד חזקה:</strong> {soldier.rightHanded ? "ימין" : "שמאל"}</p>
+              <p><strong>דת:</strong> {soldier.religion}</p>
+              <p><strong>רגישויות:</strong> {soldier.sensitivities}</p>
+              <p><strong>פק״ל:</strong> {soldier.packal}</p>
             </div>
             <div className="col-md-1">
             </div>

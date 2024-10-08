@@ -32,3 +32,21 @@
   border-top-left-radius: 0px; /* Rounded top-left corner */
   border-top-right-radius: 0px; /* Rounded top-right corner */
 }
+
+.failed-tests-container {
+    background-color: white;         /* Black background */
+    color: red;                      /* Red text for container */
+    border: 2px solid red;           /* Optional: Red outline for container */
+    border-radius: 8px;              /* Rounded corners */
+    padding: 10px;                   /* Padding inside the rectangle */
+    text-align: center;              /* Center align text */
+    margin: 0 auto;                  /* Center the container itself */
+    display: inline-flex;            /* Use inline-flex for wrapping */
+    flex-wrap: wrap;                 /* Allow wrapping to next line */
+    justify-content: center;         /* Center items horizontally */
+}
+
+.failed-test-item {
+    box-sizing: border-box;          /* Include padding/border in width */
+    padding: 5px;                    /* Padding for test item */
+}

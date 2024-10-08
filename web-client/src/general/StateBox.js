@@ -14,13 +14,23 @@ function StateBox({ state, text }) {
                 "NORMAL" : "btn-success"
         }
 
+        let to_hebrew = {
+                "FAILED": "נכשל",
+                "PASSED": "עובר",
+                "UNTESTED": "לא נבחן",
+                "EXCELLENT": "מצטיין", 
+
+                "EXCEPTION": "חריג",
+                "NORMAL" : "תקין"
+        }
+
         if (state in state_to_style) {
                 const style = {
                         'width': 'fit-content',
                 }
                 const btnClass = `btn ${state_to_style[state]} disable state-box `;
                 return (
-                        <button type="button" style={style} class={btnClass}>{ text ? text : state }</button>
+                        <button type="button" style={style} class={btnClass}>{ text ? text : to_hebrew[state] }</button>
                 );
         } 
 

@@ -1,0 +1,24 @@
+/* Scoped RTL layout for AddCompany component */
+.add-company-rtl {
+    direction: rtl; /* Ensure the text reads right-to-left */
+    text-align: right; /* Aligns text to the right */
+}
+
+.add-company-rtl .error-message {
+    color: red;
+    text-align: center; /* Error message can still be centered */
+}
+
+/* Additional flexbox adjustments for RTL */
+.add-company-rtl .d-flex {
+    direction: rtl; /* Flexbox layout is RTL only within this scope */
+}
+
+.add-company-rtl label {
+    font-weight: bold;
+    text-align: right; /* Align labels to the right */
+}
+
+.add-company-rtl input {
+    direction: rtl; /* Ensure that text input is RTL */
+}

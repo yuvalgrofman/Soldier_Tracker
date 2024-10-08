@@ -12,6 +12,8 @@ import { useNavigate } from "react-router-dom";
 import "./ActivityList.css"
 import SearchBar from "../general/SearchBar";
 
+// TODO: fix bug where the soldier list is reset when entering platoon/section.
+
 function ActivityList() {
     const navigate = useNavigate();
     const { forceType, id } = useParams();
@@ -60,11 +62,11 @@ function ActivityList() {
         fetchForceSoldiersMap[forceType](id).then((fetchedSoldiers) => {
             let title = "";
             if (forceType === "Section") {
-                title = "Company " + fetchedSoldiers[0].company + " -  Platoon " + fetchedSoldiers[0].platoon + " - Section " + fetchedSoldiers[0].section;
+                title = " פלוגה " + fetchedSoldiers[0].company + " -  מחלקה " + fetchedSoldiers[0].platoon + " - כיתה " + fetchedSoldiers[0].section;
             } else if (forceType === "Platoon") {
-                title = "Company " + fetchedSoldiers[0].company + " -  Platoon " + fetchedSoldiers[0].platoon;
+                title = " פלוגה " + fetchedSoldiers[0].company + " -  מחלקה " + fetchedSoldiers[0].platoon;
             } else {
-                title = "Company " + fetchedSoldiers[0].company;
+                title = " פלוגה " + fetchedSoldiers[0].company;
             }
 
             let soldierStatus = fetchedSoldiers.map((soldier) => { return {armyID: soldier.armyID, completed : false }; });
@@ -86,7 +88,6 @@ function ActivityList() {
                 return status;
             });
 
-            console.log(newStatus);
             setSoldierStatus(newStatus);
         }
 

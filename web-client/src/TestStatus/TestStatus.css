@@ -43,3 +43,37 @@
   top: 50%;
   transform: translateY(-50%);
 }
+
+/* Grade Statistics Styling */
+.grade-statistics {
+    background-color: #f8f9fa;
+    border: 1px solid #e3e6e9;
+    border-radius: 8px;
+}
+
+.stat-box {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.stat-title {
+    font-size: 1rem;
+    font-weight: bold; /* Bold text for the titles */
+    color: #343a40;
+}
+
+.stat-value {
+    font-size: 1rem;
+    color: #007bff;
+    font-weight: normal;
+}
+
+@media (max-width: 576px) {
+    .grade-statistics {
+        flex-direction: column;
+    }
+    .stat-box {
+        margin-bottom: 10px;
+    }
+}

@@ -8,174 +8,269 @@ import { fetchAllTestDisplays } from "./Display"
 //  ------------------------------------------------------------------------------------------------
 
 let s1 = {
-    name: "Yuval", citizenshipID: 1, armyID: 1, profilePic: profilePic1, section: "1", platoon: "1",
-    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
-    religion: "Jewish", sensitivities: "None", exception: 1
+    name: "יובל", citizenshipID: 111111111, armyID: 1111111, profilePic: profilePic1, section: "א׳", platoon: "1",
+    company: "י׳", address: "בן גוריון 28", medicalProfile: 97, rightHanded: true, packal: "נגב",
+    religion: "יהודי", sensitivities: "אין", exception: 1
 }
 
 let s2 = {
-    name: "Omri", citizenshipID: 2, armyID: 2, profilePic: profilePic2, section: "1", platoon: "1",
-    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
-    religion: "Jewish", sensitivities: "None", exception: 1
+    name: "עומרי", citizenshipID: 222222222, armyID: 2222222, profilePic: profilePic2, section: "א׳", platoon: "1",
+    company: "י׳", address: "בן גוריון 28", medicalProfile: 97, rightHanded: true, packal: "קלע",
+    religion: "יהודי", sensitivities: "אין", exception: 1
 }
 
 let s3 = {
-    name: "Yaakov", citizenshipID: 3, armyID: 3, profilePic: profilePic3, section: "2", platoon: "1",
-    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
-    religion: "Jewish", sensitivities: "None", exception: 2
+    name: "יעקב", citizenshipID: 333333333, armyID: 3333333, profilePic: profilePic3, section: "ב׳", platoon: "1",
+    company: "י׳", address: "בן גוריון 28", medicalProfile: 97, rightHanded: true, packal: "מאג",
+    religion: "יהודי", sensitivities: "אין", exception: 2
 }
 
 let s4 = {
-    name: "Osher", citizenshipID: 4, armyID: 4, profilePic: profilePic4, section: "2", platoon: "1",
-    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
-    religion: "Jewish", sensitivities: "None", exception: 1
+    name: "אושר", citizenshipID: 444444444, armyID: 4444444, profilePic: profilePic4, section: "ב׳", platoon: "1",
+    company: "י׳", address: "בן גוריון 28", medicalProfile: 97, rightHanded: true, packal: "חובש",
+    religion: "יהודי", sensitivities: "אין", exception: 1
 }
 
 let s5 = {
-    name: "Oshri", citizenshipID: 5, armyID: 5, profilePic: profilePic1, section: "1", platoon: "2",
-    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
-    religion: "Jewish", sensitivities: "None", exception: 1
+    name: "אושרי", citizenshipID: 555555555, armyID: 5555555, profilePic: profilePic1, section: "א׳", platoon: "2",
+    company: "י׳", address: "בן גוריון 28", medicalProfile: 97, rightHanded: true, packal: "מפקד חולייה",
+    religion: "יהודי", sensitivities: "אין", exception: 1
 }
 
 let s6 = {
-    name: "Tamir", citizenshipID: 6, armyID: 6, profilePic: profilePic2, section: "1", platoon: "2",
-    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
-    religion: "Jewish", sensitivities: "None", exception: 1
+    name: "תמיר", citizenshipID: 666666666, armyID: 6666666, profilePic: profilePic2, section: "א׳", platoon: "2",
+    company: "י׳", address: "בן גוריון 28", medicalProfile: 97, rightHanded: true, packal: "מפקד חולייה",
+    religion: "יהודי", sensitivities: "אין", exception: 1
 }
 
 let s7 = {
-    name: "Ilay", citizenshipID: 7, armyID: 7, profilePic: profilePic3, section: "1", platoon: "2",
-    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
-    religion: "Jewish", sensitivities: "None", exception: 1
+    name: "עילאי", citizenshipID: 777777777, armyID: 7777777, profilePic: profilePic3, section: "ב׳", platoon: "2",
+    company: "י׳", address: "בן גוריון 28", medicalProfile: 97, rightHanded: true, packal: "מטול",
+    religion: "יהודי", sensitivities: "אין", exception: 1
 }
 
 let s8 = {
-    name: "Yair", citizenshipID: 8, armyID: 8, profilePic: profilePic4, section: "1", platoon: "2",
-    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
-    religion: "Jewish", sensitivities: "None", exception: 1
+    name: "יאיר", citizenshipID: 888888888, armyID: 8888888, profilePic: profilePic4, section: "ב׳", platoon: "2",
+    company: "י׳", address: "בן גוריון 28", medicalProfile: 97, rightHanded: true, packal: "צלף",
+    religion: "יהודי", sensitivities: "אין", exception: 1
 }
 
 let s9 = {
-    name: "Itay", citizenshipID: 9, armyID: 9, profilePic: profilePic1, section: "1", platoon: "3",
-    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
-    religion: "Jewish", sensitivities: "None", exception: 0
+    name: "איתי", citizenshipID: 999999999, armyID: 9999999, profilePic: profilePic1, section: "א׳", platoon: "3",
+    company: "י׳", address: "בן גוריון 28", medicalProfile: 97, rightHanded: true, packal: "נגב",
+    religion: "יהודי", sensitivities: "אין", exception: 0
 }
 
 let s10 = {
-    name: "Liav", citizenshipID: 10, armyID: 10, profilePic: profilePic2, section: "1", platoon: "3",
-    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
-    religion: "Jewish", sensitivities: "None", exception: 1
+    name: "ליאב", citizenshipID: 101010101, armyID: 1010101, profilePic: profilePic2, section: "א׳", platoon: "3",
+    company: "י׳", address: "בן גוריון 28", medicalProfile: 97, rightHanded: true, packal: "מטאדור",
+    religion: "יהודי", sensitivities: "אין", exception: 1
 }
 
 let s11 = {
-    name: "Nachshon", citizenshipID: 11, armyID: 11, profilePic: profilePic3, section: "2", platoon: "3",
-    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
-    religion: "Jewish", sensitivities: "None", exception: 1
+    name: "נחשון", citizenshipID: 110110110, armyID: 1101101, profilePic: profilePic3, section: "ב׳", platoon: "3",
+    company: "י׳", address: "בן גוריון 28", medicalProfile: 97, rightHanded: true, packal: "טיל לאו",
+    religion: "יהודי", sensitivities: "אין", exception: 1
 }
 
 let s12 = {
-    name: "Yonatan", citizenshipID: 12, armyID: 12, profilePic: profilePic4, section: "2", platoon: "3",
-    company: "Yud", address: "Ben Gurion 28", medicalProfile: 97, rightHanded: true, packal: "Negev",
-    religion: "Jewish", sensitivities: "None", exception: 0
+    name: "יונתן", citizenshipID: 121212121, armyID: 1212121, profilePic: profilePic4, section: "ב׳", platoon: "3",
+    company: "י׳", address: "בן גוריון 28", medicalProfile: 97, rightHanded: true, packal: "מאג",
+    religion: "יהודי", sensitivities: "אין", exception: 0
 }
 
 // ------------------------------------------------------------------------------------------------
 
-let r11 = { objectId: 101, testName: "10 Meters", soldierID: 1, score: 100, isCompleted: true, status: "EXCELLENT" };
-let r12 = { objectId: 102, testName: "25 Meters", soldierID: 1, score: 80, isCompleted: true, status: "PASSED" };
-let r13 = { objectId: 103, testName: "50 Meters", soldierID: 1, score: 70, isCompleted: true, status: "FAILED" };
-
-let r21 = { objectId: 104, testName: "10 Meters", soldierID: 2, score: 90, isCompleted: true, status: "EXCELLENT" };
-let r22 = { objectId: 105, testName: "25 Meters", soldierID: 2, score: 70, isCompleted: true, status: "FAILED" };
-let r23 = { objectId: 106, testName: "50 Meters", soldierID: 2, score: 60, isCompleted: true, status: "FAILED" };
-
-let r31 = { objectId: 107, testName: "10 Meters", soldierID: 3, score: 80, isCompleted: true, status: "PASSED" };
-let r32 = { objectId: 108, testName: "25 Meters", soldierID: 3, score: 60, isCompleted: true, status: "FAILED" };
-let r33 = { objectId: 109, testName: "50 Meters", soldierID: 3, score: 50, isCompleted: true, status: "FAILED" };
-
-let r41 = { objectId: 110, testName: "10 Meters", soldierID: 4, score: 97, isCompleted: true, status: "EXCELLENT" };
-let r42 = { objectId: 111, testName: "25 Meters", soldierID: 4, score: 94, isCompleted: true, status: "EXCELLENT" };
-let r43 = { objectId: 112, testName: "50 Meters", soldierID: 4, score: 32, isCompleted: true, status: "FAILED" };
-
-let r51 = { objectId: 113, testName: "10 Meters", soldierID: 5, score: 91, isCompleted: true, status: "EXCELLENT" };
-let r52 = { objectId: 114, testName: "25 Meters", soldierID: 5, score: 78, isCompleted: true, status: "FAILED" };
-let r53 = { objectId: 115, testName: "50 Meters", soldierID: 5, score: 82, isCompleted: true, status: "FAILED" };
-
-let r61 = { objectId: 116, testName: "10 Meters", soldierID: 6, score: 88, isCompleted: true, status: "PASSED" };
-let r62 = { objectId: 117, testName: "25 Meters", soldierID: 6, score: 67, isCompleted: true, status: "FAILED" };
-let r63 = { objectId: 118, testName: "50 Meters", soldierID: 6, score: 73, isCompleted: true, status: "FAILED" };
-
-let r71 = { objectId: 119, testName: "10 Meters", soldierID: 7, score: 99, isCompleted: true, status: "EXCELLENT" };
-let r72 = { objectId: 120, testName: "25 Meters", soldierID: 7, score: 81, isCompleted: true, status: "PASSED" };
-let r73 = { objectId: 121, testName: "50 Meters", soldierID: 7, score: 59, isCompleted: true, status: "FAILED" };
-
-let r81 = { objectId: 122, testName: "10 Meters", soldierID: 8, score: 30, isCompleted: true, status: "FAILED" };
-let r82 = { objectId: 123, testName: "25 Meters", soldierID: 8, score: 87, isCompleted: true, status: "PASSED" };
-let r83 = { objectId: 124, testName: "50 Meters", soldierID: 8, score: 68, isCompleted: true, status: "FAILED" };
-
-let r91 = { objectId: 125, testName: "10 Meters", soldierID: 9, score: 100, isCompleted: true, status: "EXCELLENT" };
-let r92 = { objectId: 126, testName: "25 Meters", soldierID: 9, score: 100, isCompleted: true, status: "EXCELLENT" };
-let r93 = { objectId: 127, testName: "50 Meters", soldierID: 9, score: 100, isCompleted: true, status: "EXCELLENT" };
-
-let r101 = { objectId: 128, testName: "10 Meters", soldierID: 10, score: 94, isCompleted: true, status: "EXCELLENT" };
-let r102 = { objectId: 129, testName: "25 Meters", soldierID: 10, score: 80, isCompleted: true, status: "PASSED" };
-let r103 = { objectId: 130, testName: "50 Meters", soldierID: 10, score: 70, isCompleted: true, status: "FAILED" };
-
-let r111 = { objectId: 131, testName: "10 Meters", soldierID: 11, score: 100, isCompleted: true, status: "EXCELLENT" };
-let r112 = { objectId: 132, testName: "25 Meters", soldierID: 11, score: 55, isCompleted: true, status: "FAILED" };
-let r113 = { objectId: 133, testName: "50 Meters", soldierID: 11, score: 60, isCompleted: true, status: "FAILED" };
-
-let r121 = { objectId: 134, testName: "10 Meters", soldierID: 12, score: 100, isCompleted: true, status: "EXCELLENT" };
-let r122 = { objectId: 135, testName: "25 Meters", soldierID: 12, score: 100, isCompleted: true, status: "EXCELLENT" };
-let r123 = { objectId: 136, testName: "50 Meters", soldierID: 12, score: 100, isCompleted: true, status: "EXCELLENT" };
+let r11 = { objectId: 101, testName: "10 Meters", soldierID: 1111111, score: 100, isCompleted: true, status: "EXCELLENT" };
+let r12 = { objectId: 102, testName: "25 Meters", soldierID: 1111111, score: 80, isCompleted: true, status: "PASSED" };
+let r13 = { objectId: 103, testName: "50 Meters", soldierID: 1111111, score: 70, isCompleted: true, status: "FAILED" };
+let r21 = { objectId: 104, testName: "10 Meters", soldierID: 2222222, score: 90, isCompleted: true, status: "EXCELLENT" };
+let r22 = { objectId: 105, testName: "25 Meters", soldierID: 2222222, score: 70, isCompleted: true, status: "FAILED" };
+let r23 = { objectId: 106, testName: "50 Meters", soldierID: 2222222, score: 60, isCompleted: true, status: "FAILED" };
+let r31 = { objectId: 107, testName: "10 Meters", soldierID: 3333333, score: 80, isCompleted: true, status: "PASSED" };
+let r32 = { objectId: 108, testName: "25 Meters", soldierID: 3333333, score: 60, isCompleted: true, status: "FAILED" };
+let r33 = { objectId: 109, testName: "50 Meters", soldierID: 3333333, score: 50, isCompleted: true, status: "FAILED" };
+let r41 = { objectId: 110, testName: "10 Meters", soldierID: 4444444, score: 97, isCompleted: true, status: "EXCELLENT" };
+let r42 = { objectId: 111, testName: "25 Meters", soldierID: 4444444, score: 94, isCompleted: true, status: "EXCELLENT" };
+let r43 = { objectId: 112, testName: "50 Meters", soldierID: 4444444, score: 32, isCompleted: true, status: "FAILED" };
+let r51 = { objectId: 113, testName: "10 Meters", soldierID: 5555555, score: 91, isCompleted: true, status: "EXCELLENT" };
+let r52 = { objectId: 114, testName: "25 Meters", soldierID: 5555555, score: 78, isCompleted: true, status: "FAILED" };
+let r53 = { objectId: 115, testName: "50 Meters", soldierID: 5555555, score: 82, isCompleted: true, status: "FAILED" };
+let r61 = { objectId: 116, testName: "10 Meters", soldierID: 6666666, score: 88, isCompleted: true, status: "PASSED" };
+let r62 = { objectId: 117, testName: "25 Meters", soldierID: 6666666, score: 67, isCompleted: true, status: "FAILED" };
+let r63 = { objectId: 118, testName: "50 Meters", soldierID: 6666666, score: 73, isCompleted: true, status: "FAILED" };
+let r71 = { objectId: 119, testName: "10 Meters", soldierID: 7777777, score: 99, isCompleted: true, status: "EXCELLENT" };
+let r72 = { objectId: 120, testName: "25 Meters", soldierID: 7777777, score: 81, isCompleted: true, status: "PASSED" };
+let r73 = { objectId: 121, testName: "50 Meters", soldierID: 7777777, score: 59, isCompleted: true, status: "FAILED" };
+let r81 = { objectId: 122, testName: "10 Meters", soldierID: 8888888, score: 30, isCompleted: true, status: "FAILED" };
+let r82 = { objectId: 123, testName: "25 Meters", soldierID: 8888888, score: 87, isCompleted: true, status: "PASSED" };
+let r83 = { objectId: 124, testName: "50 Meters", soldierID: 8888888, score: 68, isCompleted: true, status: "FAILED" };
+let r91 = { objectId: 125, testName: "10 Meters", soldierID: 9999999, score: 100, isCompleted: true, status: "EXCELLENT" };
+let r92 = { objectId: 126, testName: "25 Meters", soldierID: 9999999, score: 100, isCompleted: true, status: "EXCELLENT" };
+let r93 = { objectId: 127, testName: "50 Meters", soldierID: 9999999, score: 100, isCompleted: true, status: "EXCELLENT" };
+let r101 ={ objectId: 128, testName: "10 Meters", soldierID: 1010101, score: 94, isCompleted: true, status: "EXCELLENT" };
+let r102 ={ objectId: 129, testName: "25 Meters", soldierID: 1010101, score: 80, isCompleted: true, status: "PASSED" };
+let r103 ={ objectId: 130, testName: "50 Meters", soldierID: 1010101, score: 70, isCompleted: true, status: "FAILED" };
+let r111 ={ objectId: 131, testName: "10 Meters", soldierID: 1101101, score: 100, isCompleted: true, status: "EXCELLENT" };
+let r112 ={ objectId: 132, testName: "25 Meters", soldierID: 1101101, score: 55, isCompleted: true, status: "FAILED" };
+let r113 ={ objectId: 133, testName: "50 Meters", soldierID: 1101101, score: 60, isCompleted: true, status: "FAILED" };
+let r121 ={ objectId: 134, testName: "10 Meters", soldierID: 1212121, score: 100, isCompleted: true, status: "EXCELLENT" };
+let r122 ={ objectId: 135, testName: "25 Meters", soldierID: 1212121, score: 100, isCompleted: true, status: "EXCELLENT" };
+let r123 ={ objectId: 136, testName: "50 Meters", soldierID: 1212121, score: 100, isCompleted: true, status: "EXCELLENT" };
 
 // ------------------------------------------------------------------------------------------------
 
+
 let t1 = {
-    name: "10 Meter Range",
+    name: "ירי ראשוני (10 מטר)",
     link: "10MeterRange",
     type: "HIGH",
     excellent: 90,
     pass: 60,
-    results : [101, 104, 107, 110, 113, 116, 119, 122, 125, 128, 131, 134]
+    results: [101, 104, 107, 110, 113, 116, 119, 122, 125, 128, 131, 134]
 }
-
 let t2 = {
-    name: "25 Meter Range",
+    name: "איפוסים",
     link: "25MeterRange",
     type: "HIGH",
     excellent: 90,
     pass: 60,
     results: [102, 105, 108, 111, 114, 117, 120, 123, 126, 129, 132, 135]
 }
-
 let t3 = {
-    name: "50 Meter Range",
-    link: "50MeterRange",
+    name: "ווידוא איפוס",
+    link: "50MeterRange", 
+    type: "HIGH",
+    excellent: 90,
+    pass: 60,
+    results: [103, 106, 109, 112, 115, 118, 121, 124, 127, 130, 133, 136]
+}
+let t4 = {
+    name: "ירי ביישור קו",
+    link: "ShootingWalking",
     type: "HIGH",
     excellent: 90,
     pass: 60,
     results: [103, 106, 109, 112, 115, 118, 121, 124, 127, 130, 133, 136]
 }
 
+let t5 = {
+    name: "יל״מ ריצה 200 מטר",
+    link: "RunShoot",
+    type: "HIGH",
+    excellent: 90,
+    pass: 60,
+    results: [102, 105, 108, 111, 114, 117, 120, 123, 126, 129, 132, 135]
+}
+let t6 = {
+    name: "בוחן מאה",
+    link: "100MeterRange",
+    type: "HIGH",
+    excellent: 90,
+    pass: 60,
+    results: [103, 106, 109, 112, 115, 118, 121, 124, 127, 130, 133, 136]
+}
+let t7 = {
+    name: "בוחן רמה",
+    link: "PositionsRange",
+    type: "HIGH",
+    excellent: 90,
+    pass: 60,
+    results : [101, 104, 107, 110, 113, 116, 119, 122, 125, 128, 131, 134]
+}
+
+let t8 = {
+    name: "בוחן מסלול",
+    link: "ObstacleCourse",
+    type: "HIGH",
+    excellent: 90,
+    pass: 60,
+    results: [102, 105, 108, 111, 114, 117, 120, 123, 126, 129, 132, 135]
+}
+let t9 = {
+    name: "ריצת בר אור",
+    link: "3KMRun",
+    type: "HIGH",
+    excellent: 90,
+    pass: 60,
+    results : [101, 104, 107, 110, 113, 116, 119, 122, 125, 128, 131, 134]
+}
+let t10 = {
+    name: "ספרינט בר אור",
+    link: "Sprints",
+    type: "HIGH",
+    excellent: 90,
+    pass: 60,
+    results: [103, 106, 109, 112, 115, 118, 121, 124, 127, 130, 133, 136]
+}
+let t11 = {
+    name: "מתח מבחן כש״ג",
+    link: "PullUp",
+    type: "HIGH",
+    excellent: 90,
+    pass: 60,
+    results : [101, 104, 107, 110, 113, 116, 119, 122, 125, 128, 131, 134]
+}
+let t12 = {
+    name: "מקבילים מבחן כש״ג",
+    link: "Dips",
+    type: "HIGH",
+    excellent: 90,
+    pass: 60,
+    results: [103, 106, 109, 112, 115, 118, 121, 124, 127, 130, 133, 136]
+}
+
+let t13 = {
+    name: "תרגול יבש פרט",
+    link: "DryPracticeSingle",
+    type: "HIGH",
+    excellent: 90,
+    pass: 60,
+    results: [102, 105, 108, 111, 114, 117, 120, 123, 126, 129, 132, 135]
+}
+let t14 = {
+    name: "תרגיל רטוב פרט",
+    link: "WetPracticeSingle",
+    type: "HIGH",
+    excellent: 90,
+    pass: 60,
+    results: [103, 106, 109, 112, 115, 118, 121, 124, 127, 130, 133, 136]
+}
+let t15 = {
+    name: "תרגול יבש חולייה",
+    link: "DryPracticeSquad",
+    type: "HIGH",
+    excellent: 90,
+    pass: 60,
+    results : [101, 104, 107, 110, 113, 116, 119, 122, 125, 128, 131, 134]
+}
+let t16 = {
+    name: "תרגיל רטוב חולייה",
+    link: "WetPracticeSquad",
+    type: "HIGH",
+    excellent: 90,
+    pass: 60,
+    results: [102, 105, 108, 111, 114, 117, 120, 123, 126, 129, 132, 135]
+}
+
 // ------------------------------------------------------------------------------------------------
 
-let sect1 = { objectId : 1000, name: "Section 1", soldierIds: [1, 2], commander: "MC 1" }
-let sect2 = { objectId : 1001, name: "Section 2", soldierIds: [3, 4], commander: "MC 2" }
-let sect3 = { objectId : 1002, name: "Section 3", soldierIds: [5, 6], commander: "MC 3" }
-let sect4 = { objectId : 1003, name: "Section 4", soldierIds: [7, 8], commander: "MC 4" }
-let sect5 = { objectId : 1004, name: "Section 5", soldierIds: [9, 10], commander: "MC 5" }
-let sect6 = { objectId : 1005, name: "Section 6", soldierIds: [11, 12], commander: "MC 6" }
+let sect1 = { objectId : 1000, name: "כיתה א", soldierIds: [1111111, 2222222], commander: "MC 1" }
+let sect2 = { objectId : 1001, name: "כיתה ב", soldierIds: [3333333, 4444444], commander: "MC 2" }
+let sect3 = { objectId : 1002, name: "כיתה א", soldierIds: [5555555, 6666666], commander: "MC 3" }
+let sect4 = { objectId : 1003, name: "כיתה ב", soldierIds: [7777777, 8888888], commander: "MC 4" }
+let sect5 = { objectId : 1004, name: "כיתה א", soldierIds: [9999999, 1010101], commander: "MC 5" }
+let sect6 = { objectId : 1005, name: "כיתה ב", soldierIds: [1101101, 1212121], commander: "MC 6" }
 
-let plat1 = { objectId : 1006, name: "Platoon 1", sectionIds: [1000, 1001], commander: "MM 1" }
-let plat2 = { objectId : 1007, name: "Platoon 2", sectionIds: [1002, 1003], commander: "MM 2" }
-let plat3 = { objectId : 1008, name: "Platoon 3", sectionIds: [1004, 1005], commander: "MM 3" }
+let plat1 = { objectId : 1006, name: "מחלקה 1", sectionIds: [1000, 1001], commander: "MM 1" }
+let plat2 = { objectId : 1007, name: "מחלקה 2", sectionIds: [1002, 1003], commander: "MM 2" }
+let plat3 = { objectId : 1008, name: "מחלקה 3", sectionIds: [1004, 1005], commander: "MM 3" }
 
-let comp1 = { objectId : 1009, name: "Company 1", platoonIds: [1006, 1007, 1008], commander: "MC 1" }
+let comp1 = { objectId : 1009, name: "פלוגה י׳ ", platoonIds: [1006, 1007, 1008], commander: "MC 1" }
 
 // ------------------------------------------------------------------------------------------------
 let soldiers = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12]
-let tests = [t1, t2, t3]
+let tests = [t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16]
 let objects = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12,
     r11, r12, r13, r21, r22, r23, r31, r32, r33, r41, r42, r43, r51, r52, r53, r61, r62, r63,
     r71, r72, r73, r81, r82, r83, r91, r92, r93, r101, r102, r103, r111, r112, r113, r121, r122, r123,
@@ -268,10 +363,10 @@ async function fetchSoldier(armyID) {
 }
 
 async function fetchTestFailedBySoldier(armyID) {
-    let testDisplays = fetchAllTestDisplays();
+    let ts = fetchAllTestDisplays();
     let tests = [];
-    for (const testDisplay in testDisplays) {
-        tests.push(fetchTest(testDisplay.link));
+    for (const t in ts) {
+        tests.push(fetchTest(t.link));
     }
     
     for (const test of tests) {
@@ -285,10 +380,10 @@ async function fetchTestFailedBySoldier(armyID) {
 }
 
 async function fetchTestsFailedByUsers(armyIDs) {
-    // let testDisplays = fetchAllTestDisplays();
+    // let ts = fetchAllTestDisplays();
     // let tests = [];
-    // for (const testDisplay in testDisplays) {
-    //     tests.push(await fetchTest(testDisplay.link));
+    // for (const t in ts) {
+    //     tests.push(await fetchTest(t.link));
     // }
 
     let soldierTestsFails = {};
@@ -378,7 +473,9 @@ async function fetchSoldierResults(soldierId) {
     let res = []
     for (const test of tests) {
         let result = await fetchResultByTestAndSoldier(test.link, soldierId)
-        res.push(result)
+        var newResult = JSON.parse(JSON.stringify(result))
+        newResult.testName = test.name
+        res.push(newResult)
     }
     return res
 }

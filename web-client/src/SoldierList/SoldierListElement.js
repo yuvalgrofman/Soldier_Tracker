@@ -2,9 +2,8 @@
 
 import StateBox from "../general/StateBox";
 import { useNavigate } from 'react-router-dom';
-// import '../TestStatus.css'
 
-function SoldierListElement({ soldier, testFailed }) {
+function SoldierListElement({ soldier, testsFailed }) {
     let soldierState = "UNDEFINED";
     let navigate = useNavigate();
 
@@ -17,9 +16,25 @@ function SoldierListElement({ soldier, testFailed }) {
 
     soldierState = getState();
 
+    let testsFailedComponent;
+    if (testsFailed && testsFailed.length > 0) {
+        // Create a single container for failed tests
+        testsFailedComponent = (
+            <div className="failed-tests-container">
+                {testsFailed.map((test, index) => (
+                    <div className="failed-test-item">
+                        <StateBox state="FAILED" text={test} />
+                    </div>
+                ))}
+            </div>
+        );
+    } else {
+        testsFailedComponent = <StateBox state={soldierState} />;
+    }
+
     return (
         <li
-            onClick={() => {navigate("/Soldier/" + soldier.armyID)}}
+            onClick={() => { navigate("/Soldier/" + soldier.armyID) }}
             className="list-group-item d-flex align-items-center mx-0 darken-on-hover"
         >
             <span>
@@ -32,7 +47,7 @@ function SoldierListElement({ soldier, testFailed }) {
                 {soldier.armyID}
             </span>
             <span className="ms-2 d-inline-block">
-                { testFailed ? <StateBox state = { soldierState } text={testFailed} /> : <StateBox state = { soldierState }  /> }
+                {testsFailedComponent}
             </span>
         </li>
     );

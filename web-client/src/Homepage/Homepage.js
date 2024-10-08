@@ -57,28 +57,28 @@ function Homepage() {
                 <div className="icon-item text-center m-2">
                     <div className="icon-link-wrapper" onClick={() => handleButtonClick('/Soldiers/Company/1009')}>
                         <img src={soldiersIcon} alt="Soldiers" className="img-fluid" />
-                        <p className="icon-title">Soldiers</p>
+                        <p className="icon-title">חיילים</p>
                     </div>
                 </div>
 
                 <div className="icon-item text-center m-2">
-                    <div className="icon-link-wrapper" onClick={() => handleButtonClick('not-implemented')}>
+                    <div className="icon-link-wrapper" onClick={() => handleButtonClick('/Content')}>
                         <img src={testsIcon} alt="Tests" className="img-fluid" />
-                        <p className="icon-title">Tests</p>
+                        <p className="icon-title">מבחנים</p>
                     </div>
                 </div>
 
                 <div className="icon-item text-center m-2">
                     <div className="icon-link-wrapper" onClick={() => handleButtonClick('/Exceptions/Company/1009')}>
                         <img src={exceptionIcon} alt="Exceptions" className="img-fluid" />
-                        <p className="icon-title">Exceptions</p>
+                        <p className="icon-title">חריגים</p>
                     </div>
                 </div>
 
                 <div className="icon-item text-center m-2">
                     <div className="icon-link-wrapper" onClick={() => handleButtonClick('/Settings')}>
                         <img src={settingsIcon} alt="Settings" className="img-fluid" />
-                        <p className="icon-title">Settings</p>
+                        <p className="icon-title">הגדרות</p>
                     </div>
                 </div>
             </div>

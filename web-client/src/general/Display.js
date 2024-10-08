@@ -1,42 +1,47 @@
 // TESTS ------------------------------------------------------------------------------------------------
 
-let testDisplay1 = { name: "10 Meter Range", link: "10MeterRange" }
-let testDisplay2 = { name: "25 Meter Range", link: "25MeterRange" }
-let testDisplay3 = { name: "50 Meter Range", link: "50MeterRange" }
+let testDisplay1 = { name: "ירי ראשוני (10 מטר)", link: "10MeterRange" }
+let testDisplay2 = { name: "איפוסים", link: "25MeterRange" }
+let testDisplay3 = { name: "ווידוא איפוס", link: "50MeterRange" }
+let testDisplay4 = { name: "ירי ביישור קו", link: "ShootingWalking" }
 
-let testDisplay4 = { name: "Shooting Positions", link: "ShootingPositions" }
-let testDisplay5 = { name: "Shooting & Walking", link: "ShootingWalking" }
-let testDisplay6 = { name: "Shooting At Night", link: "ShootingAtNight" }
+let testDisplay5 = { name: "יל״מ ריצה 200 מטר", link: "RunShoot" }
+let testDisplay6 = { name: "בוחן מאה", link: "100MeterRange" }
+let testDisplay7 = { name: "בוחן רמה", link: "PositionsRange" }
 
-let testDisplay7 = { name: "Running", link: "Running" }
-let testDisplay8 = { name: "Sprints", link: "Sprints" }
-let testDisplay9 = { name: "Obstacle Course", link: "ObstacleCourse" }
+let testDisplay8 = { name: "בוחן מסלול", link: "ObstacleCourse" }
+let testDisplay9 = { name: "ריצת בר אור", link: "3KMRun" }
+let testDisplay10 = { name: "ספרינט בר אור", link: "Sprints" }
+let testDisplay11 = { name: "מתח מבחן כש״ג", link: "PullUp" }
+let testDisplay12 = { name: "מקבילים מבחן כש״ג", link: "Dips" }
 
-let testDisplay10 = { name: "Clearing Buildings", link: "ClearingBuildings" }
-let testDisplay11 = { name: "Room Clearing", link: "RoomClearing" }
-let testDisplay12 = { name: "Urban Combat", link: "UrbanCombat" }
-
-let testDisplay13 = { name: "Trench Warfare", link: "TrenchWarfare" }
-let testDisplay14 = { name: "Open Field Combat", link: "OpenFieldCombat" }
-let testDisplay15 = { name: "Warfare In Forests", link: "WarfareInForests" }
+let testDisplay13 = { name: "תרגול יבש פרט", link: "DryPracticeSingle" }
+let testDisplay14 = { name: "תרגיל רטוב פרט", link: "WetPracticeSingle" }
+let testDisplay15 = { name: "תרגול יבש חולייה", link: "DryPracticeSquad" }
+let testDisplay16 = { name: "תרגיל רטוב חולייה", link: "WetPracticeSquad" }
 
 // CONTENTS ------------------------------------------------------------------------------------------------
 
-let contentDisplay1 = { name: "Shooting 1", link: "ShootingOne", tests: [testDisplay1, testDisplay2, testDisplay3] }
-let contentDisplay2 = { name: "Shooting 2", link: "ShootingTwo", tests: [testDisplay4, testDisplay5, testDisplay6] }
-let contentDisplay3 = { name: "Physical Exams", link: "Physical", tests: [testDisplay7, testDisplay8, testDisplay9] }
-let contentDisplay4 = { name: "Urban Warfare", link: "Urban", tests: [testDisplay10, testDisplay11, testDisplay12] }
-let contentDisplay5 = { name: "Open Warfare", link: "Open", tests: [testDisplay13, testDisplay14, testDisplay15] }
+let contentDisplay1 = { name: "שבוע קליעה 1", link: "ShootingOne", tests: [testDisplay1, testDisplay2, testDisplay3, testDisplay4] }
+let contentDisplay2 = { name: "שבוע קליעה 2", link: "ShootingTwo", tests: [testDisplay5, testDisplay6, testDisplay7] }
+let contentDisplay3 = { name: "שבוע קליעה 3", link: "ShootingTwo", tests: [testDisplay5, testDisplay6, testDisplay7] }
+let contentDisplay4 = { name: "שבוע קליעה 4", link: "ShootingTwo", tests: [testDisplay5, testDisplay6, testDisplay7] }
+let contentDisplay5 = { name: "שבוע קליעה 5", link: "ShootingTwo", tests: [testDisplay5, testDisplay6, testDisplay7] }
 
-const contents = [contentDisplay1, contentDisplay2, contentDisplay3, contentDisplay4, contentDisplay5]
+
+let contentDisplay6 = { name: "בחנים פיזיים", link: "Physical", tests: [testDisplay8, testDisplay9, testDisplay10, testDisplay11, testDisplay12] }
+let contentDisplay7 = { name: "ש״פ פרט חולייה", link: "OpenCombat", tests: [testDisplay13, testDisplay14, testDisplay15, testDisplay16] }
+
+const contents = [contentDisplay1, contentDisplay2, contentDisplay3, contentDisplay4,
+                  contentDisplay5, contentDisplay6, contentDisplay7]
 
 // SETTING OPTIONS ----------------------------------------------------------------------------------------
 
-let addSoldierDisplay = { name: "Add Soldier", link: "AddSoldier" }
-let addUserDisplay = { name: "Add User", link: "AddUser" }
-let addCompanyDisplay = {name : "Add Company", link: "AddCompany"} 
+let addSoldierDisplay = { name: "הוספת חייל", link: "AddSoldier" }
+let addUserDisplay = { name: "הוספת משתמש", link: "AddUser" }
+let addCompanyDisplay = {name : "הוספת פלוגה", link: "AddCompany"} 
 
-let settingDisplay = { name: "Settings", link: "Settings", tests: [ addSoldierDisplay, addUserDisplay, addCompanyDisplay ] }
+let settingDisplay = { name: "הגדרות", link: "Settings", tests: [ addSoldierDisplay, addUserDisplay, addCompanyDisplay ] }
 
 // DISPLAY FUNCTIONS --------------------------------------------------------------------------------------
 

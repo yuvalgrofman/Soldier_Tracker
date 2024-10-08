@@ -22,6 +22,7 @@ import Login from "./Login/Login";
 import SoldierProfile from "./SoldierProfile/SoldierProfile";
 import AddCompany from "./AddCompany/AddCompany";
 import ActivityList from "./ActivityList/ActivityList";
+import Contents from "./Contents/Contents";
 
 function App() {
 
@@ -42,6 +43,7 @@ function App() {
                     <Route path="/Settings/AddSoldier" element={ <AddSoldier /> } />
                     <Route path="/Settings/AddCompany" element={ <AddCompany /> } />
 
+                    <Route path="/Content" element={<Contents />} />
                     <Route path="/Content/:contentLink" element={<Content/> } />
                     <Route path="/Test/:testLink" element={<TestStatus/> } />
                     <Route path="/Test/:testLink/:soldierID" element={<SoldierTestProfile/> } />

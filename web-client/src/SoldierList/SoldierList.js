@@ -60,11 +60,11 @@ function SoldierList({ exception }) {
         fetchForceSoldiersMap[forceType](id).then((fetchedSoldiers) => {
             let title = "";
             if (forceType === "Section") {
-                title = "Company " + fetchedSoldiers[0].company + " -  Platoon " + fetchedSoldiers[0].platoon + " - Section " + fetchedSoldiers[0].section;
+                title = " פלוגה " + fetchedSoldiers[0].company + " -  מחלקה " + fetchedSoldiers[0].platoon + " - כיתה " + fetchedSoldiers[0].section;
             } else if (forceType === "Platoon") {
-                title = "Company " + fetchedSoldiers[0].company + " -  Platoon " + fetchedSoldiers[0].platoon;
+                title = " פלוגה " + fetchedSoldiers[0].company + " -  מחלקה " + fetchedSoldiers[0].platoon;
             } else {
-                title = "Company " + fetchedSoldiers[0].company;
+                title = " פלוגה " + fetchedSoldiers[0].company;
             }
 
             let armyIDs = fetchedSoldiers.map((soldier) => (soldier.armyID));
@@ -85,8 +85,7 @@ function SoldierList({ exception }) {
             return null;
 
         if (exception && isException(soldier)) {
-            let testFailed = testFails[soldier.armyID][0];
-            return <SoldierListElement soldier={soldier} testFailed={testFailed} />;
+            return <SoldierListElement soldier={soldier} testsFailed={testFails[soldier.armyID]} />;
         } else if (exception)
             return null;
 

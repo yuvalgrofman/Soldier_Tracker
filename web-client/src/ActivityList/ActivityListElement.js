@@ -39,7 +39,7 @@ function ActivityListElement({ soldier, onClick }) {
           onClick={toggleCompletion}
           className={`btn ${isCompleted ? "btn-success" : "btn-danger"}`}
         >
-          {isCompleted ? "Completed" : "Incompleted"}
+          {isCompleted ? "הושלם" : "לא הושלם"}
         </button>
       </span>
     </li>

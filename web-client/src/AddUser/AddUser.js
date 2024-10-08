@@ -10,12 +10,12 @@ import "../general/Form.css";
 import { postUser } from "../general/API.js";
 
 /**
- * Regitser function returns the form page.
- * which contains a form to form a new user, additionally
- * the form page contains a link to the login page.
- * The form validates the user input and if the input is valid
- * its saves the user in the usersDB.
- * @returns {HTMLDivElement} The form page.
+ * הפונקציה AddUser מחזירה את דף הטופס.
+ * הדף מכיל טופס להוספת משתמש חדש, בנוסף
+ * הדף מכיל קישור לדף ההתחברות.
+ * הטופס מאמת את קלט המשתמש, ואם הוא תקין,
+ * שומר את המשתמש ב־usersDB.
+ * @returns {HTMLDivElement} דף הטופס.
  */
 function AddUser() {
     const navigate = useNavigate();
@@ -29,8 +29,8 @@ function AddUser() {
     const [error, setError] = React.useState("");
 
     /**
-     * The function handles the change of the input fields.
-     * Its updates the user state according to the input field.
+     * הפונקציה מטפלת בשינוי של שדות הקלט.
+     * מעדכנת את מצב המשתמש בהתאם לשדה הקלט.
      * @param {*} name
      * @param {*} value
      */
@@ -42,8 +42,8 @@ function AddUser() {
     };
 
     /**
-     * The function validates the user input and if the input is valid
-     * its saves the user in the usersDB and navigates to the login page.
+     * הפונקציה מאמתת את קלט המשתמש ואם הוא תקין
+     * שומרת את המשתמש ב־usersDB ומנתבת לדף ההתחברות.
      * @param {*} event
      */
     const validateAndSubmit = (event, setError) => {
@@ -51,19 +51,19 @@ function AddUser() {
         let error = "";
 
         if (!user.username) {
-            error = "Username is required";
+            error = "שם משתמש נדרש";
         } else if (!user.password) {
-            error = "Password is required";
+            error = "סיסמה נדרשת";
         } else if (!/\d/.test(user.password)) {
-            error = "Password must contain at least one number";
+            error = "הסיסמה חייבת לכלול לפחות מספר אחד";
         } else if (!/[a-zA-Z]/.test(user.password)) {
-            error = "Password must contain at least one letter";
+            error = "הסיסמה חייבת לכלול לפחות אות אחת";
         } else if (user.password.length < 8) {
-            error = "Password must be at least 8 characters";
+            error = "הסיסמה חייבת להיות באורך של לפחות 8 תווים";
         } else if (!user.confirmPassword) {
-            error = "Confirm password is required";
+            error = "אישור סיסמה נדרש";
         } else if (user.password !== user.confirmPassword) {
-            error = "Confirm password is not match";
+            error = "אישור הסיסמה אינו תואם";
         } else {
             handleSubmit(setError);
         }
@@ -72,11 +72,11 @@ function AddUser() {
     };
 
     const handleSubmit = async (setError) => {
-        const userDB = { username: user.username, password: user.password }
+        const userDB = { username: user.username, password: user.password };
         const response = await postUser(userDB);
 
         if (response["status"] === 409) {
-            setError("User already exists");
+            setError("המשתמש כבר קיים");
         } else {
             setError("");
             navigate("/");
@@ -90,43 +90,40 @@ function AddUser() {
                     <div className="col col-12">
                         <div className="border-0 card">
                             <div className="d-flex flex-column card-body">
-                                {/*Title*/}
-                                <div className="d-flex justify-content-center h3 mb-3">Add User</div>
+                                {/*כותרת*/}
+                                <div className="d-flex justify-content-center h3 mb-3">הוספת משתמש</div>
 
-                                {/*Signup form*/}
+                                {/*טופס הרשמה*/}
                                 <form>
-                                    {/*Username input*/}
+                                    {/*שם משתמש*/}
                                     <InputField
-                                        labelOfInputField="username"
+                                        labelOfInputField="שם משתמש"
                                         idOfInputField="form-username"
-                                        // updateFunction={updateUserUsername}
                                         updateFunction={(value) => {
                                             handleChange("username", value);
                                         }}
                                         inputType="text"
                                     />
 
-                                    {/*Password input*/}
+                                    {/*סיסמה*/}
                                     <PasswordInputField
-                                        labelOfInputField="password"
+                                        labelOfInputField="סיסמה"
                                         idOfInputField="form-passwd"
-                                        // updateFunction={updatueUserPassword}
                                         updateFunction={(value) => {
                                             handleChange("password", value);
                                         }}
                                     />
 
-                                    {/*Confirm password input*/}
+                                    {/*אישור סיסמה*/}
                                     <PasswordInputField
-                                        labelOfInputField="confirm password"
+                                        labelOfInputField="אישור סיסמה"
                                         idOfInputField="form-confirm-passwd"
-                                        // updateFunction={updatueUserConfirmPassword}
                                         updateFunction={(value) => {
                                             handleChange("confirmPassword", value);
                                         }}
                                     />
 
-                                    {/*Submit and redirection to sign in*/}
+                                    {/*שליחה והפניה לדף ההתחברות*/}
                                     <div className="d-flex flex-column">
                                         <p className="error-message bold mx-auto mb-3">{error}</p>
 
@@ -137,13 +134,13 @@ function AddUser() {
                                             }}
                                             className="btn bg-dark-red darken-on-hover w-100 text-white fw-600 py-2 mb-4"
                                         >
-                                            Register
+                                            הרשמה
                                         </button>
 
                                         {/* <div className="mx-auto">
                                             <Link
-                                                initialText="Already have an account?&nbsp;"
-                                                linkText="Sign in"
+                                                initialText="כבר יש לך חשבון?&nbsp;"
+                                                linkText="התחבר"
                                                 link="/"
                                             />
                                         </div> */}
