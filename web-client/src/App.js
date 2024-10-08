@@ -14,7 +14,7 @@ import AddUser from "./AddUser/AddUser";
 import SoldierTestProfile from "./SoldierTestProfile/SoldierTestProfile";
 import AddSoldier from "./AddSoldier/AddSoldier";
 import Homepage from "./Homepage/Homepage";
-import Content from "./Content/Content";
+import Tests from "./Tests/Tests";
 import Schedule from "./Schedule/Schedule";
 import SoldierList from "./SoldierList/SoldierList";
 import Setting from "./Setting/Setting";
@@ -45,7 +45,7 @@ function App() {
                     <Route path="/Settings/AddCompany" element={ <AddCompany /> } />
 
                     <Route path="/Content" element={<Contents />} />
-                    <Route path="/Content/:contentLink" element={<Content companyID={companyID} /> } />
+                    <Route path="/Content/:contentLink" element={<Tests companyID={companyID} /> } />
                     <Route path="/Test/:testLink/:forceType/:id" element={<TestStatus/> } />
                     <Route path="/Test/:testLink/:soldierID" element={<SoldierTestProfile/> } />
 
