@@ -4,11 +4,11 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchContentDisplay } from '../general/Display';
 
-function Content() {
+function Content({companyID}) {
     const { contentLink } = useParams();
     const contentDisplay = fetchContentDisplay(contentLink);
     const buttonNames = contentDisplay.tests.map((test) => test.name);
-    const buttonPages = contentDisplay.tests.map((test) => test.link);
+    const buttonPages = contentDisplay.tests.map((test) => test.link + '/Company/' + companyID);
 
     return (
         <main className="container-sm w-80 shadow mt-4 p-0 rounded-2">

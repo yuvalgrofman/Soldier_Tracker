@@ -34,7 +34,7 @@ function Homepage() {
 }
 */
 
-function Homepage() {
+function Homepage({companyID}) {
     const navigate = useNavigate();
 
     const handleButtonClick = (route) => {
@@ -55,7 +55,7 @@ function Homepage() {
             {/* Icons */}
             <div className="icons d-flex flex-wrap justify-content-center w-100">
                 <div className="icon-item text-center m-2">
-                    <div className="icon-link-wrapper" onClick={() => handleButtonClick('/Soldiers/Company/1009')}>
+                    <div className="icon-link-wrapper" onClick={() => handleButtonClick('/Soldiers/Company/' + companyID)}>
                         <img src={soldiersIcon} alt="Soldiers" className="img-fluid" />
                         <p className="icon-title">חיילים</p>
                     </div>
@@ -69,7 +69,7 @@ function Homepage() {
                 </div>
 
                 <div className="icon-item text-center m-2">
-                    <div className="icon-link-wrapper" onClick={() => handleButtonClick('/Exceptions/Company/1009')}>
+                    <div className="icon-link-wrapper" onClick={() => handleButtonClick('/Exceptions/Company/' + companyID)}>
                         <img src={exceptionIcon} alt="Exceptions" className="img-fluid" />
                         <p className="icon-title">חריגים</p>
                     </div>

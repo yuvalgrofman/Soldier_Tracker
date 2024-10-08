@@ -25,6 +25,7 @@ import ActivityList from "./ActivityList/ActivityList";
 import Contents from "./Contents/Contents";
 
 function App() {
+    let companyID = "1009"
 
     return (
         <>
@@ -34,7 +35,7 @@ function App() {
                     <Route path="/AddCompany" element={<AddCompany />} />
 
                     <Route path="/" element={<Login /> } />
-                    <Route path="/Home" element={<Homepage /> } />
+                    <Route path="/Home" element={<Homepage companyID={companyID}/> } />
 
                     <Route path="/Schedule/:company/:weekNum" element={<Schedule/> } />
 
@@ -44,7 +45,7 @@ function App() {
                     <Route path="/Settings/AddCompany" element={ <AddCompany /> } />
 
                     <Route path="/Content" element={<Contents />} />
-                    <Route path="/Content/:contentLink" element={<Content/> } />
+                    <Route path="/Content/:contentLink" element={<Content companyID={companyID} /> } />
                     <Route path="/Test/:testLink/:forceType/:id" element={<TestStatus/> } />
                     <Route path="/Test/:testLink/:soldierID" element={<SoldierTestProfile/> } />
 
