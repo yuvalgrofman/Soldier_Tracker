@@ -45,7 +45,7 @@ function App() {
 
                     <Route path="/Content" element={<Contents />} />
                     <Route path="/Content/:contentLink" element={<Content/> } />
-                    <Route path="/Test/:testLink" element={<TestStatus/> } />
+                    <Route path="/Test/:testLink/:forceType/:id" element={<TestStatus/> } />
                     <Route path="/Test/:testLink/:soldierID" element={<SoldierTestProfile/> } />
 
                     <Route path="/Soldiers/:forceType/:id" element={<SoldierList /> } />

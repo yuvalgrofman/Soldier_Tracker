@@ -35,6 +35,12 @@ function SoldierList({ exception }) {
         "Platoon": "Section"
     }
 
+    const fetchForceSoldiersMap = {
+        "Section" : fetchSectionSoldiers,
+        "Platoon": fetchPlatoonSoldiers,
+        "Company": fetchCompanySoldiers
+    }
+
     useEffect(() => {
         if (forceType === "Section") {
             return;
@@ -49,12 +55,6 @@ function SoldierList({ exception }) {
             setButtonPages(pages);
         });
     }, [forceType, id]);
-
-    const fetchForceSoldiersMap = {
-        "Section" : fetchSectionSoldiers,
-        "Platoon": fetchPlatoonSoldiers,
-        "Company": fetchCompanySoldiers
-    }
 
     useEffect(() => {
         fetchForceSoldiersMap[forceType](id).then((fetchedSoldiers) => {
