@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchContentDisplay } from '../general/Display';
 
-function Content({companyID}) {
+function Tests({companyID}) {
     const { contentLink } = useParams();
     const contentDisplay = fetchContentDisplay(contentLink);
     const buttonNames = contentDisplay.tests.map((test) => test.name);
@@ -20,4 +20,4 @@ function Content({companyID}) {
     );
 }
 
-export default Content;
+export default Tests;
